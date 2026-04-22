@@ -22,32 +22,164 @@
                 <a href="#resources" class="nav-link active">资源大全</a>
                 <a href="#about" class="nav-link">关于</a>
             </nav>
-            <button class="dark-mode-toggle" id="darkModeToggle" title="切换暗色模式">🌙</button>
+            <button class="dark-mode-toggle" id="darkModeToggle" title="切换暗色模式" aria-label="切换暗色模式">
+                <!-- 日间图标（月亮→点击切换到夜间） -->
+                <svg class="dm-icon dm-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <!-- 夜间图标（太阳→点击切换到日间） -->
+                <svg class="dm-icon dm-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <!-- ========== Hero 区域 ========== -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">万能百宝箱</h1>
-            <p class="hero-subtitle">大学生 & 职场人一站式效率工具导航</p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-num" id="totalCount">0</span>
-                    <span class="stat-label">精选资源</span>
+    <!-- ========== Hero 轮播区域 ========== -->
+    <section class="hero-carousel">
+        <div class="carousel-track" id="carouselTrack">
+
+            <!-- Slide 1：总览 -->
+            <div class="carousel-slide slide-1">
+                <div class="slide-content">
+                    <div class="slide-badge">🎒 万能百宝箱</div>
+                    <h1 class="slide-title">大学生 & 职场人<br>一站式效率工具导航</h1>
+                    <p class="slide-desc">精心筛选 <strong id="totalCount">0</strong> 个优质工具，覆盖 <strong id="categoryCount">0</strong> 大功能板块，100% 人工精选</p>
+                    <div class="slide-tags">
+                        <span class="stag">📊 PPT制作</span>
+                        <span class="stag">🤖 AI工具</span>
+                        <span class="stag">📚 学术科研</span>
+                        <span class="stag">💼 求职简历</span>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-num" id="categoryCount">0</span>
-                    <span class="stat-label">功能板块</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-num">100%</span>
-                    <span class="stat-label">人工精选</span>
+                <div class="slide-visual">
+                    <div class="float-cards">
+                        <div class="fc fc1">🎨 设计工具</div>
+                        <div class="fc fc2">📝 写作助手</div>
+                        <div class="fc fc3">🔍 学术搜索</div>
+                        <div class="fc fc4">⚡ 效率神器</div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Slide 2：AI 工具专区 -->
+            <div class="carousel-slide slide-2">
+                <div class="slide-content">
+                    <div class="slide-badge">🤖 AI 工具专区</div>
+                    <h1 class="slide-title">用 AI 解放双手<br>效率提升 10 倍</h1>
+                    <p class="slide-desc">ChatGPT、Claude、Gemini、Perplexity……精选顶级 AI 工具，覆盖写作、绘画、编程、搜索各场景</p>
+                    <div class="slide-tags">
+                        <span class="stag">✍️ AI写作</span>
+                        <span class="stag">🖼️ AI绘画</span>
+                        <span class="stag">🎵 AI音乐</span>
+                        <span class="stag">🎬 AI视频</span>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="ai-orb">
+                        <div class="orb-ring orb-r1"></div>
+                        <div class="orb-ring orb-r2"></div>
+                        <div class="orb-ring orb-r3"></div>
+                        <span class="orb-icon">🤖</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3：学术科研 -->
+            <div class="carousel-slide slide-3">
+                <div class="slide-content">
+                    <div class="slide-badge">📚 学术科研专区</div>
+                    <h1 class="slide-title">科研查文献<br>从此不求人</h1>
+                    <p class="slide-desc">知网、万方、Zotero、Mendeley、arXiv、PubMed——一站集齐学术利器，论文检索、管理、写作全流程覆盖</p>
+                    <div class="slide-tags">
+                        <span class="stag">🔬 文献检索</span>
+                        <span class="stag">📖 文献管理</span>
+                        <span class="stag">✏️ 论文润色</span>
+                        <span class="stag">📊 数据分析</span>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="book-stack">
+                        <div class="book b1">📕</div>
+                        <div class="book b2">📗</div>
+                        <div class="book b3">📘</div>
+                        <div class="book b4">📙</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4：求职简历 -->
+            <div class="carousel-slide slide-4">
+                <div class="slide-content">
+                    <div class="slide-badge">💼 求职简历专区</div>
+                    <h1 class="slide-title">简历脱颖而出<br>求职稳操胜券</h1>
+                    <p class="slide-desc">超简历、Boss直聘、猎聘、牛客网……精选简历制作+岗位投递+面试准备全套工具，陪你拿下理想 offer</p>
+                    <div class="slide-tags">
+                        <span class="stag">📄 简历制作</span>
+                        <span class="stag">🏢 岗位搜索</span>
+                        <span class="stag">🧠 笔面试题</span>
+                        <span class="stag">🎯 公考考编</span>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="resume-demo">
+                        <div class="rd-line rd-l1"></div>
+                        <div class="rd-line rd-l2"></div>
+                        <div class="rd-line rd-l3"></div>
+                        <div class="rd-line rd-l4"></div>
+                        <div class="rd-stamp">✅</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5：编程开发 -->
+            <div class="carousel-slide slide-5">
+                <div class="slide-content">
+                    <div class="slide-badge">💻 编程开发专区</div>
+                    <h1 class="slide-title">零基础到全栈<br>学编程不迷路</h1>
+                    <p class="slide-desc">GitHub、掘金、freeCodeCamp、Roadmap.sh、Replit……系统规划学习路径，代码实战与部署一体化</p>
+                    <div class="slide-tags">
+                        <span class="stag">📘 学习路线</span>
+                        <span class="stag">☁️ 在线IDE</span>
+                        <span class="stag">🚀 一键部署</span>
+                        <span class="stag">👥 开源社区</span>
+                    </div>
+                </div>
+                <div class="slide-visual">
+                    <div class="code-block">
+                        <div class="cb-line"><span class="cbl-kw">const</span> <span class="cbl-var">you</span> = <span class="cbl-str">'awesome'</span>;</div>
+                        <div class="cb-line"><span class="cbl-kw">function</span> <span class="cbl-fn">grow</span>() {</div>
+                        <div class="cb-line cb-indent"><span class="cbl-var">you</span>.<span class="cbl-fn">learn</span>();</div>
+                        <div class="cb-line cb-indent"><span class="cbl-var">you</span>.<span class="cbl-fn">build</span>();</div>
+                        <div class="cb-line">}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.carousel-track -->
+
+        <!-- 左右箭头 -->
+        <button class="carousel-arrow arrow-prev" id="carouselPrev" aria-label="上一张">&#8249;</button>
+        <button class="carousel-arrow arrow-next" id="carouselNext" aria-label="下一张">&#8250;</button>
+
+        <!-- 指示点 -->
+        <div class="carousel-dots" id="carouselDots">
+            <span class="cdot active" data-idx="0"></span>
+            <span class="cdot" data-idx="1"></span>
+            <span class="cdot" data-idx="2"></span>
+            <span class="cdot" data-idx="3"></span>
+            <span class="cdot" data-idx="4"></span>
         </div>
     </section>
 
@@ -94,20 +226,6 @@
 
         <!-- 右侧边栏 -->
         <aside class="sidebar">
-            <!-- 政策热点 -->
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">📰 政策热点</h3>
-                <div class="policy-list" id="policyList">
-                    <div class="policy-loading">加载中…</div>
-                </div>
-            </div>
-            <!-- 最近更新 -->
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">🆕 最近更新</h3>
-                <div class="recent-list" id="recentList">
-                    <div class="fav-empty">暂无更新</div>
-                </div>
-            </div>
             <!-- 我的收藏 -->
             <div class="sidebar-card">
                 <h3 class="sidebar-title">❤️ 我的收藏</h3>
@@ -115,16 +233,6 @@
                     <div class="fav-empty">点击卡片❤️收藏资源</div>
                 </div>
                 <button class="fav-export-btn" id="favExportBtn" style="display:none;">📥 导出收藏为 CSV</button>
-            </div>
-            <!-- 使用小贴士 -->
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">💡 使用小贴士</h3>
-                <ul class="tips-list">
-                    <li>点击顶部板块可快速切换分类</li>
-                    <li>点击卡片可直接访问网站</li>
-                    <li>使用搜索框快速定位资源</li>
-                    <li>所有资源均经过人工验证</li>
-                </ul>
             </div>
         </aside>
     </main>
@@ -159,37 +267,18 @@
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <div class="sidebar-drawer" id="sidebarDrawer">
         <div class="drawer-header">
-            <span class="drawer-title">📰 政策热点 & 小贴士</span>
-
+            <span class="drawer-title">❤️ 我的收藏</span>
             <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="关闭">✕</button>
         </div>
         <div class="drawer-body">
             <div class="sidebar-card">
-                <h3 class="sidebar-title">📰 政策热点</h3>
-                <div class="policy-list" id="policyListDrawer">
-                    <!-- 由 JS 复制渲染 -->
-                </div>
-            </div>
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">🆕 最近更新</h3>
-                <div class="recent-list" id="recentListDrawer"></div>
-            </div>
-            <div class="sidebar-card">
                 <h3 class="sidebar-title">❤️ 我的收藏</h3>
                 <div class="fav-list" id="favListDrawer"></div>
-            </div>
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">💡 使用小贴士</h3>
-                <ul class="tips-list">
-                    <li>点击顶部板块可快速切换分类</li>
-                    <li>点击卡片可直接访问网站</li>
-                    <li>使用搜索框快速定位资源</li>
-                    <li>所有资源均经过人工验证</li>
-                </ul>
+                <button class="fav-export-btn" id="favExportBtnDrawer" style="display:none;">📥 导出收藏为 CSV</button>
             </div>
         </div>
     </div>
-    <button class="float-btn" id="floatBtn">📰 政策热点</button>
+    <button class="float-btn" id="floatBtn">❤️ 我的收藏</button>
     <button class="float-btn submit-btn" id="submitResourceBtn">➕ 推荐工具</button>
 
     <!-- ========== 推荐工具表单浮层 ========== -->
