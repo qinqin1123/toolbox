@@ -771,12 +771,12 @@ const resources = [
       review:'公务员考试网主要提供考试资讯、招考公告和真题下载服务。信息更新比较及时，各地招考信息汇总方便。但网站设计和交互体验一般，功能较为基础。更适合用来查询考试政策和下载资料，不太适合作为主要刷题平台。作为信息查询的辅助渠道有一定价值。' },
     { name:'一起考教师',  url:'https://www.17kjs.com',       desc:'教师招聘考试备考平台，教综刷题和面试指导。',             category:'exam', type:'free',    rating:4.3, icon:'教', img:'17kjs.png',
       review:'一起考教师是教师编制考试备考的垂直平台，覆盖教育综合知识、学科专业知识、面试试讲等环节。题库和课程体系针对性强，教综刷题功能实用。免费内容有一定量，进阶课程需付费。对于准备考教师编的同学来说，是目前专注度最高的备考平台之一。' },
-    { name:'高途公考',    url:'https://www.gaotu.cn',         desc:'高途旗下公考品牌，在线直播课程质量高。',                 category:'exam', type:'vip',     rating:4.4, icon:'高', img:'gaotu.png',
+    { name:'高途公考',    url:'https://www.gaotu.com',        desc:'高途旗下公考品牌，在线直播课程质量高。',                 category:'exam', type:'vip',     rating:4.4, icon:'高', img:'gaotu.png',
       review:'高途公考背靠高途集团，以在线直播授课为核心特色，老师互动性强，课堂氛围好。课程体系覆盖国考、省考、事业编等各类考试。名师阵容有一定实力。但价格偏高，免费内容相对有限。适合喜欢直播互动学习、有一定预算的考生。' },
-    { name:'事业单位考试网', url:'https://www.sydw.cn',      desc:'事业编考试资讯和题库，招考公告汇总及时。',               category:'exam', type:'free',    rating:4.2, icon:'事', img:'sydw.png',
+    { name:'事业单位考试网', url:'https://www.sydwkao.com',  desc:'事业编考试资讯和题库，招考公告汇总及时。',               category:'exam', type:'free',    rating:4.2, icon:'事', img:'sydw.png',
       review:'事业单位考试网专注于事业编考试信息汇总，招考公告、考试时间、报考指南等内容更新及时。对于想考事业编的同学来说，是获取各地招考信息的便捷入口。题库和备考资料也有一定量。界面设计简单但实用，信息检索比较方便。作为考编信息获取的补充平台，值得关注。' },
-    { name:'公考加油站',    url:'https://www.gongkaojiayou.com', desc:'公考信息聚合平台，国考省考招考公告全国汇总。',           category:'exam', type:'free',    rating:4.3, icon:'公', img:'gkjy.png',
-      review:'公考加油站以招考信息汇总为核心特色，将全国各省市的国考、省考、事业编招考公告集中展示，并提供报考岗位分析和招考日历功能。对于需要同时关注多个省份招考的考生非常实用。免费使用。功能专注于信息聚合，不做课程培训，定位清晰。建议作为了解各地招考动态的信息门户来使用。' },
+    { name:'公考雷达',    url:'https://www.gkjy.cn',         desc:'公考信息聚合平台，国考省考招考公告全国汇总。',           category:'exam', type:'free',    rating:4.3, icon:'雷', img:'gkjy.png',
+      review:'公考雷达以招考信息汇总为核心特色，将全国各省市的国考、省考、事业编招考公告集中展示，并提供报考岗位分析和招考日历功能。对于需要同时关注多个省份招考的考生非常实用。免费使用。功能专注于信息聚合，不做课程培训，定位清晰。建议作为了解各地招考动态的信息门户来使用。' },
 
     // ============ 编程学习 ============
     { name:'GitHub',      url:'https://github.com',          desc:'全球最大代码托管平台，开源项目和代码学习资源丰富。',      category:'coding', type:'free',    rating:4.9, icon:'GH', img:'github.png',
@@ -943,7 +943,7 @@ const resources = [
     { name:'新华通讯社',         url:'http://www.xinhuanet.com',        desc:'中国国家通讯社，全球新闻信息采集和发布。',                     category:'gov', region:'national', type:'free', rating:4.8, icon:'新' },
     { name:'中国科学院',         url:'https://www.cas.cn',              desc:'中国自然科学最高学术机构，科研院所、院士信息。',               category:'gov', region:'national', type:'free', rating:4.9, icon:'院' },
     { name:'中国工程院',         url:'https://www.cae.cn',              desc:'中国工程科学技术最高学术机构，院士信息、工程咨询。',           category:'gov', region:'national', type:'free', rating:4.8, icon:'工' },
-    { name:'中国社会科学院',     url:'http://www.cass.cn',              desc:'中国哲学社会科学最高学术机构。',                               category:'gov', region:'national', type:'free', rating:4.7, icon:'社' },
+    { name:'中国社会科学院',     url:'https://www.cass.cn',             desc:'中国哲学社会科学最高学术机构。',                               category:'gov', region:'national', type:'free', rating:4.7, icon:'社' },
     { name:'国务院发展研究中心', url:'https://www.drc.gov.cn',          desc:'国务院直属事业单位，政策咨询研究机构。',                       category:'gov', region:'national', type:'free', rating:4.6, icon:'研' },
     // --- 国家级：部委管理的国家局 ---
     { name:'中国气象局',         url:'http://www.cma.gov.cn',           desc:'主管气象工作的国家局，天气预报、气候监测。',                   category:'gov', region:'national', type:'free', rating:4.5, icon:'气' },
@@ -2306,7 +2306,7 @@ const resources = [
     { name:'商汤科技',      url:'https://www.sensetime.com',    desc:'中国计算机视觉和深度学习平台公司，在智慧城市、自动驾驶、医疗影像等领域广泛应用。', category:'brands', sub:'tech', type:'free', rating:4.4, icon:'商' , img:'sensetime.ico' },
     { name:'中兴通讯',      url:'https://www.zte.com.cn',       desc:'全球领先的综合通信信息解决方案提供商，5G专利数全球前列，业务覆盖160多个国家。', category:'brands', sub:'tech', type:'free', rating:4.5, icon:'中' , img:'zte.ico' },
     { name:'浪潮',          url:'https://www.inspur.com',       desc:'中国领先的服务器和云计算解决方案提供商，服务器出货量全球前三，AI服务器国内市占率第一。', category:'brands', sub:'tech', type:'free', rating:4.4, icon:'浪' , img:'inspur.ico' },
-    { name:'地平线',        url:'https://www.horizon.auto',     desc:'边缘AI芯片领导者，智能驾驶计算方案装机量领先，为比亚迪、理想等车企提供芯片方案。', category:'brands', sub:'tech', type:'free', rating:4.3, icon:'地' , img:'horizon.ico' },
+    { name:'地平线',        url:'https://www.horizon.ai',       desc:'边缘AI芯片领导者，智能驾驶计算方案装机量领先，为比亚迪、理想等车企提供芯片方案。', category:'brands', sub:'tech', type:'free', rating:4.3, icon:'地' , img:'horizon.ico' },
     { name:'寒武纪',        url:'https://www.cambricon.com',    desc:'中国AI芯片领域代表性企业，专注云端和边缘端AI芯片，产品应用于互联网、金融等行业。', category:'brands', sub:'tech', type:'free', rating:4.2, icon:'寒' , img:'cambricon.ico' },
     { name:'优必选',        url:'https://www.ubtrobot.com',     desc:'人形机器人和人工智能教育企业，Walker系列人形机器人技术领先，AI教育覆盖全国数千所学校。', category:'brands', sub:'tech', type:'free', rating:4.3, icon:'优' , img:'ubtrobot.ico' },
 
@@ -2377,7 +2377,7 @@ const resources = [
     // --- 酒店住宿 ---
     { name:'华住酒店',      url:'https://www.hworld.com',       desc:'中国最大的多品牌酒店集团，旗下拥有汉庭、全季、桔子水晶等品牌，全球门店超10000家。', category:'brands', sub:'hotel', type:'free', rating:4.6, icon:'华' , img:'hworld.ico' },
     { name:'锦江酒店',      url:'https://www.jinjianghotels.com',desc:'中国历史最悠久的酒店集团之一，旗下品牌涵盖锦江之星、铂涛、维也纳等，全球超16000家酒店。', category:'brands', sub:'hotel', type:'free', rating:4.5, icon:'锦' , img:'jinjiang.ico' },
-    { name:'首旅如家',      url:'https://www.bthhotels.com',    desc:'首旅如家酒店集团官网，旗下如家、和颐、云上四季等多个品牌，覆盖经济型到中高端各档酒店。', category:'brands', sub:'hotel', type:'free', rating:4.5, icon:'如' , img:'homeinn.ico' },
+    { name:'首旅如家',      url:'https://www.homeinn.com.cn',   desc:'经济型连锁酒店领军品牌，由首旅酒店集团与如家酒店合并而成，如家、和颐等品牌覆盖各档。', category:'brands', sub:'hotel', type:'free', rating:4.5, icon:'如' , img:'homeinn.ico' },
     { name:'亚朵酒店',      url:'https://www.atourhotel.com',   desc:'中高端人文酒店品牌，以"阅读+摄影"为主题，服务和住宿体验在用户中口碑极佳。',     category:'brands', sub:'hotel', type:'free', rating:4.6, icon:'亚' , img:'atour.ico' },
     { name:'洲际酒店',      url:'https://www.ihg.com.cn',       desc:'全球最大酒店集团之一，旗下拥有洲际、皇冠假日、假日、智选假日等19个酒店品牌。',   category:'brands', sub:'hotel', type:'free', rating:4.7, icon:'洲' , img:'ihg.ico' },
     { name:'万豪国际',      url:'https://www.marriott.com.cn',  desc:'全球领先的酒店管理集团，旗下30个品牌包括丽思卡尔顿、万豪、W酒店等奢华品牌。',     category:'brands', sub:'hotel', type:'free', rating:4.7, icon:'万' , img:'marriott.ico' },
@@ -2444,13 +2444,13 @@ const resources = [
     { name:'中国邮政',      url:'https://www.chinapost.com.cn', desc:'中国历史最悠久的邮政快递服务，网点覆盖全国城乡，国际邮政业务遍及全球。',   category:'brands', sub:'life', type:'free', rating:4.5, icon:'邮' , img:'chinapost.ico' },
     { name:'京东物流',      url:'https://www.jdl.com',          desc:'京东旗下一体化供应链物流服务商，以仓配一体化模式实现极速配送。',           category:'brands', sub:'life', type:'free', rating:4.6, icon:'京' , img:'jdl.ico' },
     { name:'菜鸟',          url:'https://www.cainiao.com',      desc:'阿里巴巴旗下智慧物流平台，整合快递资源，提供物流查询和驿站服务。',         category:'brands', sub:'life', type:'free', rating:4.5, icon:'菜' , img:'cainiao.ico' },
-    { name:'丰巢',          url:'https://fcbox.com',            desc:'中国最大的智能快递柜运营平台，覆盖全国社区和写字楼，24小时自助取件。',     category:'brands', sub:'life', type:'free', rating:4.3, icon:'丰' , img:'fengnest.ico' },
+    { name:'丰巢',          url:'https://www.fengnest.com',     desc:'中国最大的智能快递柜运营平台，覆盖全国社区和写字楼，24小时自助取件。',     category:'brands', sub:'life', type:'free', rating:4.3, icon:'丰' , img:'fengnest.ico' },
     { name:'大众点评',      url:'https://www.dianping.com',     desc:'中国领先的本地生活信息及交易平台，提供餐厅、休闲娱乐等商户点评和优惠。',   category:'brands', sub:'life', type:'free', rating:4.7, icon:'大' , img:'dianping.ico' },
 
     // --- 能源制造 ---
-    { name:'国家电网',      url:'http://www.sgcc.com.cn',       desc:'全球最大的公用事业企业，运营着世界上电压等级最高、规模最大的电网，服务超11亿人口。', category:'brands', sub:'energy', type:'free', rating:4.8, icon:'国' , img:'sgcc.ico' },
+    { name:'国家电网',      url:'https://www.sgcc.com.cn',      desc:'全球最大的公用事业企业，运营着世界上电压等级最高、规模最大的电网，服务超11亿人口。', category:'brands', sub:'energy', type:'free', rating:4.8, icon:'国' , img:'sgcc.ico' },
     { name:'中国石油',      url:'https://www.cnpc.com.cn',      desc:'中国最大的石油和天然气生产商，在《财富》世界500强中长期位居前列，业务遍布全球。', category:'brands', sub:'energy', type:'free', rating:4.7, icon:'石' , img:'cnpc.ico' },
-    { name:'中国石化',      url:'http://www.sinopec.com',       desc:'中国最大的能源化工企业之一，也是亚洲最大的炼油企业，加油站网络遍布全国。',         category:'brands', sub:'energy', type:'free', rating:4.7, icon:'化' , img:'sinopec.ico' },
+    { name:'中国石化',      url:'https://www.sinopec.com',      desc:'中国最大的能源化工企业之一，也是亚洲最大的炼油企业，加油站网络遍布全国。',         category:'brands', sub:'energy', type:'free', rating:4.7, icon:'化' , img:'sinopec.ico' },
     { name:'中国海油',      url:'https://www.cnooc.com.cn',     desc:'中国最大的海上原油及天然气生产商，在中国近海拥有最大油气勘探开发实力。',       category:'brands', sub:'energy', type:'free', rating:4.6, icon:'海' , img:'cnooc.ico' },
     { name:'国家能源集团',  url:'https://www.chnenergy.com.cn', desc:'由国电集团和神华集团合并重组的中央企业，全球最大的煤炭生产公司之一。',           category:'brands', sub:'energy', type:'free', rating:4.6, icon:'能' , img:'chnenergy.ico' },
     { name:'中国中车',      url:'https://www.crrcgc.cc',        desc:'全球规模最大的轨道交通装备制造商，"复兴号"高铁列车的核心供应商，产品出口全球。', category:'brands', sub:'energy', type:'free', rating:4.6, icon:'车' , img:'crrcgc.ico' },
@@ -2665,8 +2665,9 @@ function recordClick(item) {
 function renderCategoryNav() {
     const sorted = getSortedCategories();
     categoryNav.innerHTML = sorted.map(cat => {
+        const count = cat.id === 'all' ? resources.length : resources.filter(r => r.category === cat.id).length;
         return `<button class="cat-tab${cat.id === currentCategory ? ' active' : ''}" data-cat="${cat.id}">
-            <span class="tab-icon">${cat.icon}</span>${cat.name}
+            <span class="tab-icon">${cat.icon}</span>${cat.name}<span class="tab-count">${count}</span>
         </button>`;
     }).join('');
 
@@ -3380,6 +3381,12 @@ async function fetchPolicyNews() {
             corsProxy: 'https://api.allorigins.win/raw?url=',
             parse: parsePeopleRss,
         },
+        {
+            name: '新华网时政',
+            url: 'http://www.news.cn/rss/politics.xml',
+            corsProxy: 'https://api.allorigins.win/raw?url=',
+            parse: parseGenericRss,
+        },
     ];
 
     for (const source of rssSources) {
@@ -4069,8 +4076,6 @@ function renderFavList() {
     if (favList) favList.innerHTML = html;
     if (favListDrawer) favListDrawer.innerHTML = html;
     if (favExportBtn) favExportBtn.style.display = favorites.length > 0 ? 'block' : 'none';
-    const favExportBtnDrawer = document.getElementById('favExportBtnDrawer');
-    if (favExportBtnDrawer) favExportBtnDrawer.style.display = favorites.length > 0 ? 'block' : 'none';
 
     // 收藏列表点击：跳转弹窗
     [favList, favListDrawer].forEach(el => {
@@ -4101,22 +4106,21 @@ function renderFavList() {
 
 // 导出收藏为 CSV
 const favExportBtn = document.getElementById('favExportBtn');
-function exportFavoritesCSV() {
-    const rows = [['名称', '网址', '分类']];
-    favorites.forEach(f => {
-        const catName = CATEGORIES.find(c => c.id === f.category)?.name || f.category;
-        rows.push([f.name, f.url, catName]);
+if (favExportBtn) {
+    favExportBtn.addEventListener('click', () => {
+        const rows = [['名称', '网址', '分类']];
+        favorites.forEach(f => {
+            const catName = CATEGORIES.find(c => c.id === f.category)?.name || f.category;
+            rows.push([f.name, f.url, catName]);
+        });
+        const csv = rows.map(r => r.map(v => `"${v}"`).join(',')).join('\n');
+        const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = '我的收藏-万能百宝箱.csv';
+        a.click(); URL.revokeObjectURL(url);
     });
-    const csv = rows.map(r => r.map(v => `"${v}"`).join(',')).join('\n');
-    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = '我的收藏-万能百宝箱.csv';
-    a.click(); URL.revokeObjectURL(url);
 }
-if (favExportBtn) favExportBtn.addEventListener('click', exportFavoritesCSV);
-const favExportBtnDrawer2 = document.getElementById('favExportBtnDrawer');
-if (favExportBtnDrawer2) favExportBtnDrawer2.addEventListener('click', exportFavoritesCSV);
 
 // ============================================
 // 截图 Lightbox 大图预览
@@ -4222,9 +4226,9 @@ function init() {
     renderQuickTools();
     renderFriendLinks();
     renderCards();
-    // loadPolicyNews();  // 已隐藏政策热点
+    loadPolicyNews();
     renderFavList();
-    // renderRecentList();  // 已隐藏最近更新
+    renderRecentList();
     animateCount(totalCountEl, resources.length);
     animateCount(categoryCountEl, CATEGORIES.length - 1);
 
@@ -4249,49 +4253,3 @@ function init() {
 }
 
 init();
-
-// ============================================
-// Hero 轮播图
-// ============================================
-(function() {
-    const track   = document.getElementById('carouselTrack');
-    const dots    = document.querySelectorAll('#carouselDots .cdot');
-    const prevBtn = document.getElementById('carouselPrev');
-    const nextBtn = document.getElementById('carouselNext');
-    if (!track) return;
-
-    const total = dots.length;
-    let cur = 0;
-    let timer = null;
-
-    function goTo(idx) {
-        cur = (idx + total) % total;
-        track.style.transform = `translateX(-${cur * 100}%)`;
-        dots.forEach((d, i) => d.classList.toggle('active', i === cur));
-    }
-
-    function startAuto() {
-        clearInterval(timer);
-        timer = setInterval(() => goTo(cur + 1), 4500);
-    }
-
-    prevBtn && prevBtn.addEventListener('click', () => { goTo(cur - 1); startAuto(); });
-    nextBtn && nextBtn.addEventListener('click', () => { goTo(cur + 1); startAuto(); });
-    dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.idx); startAuto(); }));
-
-    // 触摸滑动支持
-    let tx = 0;
-    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - tx;
-        if (Math.abs(dx) > 40) { goTo(dx < 0 ? cur + 1 : cur - 1); startAuto(); }
-    }, { passive: true });
-
-    // 鼠标悬停暂停
-    track.closest('.hero-carousel').addEventListener('mouseenter', () => clearInterval(timer));
-    track.closest('.hero-carousel').addEventListener('mouseleave', startAuto);
-
-    goTo(0);
-    startAuto();
-})();
-
