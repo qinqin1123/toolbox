@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>万能百宝箱｜任务驱动型效率工具平台</title>
-    <meta name="description" content="精选60+实用效率工具，按写作创作、设计媒体、编程开发、办公数据、学习研究、求职职场、AI工具7大任务分类，帮你快速找到最合适的工具。">
+    <title>万能百宝箱｜大学生 & 职场人一站式效率工具导航</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -12,140 +11,337 @@
 <body>
 
     <!-- ========== 顶部导航栏 ========== -->
-    <header class="site-header" id="siteHeader">
+    <header class="site-header">
         <div class="header-inner">
-            <div class="logo" onclick="scrollToTop()">
+            <div class="logo">
                 <span class="logo-icon">🎒</span>
                 <span class="logo-text">万能百宝箱</span>
             </div>
-
-            <!-- 全局搜索栏 -->
-            <div class="search-bar" id="searchBar">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
-                </svg>
-                <input type="text" id="searchInput" placeholder="搜索工具名、标签、功能..." autocomplete="off">
-                <kbd class="search-kbd">/</kbd>
-                <div class="search-clear" id="searchClear" style="display:none">×</div>
-            </div>
-
-            <!-- 暗色模式切换 -->
-            <button class="dark-toggle" id="darkToggle" title="切换暗色模式">
-                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                </svg>
-            </button>
-
-            <!-- 移动端菜单按钮 -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <nav class="nav-links">
+                <a href="#toolkit" class="nav-link">工具箱</a>
+                <a href="#resources" class="nav-link active">资源大全</a>
+                <a href="#about" class="nav-link">关于</a>
+            </nav>
+            <button class="dark-mode-toggle" id="darkModeToggle" title="切换暗色模式">🌙</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <!-- ========== 移动端分类抽屉 ========== -->
-    <div class="mobile-drawer" id="mobileDrawer">
-        <div class="drawer-overlay" id="drawerOverlay"></div>
-        <div class="drawer-content" id="drawerContent">
-            <!-- JS 动态填充 -->
+    <!-- ========== Hero 区域 ========== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">万能百宝箱</h1>
+            <p class="hero-subtitle">大学生 & 职场人一站式效率工具导航</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-num" id="totalCount">0</span>
+                    <span class="stat-label">精选资源</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num" id="categoryCount">0</span>
+                    <span class="stat-label">功能板块</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label">人工精选</span>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- ========== 搜索框 + 分类导航（整体吸顶） ========== -->
+    <div class="sticky-toolbar">
+        <section class="search-section" id="resources">
+            <div class="search-inner">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" id="searchInput" class="search-input" placeholder="搜索工具、模板、网站… 例如：论文查重、简历模板、思维导图">
+                    <button class="search-clear-btn" id="searchClearBtn" title="清空搜索">✕</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== 板块 Tab 导航 ========== -->
+        <section class="category-nav">
+            <div class="category-nav-inner" id="categoryNav">
+                <!-- 由 JS 动态渲染 -->
+            </div>
+        </section>
     </div>
+
+    <!-- ========== 工具箱快入口 ========== -->
+    <section class="quick-tools" id="toolkit">
+        <div class="quick-tools-inner">
+            <h2 class="section-title">
+                <span class="section-title-icon">⚡</span>
+                实用小工具快入口
+            </h2>
+            <div class="quick-tools-grid" id="quickToolsGrid">
+                <!-- 由 JS 动态渲染 -->
+            </div>
+        </div>
+    </section>
 
     <!-- ========== 主内容区 ========== -->
-    <main class="main-content">
+    <main class="main-layout">
+        <!-- 资源卡片网格 -->
+        <section class="resource-grid" id="resourceGrid">
+            <!-- 由 JS 动态渲染 -->
+        </section>
 
-        <!-- Hero 区 -->
-        <section class="hero">
-            <div class="hero-inner">
-                <div class="hero-text">
-                    <h1 class="hero-title">找到适合你的<br><span class="gradient-text">效率工具</span></h1>
-                    <p class="hero-desc">精选 <strong id="toolCount">0</strong> 个优质工具，覆盖 <strong>7</strong> 大任务场景，每款都经过人工实测</p>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-card">
-                        <div class="stat-num" id="statTools">0</div>
-                        <div class="stat-label">精选工具</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">7</div>
-                        <div class="stat-label">任务分类</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">100%</div>
-                        <div class="stat-label">人工实测</div>
-                    </div>
+        <!-- 右侧边栏 -->
+        <aside class="sidebar">
+            <!-- 政策热点 -->
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">📰 政策热点</h3>
+                <div class="policy-list" id="policyList">
+                    <div class="policy-loading">加载中…</div>
                 </div>
             </div>
-        </section>
-
-        <!-- 搜索结果区（默认隐藏） -->
-        <section class="search-results" id="searchResults" style="display:none">
-            <div class="section-header">
-                <h2 id="searchResultsTitle">搜索结果</h2>
-                <button class="btn-clear-search" id="clearSearchBtn">清除搜索</button>
-            </div>
-            <div class="tools-grid" id="searchResultsGrid"></div>
-        </section>
-
-        <!-- 分类筛选栏 -->
-        <nav class="category-nav" id="categoryNav">
-            <div class="category-scroll">
-                <button class="cat-btn active" data-cat="all">
-                    <span class="cat-icon">🌟</span>
-                    <span class="cat-name">全部</span>
-                    <span class="cat-count" id="countAll">0</span>
-                </button>
-                <!-- JS 动态生成其他分类按钮 -->
-            </div>
-        </nav>
-
-        <!-- 仪表盘分类大卡片 -->
-        <section class="dashboard" id="dashboard">
-            <div class="dashboard-grid" id="dashboardGrid">
-                <!-- JS 动态渲染 -->
-            </div>
-        </section>
-
-        <!-- 全部工具列表 -->
-        <section class="all-tools" id="allTools">
-            <div class="section-header">
-                <h2>全部工具</h2>
-                <div class="sort-bar">
-                    <span>排序：</span>
-                    <button class="sort-btn active" data-sort="hot">🔥 热门</button>
-                    <button class="sort-btn" data-sort="name">🔤 名称</button>
-                    <button class="sort-btn" data-sort="difficulty">⭐ 难度</button>
-                    <button class="sort-btn" data-sort="pricing">💰 免费</button>
+            <!-- 最近更新 -->
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">🆕 最近更新</h3>
+                <div class="recent-list" id="recentList">
+                    <div class="fav-empty">暂无更新</div>
                 </div>
             </div>
-            <div class="tools-grid" id="toolsGrid">
-                <!-- JS 动态渲染 -->
+            <!-- 我的收藏 -->
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">❤️ 我的收藏</h3>
+                <div class="fav-list" id="favList">
+                    <div class="fav-empty">点击卡片❤️收藏资源</div>
+                </div>
+                <button class="fav-export-btn" id="favExportBtn" style="display:none;">📥 导出收藏为 CSV</button>
             </div>
-        </section>
-
+            <!-- 使用小贴士 -->
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">💡 使用小贴士</h3>
+                <ul class="tips-list">
+                    <li>点击顶部板块可快速切换分类</li>
+                    <li>点击卡片可直接访问网站</li>
+                    <li>使用搜索框快速定位资源</li>
+                    <li>所有资源均经过人工验证</li>
+                </ul>
+            </div>
+        </aside>
     </main>
 
-    <!-- ========== 工具详情弹窗 ========== -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="toolModal">
-            <button class="modal-close" id="modalClose">×</button>
-            <div class="modal-body" id="modalBody">
-                <!-- JS 动态填充 -->
+    <!-- ========== 友情链接 + 反馈 ========== -->
+    <section class="pre-footer">
+        <div class="pre-footer-inner">
+            <div class="pre-footer-col">
+                <h4>友情链接</h4>
+                <div class="friend-links" id="friendLinks">
+                    <!-- 由 JS 渲染 -->
+                </div>
+            </div>
+            <div class="pre-footer-col">
+                <h4>意见反馈</h4>
+                <p class="feedback-text">发现好用的工具？遇到失效链接？<br>欢迎告诉我们，一起完善这个百宝箱！</p>
+                <a href="mailto:feedback@toolbox.com" class="feedback-btn">提交反馈</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 页脚 ========== -->
+    <footer class="site-footer" id="about">
+        <div class="footer-inner">
+            <p class="footer-text">万能百宝箱 — 大学生 & 职场人一站式效率工具导航</p>
+            <p class="footer-sub">本站仅做资源导航，所有工具和模板版权归原作者所有。如涉及侵权请联系删除。</p>
+            <p class="footer-copy">&copy; 2026 万能百宝箱 Interest Resource Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========== 移动端侧边栏抽屉 ========== -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="sidebar-drawer" id="sidebarDrawer">
+        <div class="drawer-header">
+            <span class="drawer-title">📰 政策热点 & 小贴士</span>
+
+            <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="关闭">✕</button>
+        </div>
+        <div class="drawer-body">
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">📰 政策热点</h3>
+                <div class="policy-list" id="policyListDrawer">
+                    <!-- 由 JS 复制渲染 -->
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">🆕 最近更新</h3>
+                <div class="recent-list" id="recentListDrawer"></div>
+            </div>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">❤️ 我的收藏</h3>
+                <div class="fav-list" id="favListDrawer"></div>
+            </div>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">💡 使用小贴士</h3>
+                <ul class="tips-list">
+                    <li>点击顶部板块可快速切换分类</li>
+                    <li>点击卡片可直接访问网站</li>
+                    <li>使用搜索框快速定位资源</li>
+                    <li>所有资源均经过人工验证</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button class="float-btn" id="floatBtn">📰 政策热点</button>
+    <button class="float-btn submit-btn" id="submitResourceBtn">➕ 推荐工具</button>
+
+    <!-- ========== 推荐工具表单浮层 ========== -->
+    <div class="submit-overlay" id="submitOverlay"></div>
+    <div class="submit-form-drawer" id="submitFormDrawer">
+        <div class="submit-form-header">
+            <span>➕ 推荐一个好用的新工具</span>
+            <button class="drawer-close-btn" id="submitCloseBtn" aria-label="关闭">✕</button>
+        </div>
+        <form class="submit-form" id="submitForm">
+            <div class="form-group">
+                <label for="submitName">网站名称 <span class="req">*</span></label>
+                <input type="text" id="submitName" placeholder="例如：Canva可画" required>
+            </div>
+            <div class="form-group">
+                <label for="submitUrl">网站链接 <span class="req">*</span></label>
+                <input type="url" id="submitUrl" placeholder="https://example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="submitDesc">简要描述</label>
+                <textarea id="submitDesc" rows="2" placeholder="一句话介绍这个工具的亮点…"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="submitCategory">所属分类 <span class="req">*</span></label>
+                <select id="submitCategory" required>
+                    <option value="">请选择分类</option>
+                    <option value="ppt">📊 PPT模板</option>
+                    <option value="word">📝 Word文档</option>
+                    <option value="excel">📈 Excel表格</option>
+                    <option value="mindmap">🧠 思维导图</option>
+                    <option value="academic">🎓 学术科研</option>
+                    <option value="ai">🤖 AI工具</option>
+                    <option value="resume">💼 简历求职</option>
+                    <option value="exam">📋 公考考编</option>
+                    <option value="coding">💻 编程学习</option>
+                    <option value="startup">🚀 创业工具</option>
+                    <option value="gov">🏛️ 政府官网</option>
+                    <option value="brands">🌐 品牌官网</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>推荐理由（选填）</label>
+                <textarea id="submitReason" rows="2" placeholder="你觉得它好在哪里…"></textarea>
+            </div>
+            <button type="submit" class="submit-form-btn">提交推荐</button>
+            <div class="submit-success" id="submitSuccess">✅ 已提交，感谢推荐！审核通过后将收录。</div>
+        </form>
+    </div>
+
+    <!-- ========== 截图 Lightbox ========== -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <img class="lightbox-img" id="lightboxImg" src="" alt="截图大图">
+    </div>
+
+    <!-- ========== 产品详情弹窗 ========== -->
+    <div class="detail-overlay" id="detailOverlay">
+        <div class="detail-modal" id="detailModal">
+            <!-- 关闭按钮 -->
+            <button class="detail-close" id="detailClose" aria-label="关闭">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <!-- 绿色打开按钮 -->
+            <a class="detail-open-btn" id="detailOpenBtn" href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                打开网站
+            </a>
+            <!-- 内容区 -->
+            <div class="detail-body">
+                <!-- 头部：大图标 + 基本信息 -->
+                <div class="detail-hero">
+                    <div class="detail-icon-wrap" id="detailIconWrap">
+                        <img class="detail-icon-img" id="detailIconImg" src="" alt="">
+                        <span class="detail-icon-fallback" id="detailIconFallback"></span>
+                    </div>
+                    <div class="detail-hero-info">
+                        <h2 class="detail-title" id="detailTitle"></h2>
+                        <div class="detail-meta">
+                            <span class="detail-rating" id="detailRating"></span>
+                            <span class="detail-tag" id="detailCatTag"></span>
+                            <span class="detail-tag" id="detailTypeTag"></span>
+                        </div>
+                        <div class="detail-url" id="detailUrl"></div>
+                    </div>
+                </div>
+                <!-- 描述 -->
+                <div class="detail-desc" id="detailDesc"></div>
+                <!-- 网站首页截图 -->
+                <div class="detail-screenshot" id="detailScreenshot">
+                    <div class="screenshot-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        网站首页预览
+                    </div>
+                    <div class="screenshot-frame">
+                        <img id="screenshotImg" src="" alt="网站截图" loading="lazy">
+                        <a class="screenshot-mask" id="screenshotLink" href="#" target="_blank" rel="noopener noreferrer">
+                            <span class="screenshot-mask-text">点击访问网站</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- 标签 -->
+                <div class="detail-tags" id="detailTags"></div>
+                <!-- 评分详情 -->
+                <div class="detail-score-card">
+                    <div class="score-big" id="scoreBig"></div>
+                    <div class="score-stars" id="scoreStars"></div>
+                    <div class="score-info">
+                        <span id="scoreLabel"></span>
+                    </div>
+                </div>
+                <!-- 网站信息卡片 -->
+                <div class="detail-info-card" id="detailInfoCard">
+                    <h3>网站信息</h3>
+                    <div class="info-grid" id="infoGrid"></div>
+                </div>
+                <!-- 百宝箱评价 -->
+                <div class="detail-review-card" id="detailReviewCard">
+                    <div class="review-header">
+                        <h3>百宝箱测评</h3>
+                        <span class="review-badge">官方</span>
+                    </div>
+                    <p class="review-text" id="detailReviewText"></p>
+                </div>
+                <!-- 评论区 -->
+                <div class="detail-comments">
+                    <h3 class="comments-title">用户评价</h3>
+                    <div class="comment-input-wrap">
+                        <div class="comment-avatar user-avatar">我</div>
+                        <div class="comment-input-box">
+                            <textarea class="comment-input" id="commentInput" placeholder="分享你的使用体验…" rows="2"></textarea>
+                            <div class="comment-actions">
+                                <div class="comment-rating-input">
+                                    <span class="rate-label">评分：</span>
+                                    <span class="rate-stars" id="rateStars">
+                                        <span class="rate-star" data-v="1">★</span>
+                                        <span class="rate-star" data-v="2">★</span>
+                                        <span class="rate-star" data-v="3">★</span>
+                                        <span class="rate-star" data-v="4">★</span>
+                                        <span class="rate-star" data-v="5">★</span>
+                                    </span>
+                                </div>
+                                <button class="comment-submit-btn" id="commentSubmit">发布</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-list" id="commentList">
+                        <div class="comment-empty" id="commentEmpty">暂无评价，来写下第一条吧~</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- ========== 底部 ========== -->
-    <footer class="site-footer">
-        <p>🎒 万能百宝箱 &copy; 2026 &nbsp;|&nbsp; 精选效率工具，让你少走弯路</p>
-        <p class="footer-sub">提示：按 <kbd>/</kbd> 快速搜索 &nbsp;|&nbsp; 按 <kbd>Esc</kbd> 关闭弹窗 &nbsp;|&nbsp; <kbd>1-7</kbd> 切换分类</p>
-    </footer>
-
-    <!-- ========== JS ========== -->
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
