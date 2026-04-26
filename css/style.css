@@ -454,6 +454,12 @@ img { max-width: 100%; display: block; }
     border-radius: 3px;
 }
 .quick-tool-name { font-size: 0.68rem; font-weight: 600; color: var(--text-secondary); text-align: center; }
+.quick-tools-empty {
+    grid-column: 1 / -1; text-align: center; padding: 28px 16px; color: var(--text-secondary);
+}
+.quick-tools-empty-icon { font-size: 2.2rem; margin-bottom: 8px; opacity: 0.6; }
+.quick-tools-empty p { font-size: 0.85rem; font-weight: 600; margin: 4px 0; }
+.quick-tools-empty-hint { font-size: 0.72rem; opacity: 0.6; font-weight: 400; }
 
 /* ---------- 主内容区布局 ---------- */
 .main-layout {
