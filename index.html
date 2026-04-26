@@ -20,7 +20,7 @@
             <nav class="nav-links">
                 <a href="#resources" class="nav-link active">资源大全</a>
                 <a href="#about" class="nav-link">关于</a>
-                <a href="https://mail.163.com/js6/main.jsp#module=compose.ComposeModule%7C%7B%22to%22%3A%22wnbbx01%40163.com%22%7D" target="_blank" rel="noopener" class="nav-link nav-link-contact" title="商务合作">💌 合作</a>
+                <a href="javascript:void(0)" class="nav-link nav-link-contact" title="商务合作" onclick="openContactModal()">💌 合作</a>
             </nav>
             <button class="dark-mode-toggle" id="darkModeToggle" title="切换暗色模式" aria-label="切换暗色模式">
                 <!-- 日间图标（月亮→点击切换到夜间） -->
@@ -167,6 +167,49 @@
                 </div>
             </div>
 
+            <!-- Slide 6：广告招商 -->
+            <div class="carousel-slide slide-6 slide-ad">
+                <div class="slide-content">
+                    <div class="slide-badge slide-ad-badge">📢 广告招商</div>
+                    <h1 class="slide-title">优质流量·精准触达<br>品牌推广首选</h1>
+                    <p class="slide-desc">万能百宝箱覆盖大学生与职场人群，日均活跃用户持续增长，为您的高质量产品提供精准曝光机会</p>
+                    <div class="slide-ad-features">
+                        <div class="ad-feature">
+                            <span class="ad-feature-icon">🎯</span>
+                            <span class="ad-feature-text">精准用户画像</span>
+                        </div>
+                        <div class="ad-feature">
+                            <span class="ad-feature-icon">📈</span>
+                            <span class="ad-feature-text">高转化率曝光</span>
+                        </div>
+                        <div class="ad-feature">
+                            <span class="ad-feature-icon">💡</span>
+                            <span class="ad-feature-text">多种合作形式</span>
+                        </div>
+                    </div>
+                    <a href="javascript:void(0)" class="slide-ad-btn" onclick="openContactModal()">💌 立即联系我们</a>
+                </div>
+                <div class="slide-visual">
+                    <div class="ad-visual-card">
+                        <div class="avc-top">
+                            <span class="avc-eye">👁️ 曝光量</span>
+                            <span class="avc-trend avc-up">↑ 128%</span>
+                        </div>
+                        <div class="avc-num">10W+</div>
+                        <div class="avc-bar-wrap">
+                            <div class="avc-bar ad-bar-1"></div>
+                            <div class="avc-bar ad-bar-2"></div>
+                            <div class="avc-bar ad-bar-3"></div>
+                        </div>
+                        <div class="avc-labels">
+                            <span>展示</span>
+                            <span>点击</span>
+                            <span>转化</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div><!-- /.carousel-track -->
 
         <!-- 左右箭头 -->
@@ -180,6 +223,7 @@
             <span class="cdot" data-idx="2"></span>
             <span class="cdot" data-idx="3"></span>
             <span class="cdot" data-idx="4"></span>
+            <span class="cdot" data-idx="5"></span>
         </div>
     </section>
 
@@ -269,12 +313,12 @@
             <div class="pre-footer-col">
                 <h4>意见反馈</h4>
                 <p class="feedback-text">发现好用的工具？遇到失效链接？<br>欢迎告诉我们，一起完善这个百宝箱！</p>
-                <a href="https://mail.163.com/js6/main.jsp#module=compose.ComposeModule%7C%7B%22to%22%3A%22wnbbx01%40163.com%22%7D" target="_blank" rel="noopener" class="feedback-btn">📩 提交反馈</a>
+                <a href="javascript:void(0)" class="feedback-btn" onclick="openFeedbackModal()">📩 提交反馈</a>
             </div>
             <div class="pre-footer-col">
                 <h4>商务合作</h4>
                 <p class="feedback-text">欢迎资源收录、广告合作、<br>品牌推广等商务洽谈。</p>
-                <a href="https://mail.163.com/js6/main.jsp#module=compose.ComposeModule%7C%7B%22to%22%3A%22wnbbx01%40163.com%22%7D" target="_blank" rel="noopener" class="feedback-btn contact-btn">✉️ 发邮件合作</a>
+                <a href="javascript:void(0)" class="feedback-btn contact-btn" onclick="openContactModal()">✉️ 商务合作</a>
                 <p class="contact-email">wnbbx01@163.com</p>
             </div>
         </div>
@@ -296,10 +340,166 @@
         <div class="footer-inner">
             <p class="footer-text">万能百宝箱 — 大学生 & 职场人一站式效率工具导航</p>
             <p class="footer-sub">本站仅做资源导航，所有工具和模板版权归原作者所有。如涉及侵权请联系删除。</p>
-            <p class="footer-contact">商务合作 / 投稿收录：<a href="https://mail.163.com/js6/main.jsp#module=compose.ComposeModule%7C%7B%22to%22%3A%22wnbbx01%40163.com%22%7D" target="_blank" rel="noopener" class="footer-email">wnbbx01@163.com</a></p>
+            <p class="footer-contact">商务合作 / 投稿收录：<a href="javascript:void(0)" class="footer-email" onclick="openContactModal()">wnbbx01@163.com</a></p>
             <p class="footer-copy">&copy; 2026 万能百宝箱 Interest Resource Hub. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- ========== 商务合作弹窗 ========== -->
+    <div class="contact-overlay" id="contactOverlay">
+        <div class="contact-modal" id="contactModal">
+            <button class="contact-close" id="contactClose" aria-label="关闭">&times;</button>
+
+            <div class="contact-header">
+                <div class="contact-logo">🤝</div>
+                <h2 class="contact-title">商务合作</h2>
+                <p class="contact-subtitle">万能百宝箱 · Business Cooperation</p>
+            </div>
+
+            <div class="contact-body">
+                <!-- 关于我们 -->
+                <div class="contact-section">
+                    <h3 class="cs-title">🏠 关于万能百宝箱</h3>
+                    <p class="cs-text">万能百宝箱是一个面向<strong>大学生</strong>与<strong>职场新人</strong>的一站式效率工具导航平台，精选收录 1800+ 优质网站资源，涵盖 AI 工具、学术科研、求职简历、编程开发、PPT 制作等 20+ 板块。用户群体精准、活跃度高，是品牌推广与产品曝光的理想渠道。</p>
+                </div>
+
+                <!-- 合作形式 -->
+                <div class="contact-section">
+                    <h3 class="cs-title">💼 合作形式</h3>
+                    <div class="cooperation-types">
+                        <div class="coop-item">
+                            <span class="coop-icon">📌</span>
+                            <div>
+                                <strong>资源收录</strong>
+                                <p>优质工具/网站免费收录展示</p>
+                            </div>
+                        </div>
+                        <div class="coop-item">
+                            <span class="coop-icon">📢</span>
+                            <div>
+                                <strong>广告投放</strong>
+                                <p>轮播图、弹窗等黄金广告位</p>
+                            </div>
+                        </div>
+                        <div class="coop-item">
+                            <span class="coop-icon">🤝</span>
+                            <div>
+                                <strong>品牌联动</strong>
+                                <p>联合活动、内容共建等深度合作</p>
+                            </div>
+                        </div>
+                        <div class="coop-item">
+                            <span class="coop-icon">🔗</span>
+                            <div>
+                                <strong>友情链接</strong>
+                                <p>优质站点互相推荐导流</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 联系方式 -->
+                <div class="contact-section contact-email-section">
+                    <h3 class="cs-title">📧 联系方式</h3>
+                    <div class="contact-email-card">
+                        <div class="cec-label">合作邮箱</div>
+                        <div class="cec-address">wnbbx01@163.com</div>
+                        <div class="cec-note">⏰ 我们会在 <strong>3 个工作日内</strong>回复您的邮件</div>
+                    </div>
+                    <div class="contact-tips">
+                        <p>📝 邮件请注明：<strong>合作类型 + 品牌/产品名称 + 简要介绍</strong></p>
+                        <p>💡 如有现成的合作方案或报价需求，也欢迎一并发送</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                <button class="contact-send-btn" id="contactSendBtn">
+                    <span>💌 立即发送邮件</span>
+                    <small>跳转网易邮箱写信</small>
+                </button>
+                <p class="contact-disclaimer">感谢您的关注与信任，期待与您合作共赢！</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 意见反馈弹窗 ========== -->
+    <div class="contact-overlay" id="feedbackOverlay">
+        <div class="contact-modal feedback-modal" id="feedbackModal">
+            <button class="contact-close" id="feedbackClose" aria-label="关闭">&times;</button>
+
+            <div class="contact-header">
+                <div class="contact-logo">📩</div>
+                <h2 class="contact-title">意见反馈</h2>
+                <p class="contact-subtitle">万能百宝箱 · Feedback</p>
+            </div>
+
+            <div class="contact-body">
+                <!-- 反馈说明 -->
+                <div class="contact-section">
+                    <h3 class="cs-title">💬 我们想听到您的声音</h3>
+                    <p class="cs-text">万能百宝箱的成长离不开每一位用户的支持与建议。无论您是发现了好用的工具想要推荐，还是遇到了失效链接需要反馈，亦或是对网站有任何改进建议，都欢迎随时联系我们！</p>
+                </div>
+
+                <!-- 反馈类型 -->
+                <div class="contact-section">
+                    <h3 class="cs-title">📋 反馈类型</h3>
+                    <div class="cooperation-types">
+                        <div class="coop-item">
+                            <span class="coop-icon">🔧</span>
+                            <div>
+                                <strong>链接失效</strong>
+                                <p>发现无法访问的网站链接</p>
+                            </div>
+                        </div>
+                        <div class="coop-item">
+                            <span class="coop-icon">💡</span>
+                            <div>
+                                <strong>推荐工具</strong>
+                                <p>推荐好用的网站或工具</p>
+                            </div>
+                        </div>
+                        <div class="coop-item">
+                            <span class="coop-icon">🐛</span>
+                            <div>
+                                <strong>Bug 反馈</strong>
+                                <p>网站功能异常或体验问题</p>
+                            </div>
+                        </div>
+                        <div class="coop-item">
+                            <span class="coop-icon">✨</span>
+                            <div>
+                                <strong>功能建议</strong>
+                                <p>对新功能或改进的期望</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 联系方式 -->
+                <div class="contact-section feedback-email-section">
+                    <h3 class="cs-title">📧 联系邮箱</h3>
+                    <div class="contact-email-card">
+                        <div class="cec-label">反馈邮箱</div>
+                        <div class="cec-address">wnbbx01@163.com</div>
+                        <div class="cec-note">⏰ 我们会在 <strong>3 个工作日内</strong>处理您的反馈</div>
+                    </div>
+                    <div class="contact-tips">
+                        <p>📝 反馈时请尽量附上：<strong>具体页面 / 链接地址 / 问题描述</strong></p>
+                        <p>🎁 优质建议被采纳将获得我们的特别感谢！</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                <button class="contact-send-btn feedback-send-btn" id="feedbackSendBtn">
+                    <span>💌 立即发送反馈</span>
+                    <small>跳转网易邮箱写信</small>
+                </button>
+                <p class="contact-disclaimer">感谢您的反馈，我们会认真对待每一条建议！</p>
+            </div>
+        </div>
+    </div>
 
     <!-- ========== 网站说明 & 免责声明弹窗（首次访问展示） ========== -->
     <div class="intro-overlay" id="introOverlay">
