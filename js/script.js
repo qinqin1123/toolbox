@@ -4797,6 +4797,69 @@ function init() {
             });
         }
     }
+
+    // 商务合作弹窗
+    const contactOverlay = document.getElementById('contactOverlay');
+    const contactClose = document.getElementById('contactClose');
+    const contactSendBtn = document.getElementById('contactSendBtn');
+    const contactUrl = 'https://mail.163.com/js6/main.jsp#module=compose.ComposeModule%7C%7B%22to%22%3A%22wnbbx01%40163.com%22%7D';
+
+    window.openContactModal = function() {
+        if (contactOverlay) {
+            contactOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+    window.closeContactModal = function() {
+        if (contactOverlay) {
+            contactOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+    if (contactClose) {
+        contactClose.addEventListener('click', window.closeContactModal);
+    }
+    if (contactOverlay) {
+        contactOverlay.addEventListener('click', function(e) {
+            if (e.target === contactOverlay) window.closeContactModal();
+        });
+    }
+    if (contactSendBtn) {
+        contactSendBtn.addEventListener('click', function() {
+            window.open(contactUrl, '_blank');
+        });
+    }
+
+    // 意见反馈弹窗
+    const feedbackOverlay = document.getElementById('feedbackOverlay');
+    const feedbackClose = document.getElementById('feedbackClose');
+    const feedbackSendBtn = document.getElementById('feedbackSendBtn');
+
+    window.openFeedbackModal = function() {
+        if (feedbackOverlay) {
+            feedbackOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+    window.closeFeedbackModal = function() {
+        if (feedbackOverlay) {
+            feedbackOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+    if (feedbackClose) {
+        feedbackClose.addEventListener('click', window.closeFeedbackModal);
+    }
+    if (feedbackOverlay) {
+        feedbackOverlay.addEventListener('click', function(e) {
+            if (e.target === feedbackOverlay) window.closeFeedbackModal();
+        });
+    }
+    if (feedbackSendBtn) {
+        feedbackSendBtn.addEventListener('click', function() {
+            window.open(contactUrl, '_blank');
+        });
+    }
     renderRecentList();
     initEngineTabs();
     animateCount(totalCountEl, resources.length);
