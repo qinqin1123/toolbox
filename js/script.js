@@ -964,6 +964,8 @@ const resources = [
       review:'讯飞星火依托科大讯飞在语音技术领域的深厚积累，语音识别和语音合成能力是突出优势。支持语音输入和语音播报，适合不想打字的用户。文本处理能力合格但不算顶尖。与讯飞办公本的硬件联动是独特卖点。免费版功能完整。在国产AI中属于第二梯队，但语音交互体验是一大亮点。' },
     { name:'Claude',      url:'https://claude.ai',            desc:'Anthropic出品AI助手，长文分析和写作能力业界领先。',      category:'ai', type:'free',    rating:4.8, icon:'Cl', img:'claude.png',
       review:'Claude是ChatGPT最强劲的竞争对手之一，在长文本理解、精细写作和代码生成方面表现优异。支持上传大量文件进行深度分析，200K上下文窗口可以处理超长文档。安全性和诚实度方面口碑好。国内访问需要科学上网。适合需要深度阅读长文、精细写作的用户。目前免费额度比较慷慨。' },
+    { name:'Grok',        url:'https://grok.com',             desc:'xAI出品AI助手，实时接入X平台数据，幽默风趣。',          category:'ai', type:'free',    rating:4.6, icon:'Gr', img:'grok.png',
+      review:'Grok由Elon Musk的xAI公司推出，最大特色是实时接入X（原Twitter）平台的最新信息，在时事热点和实时资讯方面远超其他AI助手。回答风格幽默大胆，支持图片生成（基于Flux模型）。Grok-3模型在推理和代码能力方面表现强劲。免费版有一定使用额度，Premium解锁完整功能。国内访问需要科学上网。适合追求实时信息和独特对话体验的用户。' },
     { name:'Gemini',      url:'https://gemini.google.com',    desc:'谷歌出品AI助手，多模态能力和搜索整合出色。',           category:'ai', type:'free',    rating:4.7, icon:'Ge', img:'gemini.ico',
       review:'Gemini是谷歌推出的多模态AI助手，原生支持图片、视频、音频理解。与谷歌搜索深度整合，信息获取能力很强。免费版提供多种模型选择。多模态交互体验出色，可以上传图片问问题。国内需要科学上网。适合需要多模态AI能力的用户，以及已有Google生态使用习惯的人。' },
     { name:'通义万相',    url:'https://tongyi.aliyun.com/wanxiang', desc:'阿里出品AI绘画工具，免费生成高质量中文风格图片。',   category:'ai', type:'free',    rating:4.5, icon:'相', img:'wanxiang.png',
@@ -4576,11 +4578,50 @@ function toggleFavorite(item, e) {
     });
 }
 
+// 收藏列表拖拽排序
+function initFavDragSort(container) {
+    if (!container) return;
+    const items = () => container.querySelectorAll('.fav-item');
+    let dragEl = null;
+
+    container.addEventListener('pointerdown', (e) => {
+        if (!e.target.classList.contains('fav-drag-handle')) return;
+        const item = e.target.closest('.fav-item');
+        if (!item) return;
+        dragEl = item;
+        dragEl.classList.add('fav-item-dragging');
+        e.preventDefault();
+    });
+
+    document.addEventListener('pointermove', (e) => {
+        if (!dragEl || !container.contains(e.target)) return;
+        const siblings = [...container.querySelectorAll('.fav-item:not(.fav-item-dragging)')];
+        const afterSibling = siblings.find(sibling => {
+            const rect = sibling.getBoundingClientRect();
+            return e.clientY < rect.top + rect.height / 2;
+        });
+        container.insertBefore(dragEl, afterSibling || null);
+    });
+
+    document.addEventListener('pointerup', () => {
+        if (!dragEl) return;
+        dragEl.classList.remove('fav-item-dragging');
+        // 同步新顺序到 favorites 数组
+        const newOrder = [...container.querySelectorAll('.fav-item')].map(el => el.dataset.name);
+        const reordered = [];
+        newOrder.forEach(name => {
+            const item = favorites.find(f => f.name === name);
+            if (item) reordered.push(item);
+        });
+        favorites = reordered;
+        saveFavorites();
+        dragEl = null;
+    });
+}
+
 function renderFavList() {
     const favList = document.getElementById('favList');
     const favListDrawer = document.getElementById('favListDrawer');
-    const favExportBtn = document.getElementById('favExportBtn');
-
     const html = favorites.length === 0
         ? '<div class="fav-empty">点击卡片 🤍 收藏资源</div>'
         : favorites.map(f => {
@@ -4590,6 +4631,7 @@ function renderFavList() {
                 ? `images/${f.img}`
                 : `https://www.google.com/s2/favicons?domain=${hostname}&sz=32`;
             return `<div class="fav-item" data-name="${escapeHtml(f.name)}">
+                <span class="fav-drag-handle" title="拖拽排序">≡</span>
                 <img src="${faviconUrl}" width="16" height="16" style="border-radius:3px;flex-shrink:0;"
                     onerror="this.style.display='none';">
                 <span class="fav-name">${escapeHtml(f.name)}</span>
@@ -4599,16 +4641,17 @@ function renderFavList() {
 
     if (favList) favList.innerHTML = html;
     if (favListDrawer) favListDrawer.innerHTML = html;
-    if (favExportBtn) favExportBtn.style.display = favorites.length > 0 ? 'block' : 'none';
-    const favExportBtnDrawer = document.getElementById('favExportBtnDrawer');
-    if (favExportBtnDrawer) favExportBtnDrawer.style.display = favorites.length > 0 ? 'block' : 'none';
+
+    // 初始化拖拽排序
+    initFavDragSort(favList);
+    initFavDragSort(favListDrawer);
 
     // 收藏列表点击：跳转弹窗
     [favList, favListDrawer].forEach(el => {
         if (!el) return;
         el.querySelectorAll('.fav-item').forEach(item => {
             item.addEventListener('click', (e) => {
-                if (e.target.classList.contains('fav-remove')) return;
+                if (e.target.classList.contains('fav-remove') || e.target.classList.contains('fav-drag-handle')) return;
                 const name = item.dataset.name;
                 const res = resources.find(r => r.name === name);
                 if (res) openDetail(res);
@@ -4630,24 +4673,6 @@ function renderFavList() {
     });
 }
 
-// 导出收藏为 CSV
-const favExportBtn = document.getElementById('favExportBtn');
-function exportFavoritesCSV() {
-    const rows = [['名称', '网址', '分类']];
-    favorites.forEach(f => {
-        const catName = CATEGORIES.find(c => c.id === f.category)?.name || f.category;
-        rows.push([f.name, f.url, catName]);
-    });
-    const csv = rows.map(r => r.map(v => `"${v}"`).join(',')).join('\n');
-    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = '我的收藏-万能百宝箱.csv';
-    a.click(); URL.revokeObjectURL(url);
-}
-if (favExportBtn) favExportBtn.addEventListener('click', exportFavoritesCSV);
-const favExportBtnDrawer2 = document.getElementById('favExportBtnDrawer');
-if (favExportBtnDrawer2) favExportBtnDrawer2.addEventListener('click', exportFavoritesCSV);
 
 // ============================================
 // 截图 Lightbox 大图预览
@@ -4756,6 +4781,22 @@ function init() {
     renderCards();
     // loadPolicyNews();  // 已隐藏政策热点
     renderFavList();
+    // 首次访问：展示网站说明 & 免责声明
+    if (!localStorage.getItem('toolbox_intro_shown')) {
+        const introOverlay = document.getElementById('introOverlay');
+        const introConfirmBtn = document.getElementById('introConfirmBtn');
+        if (introOverlay) {
+            introOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        if (introConfirmBtn) {
+            introConfirmBtn.addEventListener('click', () => {
+                introOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                localStorage.setItem('toolbox_intro_shown', '1');
+            });
+        }
+    }
     renderRecentList();
     initEngineTabs();
     animateCount(totalCountEl, resources.length);
