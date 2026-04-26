@@ -1,25 +1,32 @@
 /**
- * 万能百宝箱 - 核心脚本 v4.0
- * 10大板块 · 100+ 精选资源 · 子分类折叠 · 搜索/筛选/热榜
+ * 万能百宝箱 - 核心脚本 v5.0
+ * 14大板块 · 500+ 精选资源 · 全类目导航站
  */
 
 // ============================================
 // 板块定义
 // ============================================
 const CATEGORIES = [
-    { id: 'all',      name: '全部',       icon: '🌟' },
-    { id: 'ppt',      name: 'PPT模板',    icon: '📊' },
-    { id: 'word',     name: 'Word文档',   icon: '📝' },
-    { id: 'excel',    name: 'Excel表格',  icon: '📈' },
-    { id: 'mindmap',  name: '思维导图',   icon: '🧠' },
-    { id: 'academic', name: '学术科研',   icon: '🎓' },
-    { id: 'ai',       name: 'AI工具',     icon: '🤖' },
-    { id: 'resume',   name: '简历求职',   icon: '💼' },
-    { id: 'exam',     name: '公考考编',   icon: '📋' },
-    { id: 'coding',   name: '编程学习',   icon: '💻' },
-    { id: 'startup',  name: '创业工具',   icon: '🚀' },
-    { id: 'gov',      name: '政府官网',   icon: '🏛️' },
-    { id: 'brands',   name: '品牌官网',   icon: '🌐' },
+    { id: 'all',           name: '全部',       icon: '🗂️' },
+    { id: 'search',        name: '搜索引擎',   icon: '🔍' },
+    { id: 'entertainment', name: '影视娱乐',   icon: '🎬' },
+    { id: 'tool',          name: '在线工具',   icon: '🛠️' },
+    { id: 'design',        name: '设计素材',   icon: '🎨' },
+    { id: 'finance',       name: '金融财经',   icon: '💰' },
+    { id: 'life',          name: '生活服务',   icon: '🏪' },
+    { id: 'netdisk',       name: '网盘资源',   icon: '☁️' },
+    { id: 'ppt',           name: 'PPT模板',    icon: '📊' },
+    { id: 'word',          name: 'Word文档',   icon: '📝' },
+    { id: 'excel',         name: 'Excel表格',  icon: '📈' },
+    { id: 'mindmap',       name: '思维导图',   icon: '🧠' },
+    { id: 'academic',      name: '学术科研',   icon: '🎓' },
+    { id: 'ai',            name: 'AI工具',     icon: '🤖' },
+    { id: 'resume',        name: '简历求职',   icon: '💼' },
+    { id: 'exam',          name: '公考考编',   icon: '📋' },
+    { id: 'coding',        name: '编程学习',   icon: '💻' },
+    { id: 'startup',       name: '创业工具',   icon: '🚀' },
+    { id: 'gov',           name: '政府官网',   icon: '🏛️' },
+    { id: 'brands',        name: '品牌官网',   icon: '🌐' },
 ];
 
 // 政府官网多级行政区划
@@ -564,12 +571,229 @@ const QUICK_TOOLS = [
 // sub: 创业板块子分类ID（仅startup板块需要）
 // ============================================
 const resources = [
+
+    // ============ 搜索引擎 ============
+    { name:'百度',            url:'https://www.baidu.com',            desc:'国内最大中文搜索引擎，日均搜索请求数十亿次，中文内容最全面。',           category:'search', type:'free', rating:4.8, icon:'百', img:'baidu.png',
+      review:'百度是中文互联网的入口，中文内容覆盖最全，尤其是本地生活、新闻资讯和政务查询。虽然搜索质量有时被诟病（广告多、SEO噪音），但在查国内政策文件、中文教程、地图服务等方面仍是首选。结合"百度学术"使用体验更佳。' },
+    { name:'谷歌',            url:'https://www.google.com',           desc:'全球最强搜索引擎，英文技术文档、学术论文和开源资源首选。',               category:'search', type:'free', rating:5.0, icon:'Go',
+      review:'谷歌的搜索算法是全球标杆，尤其适合搜索英文技术文档、StackOverflow答案、GitHub项目和国际学术资源。PageRank算法使结果质量普遍高于其他引擎。开发者必备，配合翻墙工具使用。' },
+    { name:'必应',            url:'https://www.bing.com',             desc:'微软旗下搜索引擎，国内可直接访问，集成AI对话，图片搜索强。',             category:'search', type:'free', rating:4.5, icon:'Bi', img:'bing.ico',
+      review:'必应是国内可稳定访问的国际搜索引擎，图片搜索质量极高，每日更换的壁纸也非常漂亮。集成了Copilot AI对话功能，可以直接在搜索框里问问题得到总结性回答。对英文内容的检索质量不亚于谷歌。' },
+    { name:'Perplexity AI',   url:'https://www.perplexity.ai',        desc:'AI驱动搜索引擎，有引用来源，回答准确，取代传统搜索体验。',               category:'search', type:'free', rating:4.8, icon:'PP',
+      review:'Perplexity是AI搜索的标杆产品，每次回答都会标注信息来源，可信度比ChatGPT更高。搜索问题会给出结构化总结，还能追问深挖。免费版已经很好用，对于研究型问题和技术查询体验比传统搜索好得多。' },
+    { name:'夸克搜索',        url:'https://quark.sm.cn',              desc:'阿里旗下智能搜索，无广告纯净体验，学术论文和资源搜索强。',               category:'search', type:'free', rating:4.6, icon:'夸', img:'quark.ico',
+      review:'夸克搜索的最大亮点是干净——首页无广告，搜索结果也相对纯净。对学生党来说，夸克网盘+夸克搜索的组合非常实用，直接搜题、搜资料、搜文件一站解决。手机端体验尤为出色。' },
+    { name:'搜狗搜索',        url:'https://www.sogou.com',            desc:'腾讯旗下搜索，微信/公众号内容独家收录，查微信文章首选。',                 category:'search', type:'free', rating:4.3, icon:'搜' , img:'sogou.ico' },
+    { name:'360搜索',         url:'https://www.so.com',               desc:'360旗下搜索引擎，中文内容检索，安全过滤较好。',                         category:'search', type:'free', rating:4.0, icon:'36' , img:'so360.ico' },
+    { name:'DuckDuckGo',      url:'https://duckduckgo.com',           desc:'注重隐私的搜索引擎，不追踪用户数据，无个性化广告。',                     category:'search', type:'free', rating:4.5, icon:'DG' },
+    { name:'Wolfram Alpha',   url:'https://www.wolframalpha.com',     desc:'计算知识引擎，数学运算、科学数据、统计分析神器。',                       category:'search', type:'free', rating:4.7, icon:'WA' },
+    { name:'GitHub Search',   url:'https://github.com/search',        desc:'全球最大代码托管平台搜索，找开源项目和代码片段。',                       category:'search', type:'free', rating:4.8, icon:'GH', img:'github_com.ico' },
+    { name:'哔哩哔哩搜索',    url:'https://search.bilibili.com',      desc:'B站站内搜索，找视频教程、知识科普、技术讲解最全面。',                    category:'search', type:'free', rating:4.6, icon:'BS', img:'search_bilibili_com.ico' },
+    { name:'知乎搜索',        url:'https://www.zhihu.com/search',     desc:'专业问答社区搜索，查行业见解、方法论和深度分析。',                       category:'search', type:'free', rating:4.5, icon:'ZS', img:'zhihu_com.ico' },
+
+    // ============ 在线工具 ============
+
+    // --- 图片处理 ---
+    { name:'TinyPNG',         url:'https://tinypng.com',              desc:'最流行的在线图片压缩工具，PNG/JPEG无损压缩，压缩率高达80%。',            category:'tool', type:'free', rating:4.9, icon:'TP',
+      review:'TinyPNG是前端开发者和设计师压缩图片的首选工具，算法先进，在肉眼看不出差异的情况下可以压缩70-80%的文件大小。支持批量上传，免费版每月500张。对于网站优化和发邮件附件来说是必备神器。' },
+    { name:'Remove.bg',       url:'https://www.remove.bg',            desc:'AI一键智能抠图，背景自动去除，效果专业，秒出结果。',                    category:'tool', type:'free', rating:4.8, icon:'RB', img:'remove_bg.ico',
+      review:'Remove.bg的AI抠图效果令人惊艳，尤其对人像抠图准确率极高，头发丝级别处理，完全不需要PS基础。免费版分辨率有限制，付费版可导出高清原图。对于证件照换背景、商品图处理来说效率提升10倍以上。' },
+    { name:'Squoosh',         url:'https://squoosh.app',              desc:'谷歌出品在线图片压缩工具，支持WebP转换，本地处理隐私安全。',             category:'tool', type:'free', rating:4.7, icon:'SQ' },
+    { name:'图片工厂',        url:'https://www.img.pub',              desc:'国内图片处理平台，压缩/裁剪/格式转换/加水印一站式。',                   category:'tool', type:'free', rating:4.4, icon:'图' },
+
+    // --- 格式转换 ---
+    { name:'iLovePDF',        url:'https://www.ilovepdf.com',         desc:'PDF在线处理全能站，合并/拆分/压缩/PDF转Word/Excel全功能。',            category:'tool', type:'free', rating:4.8, icon:'IP',
+      review:'iLovePDF是处理PDF的瑞士军刀，合并、分割、压缩、PDF转Word/Excel/PPT，Word转PDF，全都支持且免费。界面简洁易用，处理速度快，对于经常需要转换文件格式的职场人来说是高频工具，强烈推荐。' },
+    { name:'SmallPDF',        url:'https://smallpdf.com',             desc:'PDF全能在线工具，压缩/转换/编辑，支持电子签名。',                      category:'tool', type:'free', rating:4.7, icon:'SP', img:'smallpdf_com.ico' },
+    { name:'CloudConvert',    url:'https://cloudconvert.com',         desc:'支持200+格式的在线文件转换，视频/音频/文档/图片全支持。',               category:'tool', type:'free', rating:4.6, icon:'CC' },
+    { name:'Convertio',       url:'https://convertio.co/zh',          desc:'在线文件格式转换，支持超300种格式，简单快速。',                         category:'tool', type:'free', rating:4.5, icon:'CO', img:'convertio_co.ico' },
+
+    // --- 实用工具 ---
+    { name:'二维码生成器',    url:'https://cli.im',                   desc:'草料二维码，功能最全的二维码在线生成和解码工具。',                      category:'tool', type:'free', rating:4.7, icon:'QR', img:'cli_im.ico',
+      review:'草料二维码是国内最好用的二维码生具，支持文本、网址、名片、WiFi、地图等多种内容类型。活码功能可以在不改变二维码的情况下修改跳转目标，非常实用。还有统计功能，知道多少人扫了你的码。' },
+    { name:'短链接',          url:'https://www.shorturl.at',          desc:'在线短链接生成工具，将长URL压缩成简短易记的链接。',                    category:'tool', type:'free', rating:4.3, icon:'短' , img:'shorturl.ico' },
+    { name:'临时邮箱',        url:'https://temp-mail.org',            desc:'一次性临时邮箱，注册账号防骚扰，保护真实邮箱隐私。',                   category:'tool', type:'free', rating:4.6, icon:'临' },
+    { name:'OCR文字识别',     url:'https://web.baiducloud.com/ocr',   desc:'百度OCR，图片/扫描件文字识别，准确率高，多语言支持。',                 category:'tool', type:'free', rating:4.5, icon:'OC', img:'web_baiducloud_com.ico' },
+    { name:'在线计时器',      url:'https://www.timer.guru',           desc:'简洁的在线计时器，番茄钟/倒计时/正计时，专注工作必备。',               category:'tool', type:'free', rating:4.4, icon:'计' , img:'timer.ico' },
+    { name:'JSON格式化',      url:'https://jsonformatter.curiousconcept.com', desc:'在线JSON格式化/验证/美化工具，开发调试必备。',              category:'tool', type:'free', rating:4.7, icon:'JS' },
+    { name:'正则表达式测试',  url:'https://regex101.com',             desc:'在线正则表达式测试工具，支持多种语言，有详细解释。',                   category:'tool', type:'free', rating:4.8, icon:'正', img:'regex101_com.ico' },
+    { name:'颜色工具',        url:'https://www.colorhexa.com',        desc:'颜色代码查询和转换，HEX/RGB/HSL互转，配色方案生成。',                  category:'tool', type:'free', rating:4.5, icon:'色' },
+    { name:'在线截图',        url:'https://screenshot.guru',          desc:'在线截取任意网页截图，支持全页面截图和手机端预览。',                   category:'tool', type:'free', rating:4.3, icon:'截' , img:'screenshot.ico' },
+    { name:'Favicon生成器',   url:'https://favicon.io',               desc:'在线生成网站Favicon图标，支持文字/图片/Emoji转ICO。',                  category:'tool', type:'free', rating:4.6, icon:'Fv' },
+    { name:'IPIP.NET',        url:'https://www.ipip.net',             desc:'IP查询和网络工具，查本机IP、Ping测试、路由追踪。',                     category:'tool', type:'free', rating:4.5, icon:'IP' , img:'ipip.ico' },
+    { name:'在线翻译',        url:'https://fanyi.baidu.com',          desc:'百度翻译，支持200+语言，文档翻译/图片翻译/语音翻译全覆盖。',           category:'tool', type:'free', rating:4.6, icon:'译', img:'fanyi_baidu_com.ico' },
+    { name:'DeepL翻译',       url:'https://www.deepl.com',            desc:'AI神经网络翻译，英文翻中文质量远超谷歌翻译，学术写作必备。',            category:'tool', type:'free', rating:4.9, icon:'DL', img:'deepl_com.ico',
+      review:'DeepL的翻译质量是目前最接近人工翻译的工具，特别是英译中/中译英，语句通顺自然。翻译学术论文、阅读英文文档非常好用。免费版每次翻译5000字，付费版无限制。比谷歌翻译强太多了。' },
+    { name:'有道词典',        url:'https://dict.youdao.com',          desc:'网易旗下词典工具，单词例句/翻译/写作助手，学英语必备。',               category:'tool', type:'free', rating:4.7, icon:'有' , img:'youdao.ico' },
+    { name:'ProcessOn',       url:'https://www.processon.com',        desc:'在线流程图和图表绘制，UML/流程图/ER图/架构图模板丰富。',               category:'tool', type:'free', rating:4.7, icon:'Pro', img:'processon_com.ico',
+      review:'ProcessOn是国内最流行的在线图表工具，画流程图、UML图、ER图、网络拓扑图等都非常方便。免费版可以保存9个文件，基本够用。模板库丰富，可以直接套用修改。协作功能也很不错，团队一起改图很方便。' },
+    { name:'draw.io',         url:'https://app.diagrams.net',         desc:'免费开源流程图工具，本地保存无账号，支持导出多种格式。',               category:'tool', type:'free', rating:4.8, icon:'Di' , img:'drawio.ico' },
+
+    // ============ 设计素材 ============
+
+    // --- 图标素材 ---
+    { name:'Iconfont',        url:'https://www.iconfont.cn',          desc:'阿里巴巴矢量图标库，百万图标免费下载，支持SVG/PNG/Font。',            category:'design', type:'free', rating:4.9, icon:'IC', img:'iconfont.ico',
+      review:'Iconfont是中国设计师用量最大的图标库，由阿里巴巴维护，质量稳定可靠。不仅是图标下载，还支持将多个图标打包成字体文件用于前端开发。对于UI设计和前端开发者来说是必备资源，免费使用，强烈推荐。' },
+    { name:'Flaticon',        url:'https://www.flaticon.com',         desc:'全球最大图标素材库，数百万免费图标，多种格式下载。',                  category:'design', type:'free', rating:4.8, icon:'FI' , img:'flaticon.ico' },
+    { name:'Icons8',          url:'https://icons8.com',               desc:'丰富的图标/插画/照片/音乐素材库，设计师一站式素材中心。',             category:'design', type:'free', rating:4.7, icon:'I8' , img:'icons8.ico' },
+    { name:'Font Awesome',    url:'https://fontawesome.com',          desc:'Web开发最常用图标字体库，6000+图标，前端必备。',                      category:'design', type:'free', rating:4.8, icon:'FA' , img:'fontawesome.ico' },
+
+    // --- 字体 ---
+    { name:'Google Fonts',    url:'https://fonts.google.com',         desc:'谷歌免费字体库，1400+精美字体，商用免费。',                          category:'design', type:'free', rating:4.8, icon:'GF' },
+    { name:'字体天下',        url:'https://www.fontke.com',           desc:'国内最全中文字体下载站，商用字体/特效字体/手写字体。',               category:'design', type:'free', rating:4.5, icon:'字' , img:'fontke.ico' },
+    { name:'Adobe Fonts',     url:'https://fonts.adobe.com',          desc:'Adobe出品高端字体库，CC套件订阅用户免费使用数千款字体。',            category:'design', type:'free', rating:4.7, icon:'AF' , img:'adobefonts.ico' },
+
+    // --- 设计工具 ---
+    { name:'Canva',           url:'https://www.canva.com',            desc:'在线平面设计神器，海量模板一键套用，无需设计基础。',                  category:'design', type:'free', rating:4.9, icon:'Ca', img:'canva_com.ico',
+      review:'Canva是非设计师的救星，海量高质量模板覆盖海报、PPT、社媒图片、名片、简历等所有场景。拖拽操作极为简单，免费版已经很强大。国内版也很稳定。做公众号封面、活动宣传图、简历封面等用Canva效率是PS的10倍。' },
+    { name:'Figma',           url:'https://www.figma.com',            desc:'专业UI/UX设计工具，云端协作，行业标准设计软件。',                    category:'design', type:'free', rating:4.9, icon:'Fg', img:'figma_com.ico',
+      review:'Figma已经成为UI/UX设计的行业标准工具，云端实时协作让设计师和开发者的配合更流畅。免费版支持3个项目，对个人学习和小团队完全够用。如果你想学UI设计，从Figma开始是最正确的选择。' },
+    { name:'站酷海洛',        url:'https://www.hellorf.com',          desc:'正版商用图库，高质量图片/视频/音乐，付费可商用。',                  category:'design', type:'vip', rating:4.6, icon:'酷' },
+    { name:'Unsplash',        url:'https://unsplash.com',             desc:'全球最大免费高清图库，摄影师贡献，商用免费，无需标注来源。',          category:'design', type:'free', rating:4.9, icon:'US', img:'unsplash.ico',
+      review:'Unsplash的图片质量是所有免费图库里最高的，全部由专业摄影师贡献，所有图片商用免费且无需标注来源。做PPT、设计海报、写博客需要配图，首选Unsplash，找到的概率极高，质量远超百度图片。' },
+    { name:'Pexels',          url:'https://www.pexels.com',           desc:'免费商用高清图库，图片和视频素材均可免费商用。',                     category:'design', type:'free', rating:4.8, icon:'Px' , img:'pexels.ico' },
+    { name:'Pixabay',         url:'https://pixabay.com',              desc:'200万+免费图片/视频/音乐，CCO版权可完全免费商用。',                  category:'design', type:'free', rating:4.7, icon:'PX' , img:'pixabay.ico' },
+    { name:'FreePik',         url:'https://www.freepik.com',          desc:'海量免费矢量图/PSD/图标/模板，标注来源可免费使用。',                 category:'design', type:'free', rating:4.7, icon:'FP' , img:'freepik.ico' },
+    { name:'Adobe Color',     url:'https://color.adobe.com',          desc:'Adobe配色工具，色轮调色、配色方案生成、从图片提取颜色。',            category:'design', type:'free', rating:4.7, icon:'AC' , img:'adobecolor.ico' },
+    { name:'Coolors',         url:'https://coolors.co',               desc:'流行配色方案生成器，按空格键随机生成美观配色，设计师必备。',          category:'design', type:'free', rating:4.8, icon:'CL' , img:'coolors.ico' },
+    { name:'阿里云设计',      url:'https://yundesign.aliyun.com',     desc:'阿里云出品设计资源平台，电商设计/Banner/营销物料素材。',             category:'design', type:'free', rating:4.3, icon:'云' },
+
+    // ============ 金融财经 ============
+    { name:'东方财富',        url:'https://www.eastmoney.com',        desc:'国内最大财经门户，股票行情/基金净值/财经资讯全覆盖。',               category:'finance', type:'free', rating:4.8, icon:'东', img:'eastmoney_com.ico',
+      review:'东方财富是A股散户最高频使用的财经平台，股票行情、基金净值、财经新闻、上市公司公告应有尽有。天天基金也是它旗下的。手机端炒股开户也越来越多，数据更新及时，研究报告多，强烈推荐。' },
+    { name:'同花顺',          url:'https://www.10jqka.com.cn',        desc:'老牌股票软件，行情分析/选股工具/量化策略，专业投资者首选。',          category:'finance', type:'free', rating:4.7, icon:'同', img:'10jqka_com_cn.ico' },
+    { name:'雪球',            url:'https://xueqiu.com',               desc:'投资者社区，大V分析/组合投资/深度研究，理财学习平台。',              category:'finance', type:'free', rating:4.7, icon:'雪', img:'xueqiu.ico',
+      review:'雪球是中国最有深度的投资社区，汇聚了大量有实力的个人投资者和机构人士分享观点。可以关注大V、学习分析方法、看投资组合表现。对于想系统学习投资的人来说，雪球是最好的免费学习平台之一。' },
+    { name:'财联社',          url:'https://www.cls.cn',               desc:'专业财经资讯媒体，电报快讯实时推送，机构级信息平台。',              category:'finance', type:'free', rating:4.6, icon:'财' },
+    { name:'招商银行',        url:'https://www.cmbchina.com',         desc:'招商银行官网，账户管理/理财产品/贷款申请。',                        category:'finance', type:'free', rating:4.5, icon:'招', img:'cmbchina_com.ico' },
+    { name:'支付宝理财',      url:'https://fortune.alipay.com',       desc:'支付宝理财频道，余额宝/基金/保险/黄金投资入口。',                   category:'finance', type:'free', rating:4.6, icon:'宝', img:'fortune_alipay_com.ico' },
+    { name:'天天基金',        url:'https://fund.eastmoney.com',       desc:'东方财富旗下基金超市，基金查询/排行/购买一站式。',                  category:'finance', type:'free', rating:4.7, icon:'基' , img:'fund.ico' },
+    { name:'理杏仁',          url:'https://www.lixinger.com',         desc:'A股基本面数据平台，财务指标/估值分析/量化选股。',                   category:'finance', type:'free', rating:4.6, icon:'杏' , img:'lixinger.ico' },
+    { name:'万得资讯',        url:'https://www.wind.com.cn',          desc:'Wind金融数据，机构首选金融数据终端，数据权威全面。',               category:'finance', type:'vip', rating:4.9, icon:'W', img:'wind.png' },
+    { name:'Choice数据',      url:'https://choice.eastmoney.com',     desc:'东方财富旗下金融数据平台，替代Wind的性价比之选。',                  category:'finance', type:'vip', rating:4.7, icon:'CH' , img:'choice.ico' },
+    { name:'汇率换算',        url:'https://www.xe.com',               desc:'全球实时汇率换算，支持170+货币，金融出行必备。',                    category:'finance', type:'free', rating:4.8, icon:'汇' , img:'xe.ico' },
+    { name:'英为财情',        url:'https://cn.investing.com',         desc:'全球金融数据平台，覆盖股票/期货/外汇/加密货币。',                   category:'finance', type:'free', rating:4.7, icon:'英' , img:'investing.ico' },
+    { name:'CoinMarketCap',   url:'https://coinmarketcap.com',        desc:'全球最权威加密货币行情平台，实时价格/市值/涨跌数据。',              category:'finance', type:'free', rating:4.7, icon:'CM' },
+    { name:'MacroTrends',     url:'https://www.macrotrends.net',      desc:'美股财务数据和宏观经济数据平台，历史数据丰富可视化。',              category:'finance', type:'free', rating:4.6, icon:'MT' },
+
+    // ============ 生活服务 ============
+    { name:'淘宝',            url:'https://www.taobao.com',           desc:'国内最大综合电商平台，海量商品低价，买什么都有。',                   category:'life', type:'free', rating:4.7, icon:'淘', img:'taobao_com.ico' },
+    { name:'京东',            url:'https://www.jd.com',               desc:'自营电商，正品保障，物流快，电子产品和家电首选。',                   category:'life', type:'free', rating:4.8, icon:'JD' , img:'jd.ico' },
+    { name:'拼多多',          url:'https://www.pinduoduo.com',        desc:'社交拼购电商，工厂直发，低价好物，下沉市场优势明显。',              category:'life', type:'free', rating:4.5, icon:'拼' },
+    { name:'美团',            url:'https://www.meituan.com',          desc:'本地生活服务平台，外卖/团购/酒店/电影票一站搞定。',                 category:'life', type:'free', rating:4.8, icon:'美' , img:'meituan.ico' },
+    { name:'饿了么',          url:'https://www.ele.me',               desc:'阿里旗下外卖平台，骑手快配送，饿了就叫外卖。',                     category:'life', type:'free', rating:4.6, icon:'饿' , img:'eleme.ico' },
+    { name:'12306',           url:'https://www.12306.cn',             desc:'中国铁路官方购票平台，火车票/高铁票/动车票唯一官方渠道。',          category:'life', type:'free', rating:4.7, icon:'12' , img:'12306.ico' },
+    { name:'携程',            url:'https://www.ctrip.com',            desc:'综合旅行平台，机票/火车票/酒店/景点/旅游套餐预订。',               category:'life', type:'free', rating:4.7, icon:'程' , img:'ctrip.ico' },
+    { name:'去哪儿',          url:'https://www.qunar.com',            desc:'旅行搜索引擎，比价购买机票/酒店，低价出行首选。',                   category:'life', type:'free', rating:4.6, icon:'哪' , img:'qunar.ico' },
+    { name:'滴滴出行',        url:'https://www.didiglobal.com',       desc:'国内最大网约车平台，打车/顺风车/代驾/货运全覆盖。',                category:'life', type:'free', rating:4.6, icon:'滴' , img:'didi.ico' },
+    { name:'高德地图',        url:'https://www.amap.com',             desc:'阿里旗下地图，导航精准，生活服务信息丰富，推荐使用。',              category:'life', type:'free', rating:4.9, icon:'高' , img:'amap.ico' },
+    { name:'百度地图',        url:'https://map.baidu.com',            desc:'百度旗下地图导航，国内覆盖广，公交/骑行路线规划好用。',             category:'life', type:'free', rating:4.7, icon:'地' , img:'mapbaidu.ico' },
+    { name:'大众点评',        url:'https://www.dianping.com',         desc:'餐厅/景点评价平台，找好吃的好玩的必备，用户评价真实。',             category:'life', type:'free', rating:4.7, icon:'评' , img:'dianping.ico' },
+    { name:'闲鱼',            url:'https://www.goofish.com',          desc:'阿里旗下二手交易平台，买卖二手物品，捡漏淘货神器。',               category:'life', type:'free', rating:4.6, icon:'鱼' , img:'goofish.png' },
+    { name:'转转',            url:'https://www.zhuanzhuan.com',       desc:'京东旗下二手交易平台，验货保障，手机数码回收首选。',               category:'life', type:'free', rating:4.5, icon:'转' , img:'zhuanzhuan.ico' },
+    { name:'叮咚买菜',        url:'https://www.ddxq.mobi',            desc:'生鲜电商极速达，30分钟送上门，新鲜蔬菜水果肉类。',                category:'life', type:'free', rating:4.5, icon:'叮' , img:'ddxq.ico' },
+    { name:'微医',            url:'https://www.guahao.com',           desc:'在线挂号和问诊平台，三甲医院预约挂号，医疗健康服务。',             category:'life', type:'free', rating:4.4, icon:'医' , img:'guahao.ico' },
+    { name:'得物',            url:'https://www.dewu.com',             desc:'正品潮流商品鉴别平台，球鞋/潮服/手表防伪验货。',                   category:'life', type:'free', rating:4.5, icon:'物' , img:'dewu.ico' },
+    { name:'小米商城',        url:'https://www.mi.com',               desc:'小米官方商城，手机/智能家居/生态链产品，性价比高。',               category:'life', type:'free', rating:4.6, icon:'MI', img:'mi_com.ico' },
+    { name:'苏宁易购',        url:'https://www.suning.com',           desc:'家电零售平台，线上线下一体，家电/数码/生活用品。',                 category:'life', type:'free', rating:4.4, icon:'苏' , img:'suning.ico' },
+    { name:'贝壳找房',        url:'https://www.ke.com',               desc:'房屋买卖和租赁平台，真实房源，找房租房最专业平台。',               category:'life', type:'free', rating:4.6, icon:'贝' , img:'ke.ico' },
+
+    // ============ 网盘资源 ============
+    { name:'百度网盘',        url:'https://pan.baidu.com',            desc:'国内最大网盘，免费2TB存储，分享文件和个人备份首选。',              category:'netdisk', type:'free', rating:4.5, icon:'BP',
+      review:'百度网盘是国内用量最大的云存储服务，免费2TB存储对个人来说绰绰有余。主要问题是非会员下载速度被限速，大文件下载体验差。但作为文件归档、分享素材资料来说还是很方便的。资源分享社区也很活跃，能找到很多学习资料。' },
+    { name:'阿里云盘',        url:'https://www.alipan.com',           desc:'阿里旗下云盘，不限速下载，免费100GB空间，体验好。',               category:'netdisk', type:'free', rating:4.8, icon:'AP', img:'alipan_com.ico',
+      review:'阿里云盘是目前个人用户体验最好的国内云盘，最大亮点是不限速下载！免费100GB空间，手机/电脑端界面都很流畅。分享功能完善，资源社区也在快速成长。强烈推荐替代百度网盘作为主力云盘使用。' },
+    { name:'夸克网盘',        url:'https://pan.quark.cn',             desc:'夸克旗下云盘，内置搜索和文档解析，学生党学习神器。',              category:'netdisk', type:'free', rating:4.7, icon:'QK', img:'pan_quark_cn.ico',
+      review:'夸克网盘的特色是内置了强大的文档预览和搜索功能，PDF/Word/PPT可以直接在网页上阅读，还支持OCR识别。存储空间免费100GB，配合夸克浏览器用体验更好。学习资料很多，搜索功能方便找资源。' },
+    { name:'天翼云盘',        url:'https://cloud.189.cn',             desc:'中国电信旗下云盘，免费60GB，稳定可靠，不限速。',                  category:'netdisk', type:'free', rating:4.4, icon:'天' },
+    { name:'坚果云',          url:'https://www.jianguoyun.com',       desc:'专业网盘，WebDAV支持，支持Obsidian/Zotero等工具同步。',           category:'netdisk', type:'free', rating:4.7, icon:'坚', img:'jianguoyun_com.ico',
+      review:'坚果云是知识工作者最爱的网盘，最大特色是完整的WebDAV支持，可以和Obsidian笔记、Zotero文献管理、MindNode思维导图等工具无缝同步。免费版每月1GB上传/3GB下载流量，对轻度用户够用。' },
+    { name:'OneDrive',        url:'https://onedrive.live.com',        desc:'微软旗下云盘，5GB免费，与Office深度整合，跨设备同步。',           category:'netdisk', type:'free', rating:4.6, icon:'OD' },
+    { name:'Google Drive',    url:'https://drive.google.com',         desc:'谷歌云盘，15GB免费，与Google文档/表格/幻灯片深度集成。',          category:'netdisk', type:'free', rating:4.7, icon:'GD' },
+    { name:'Dropbox',         url:'https://www.dropbox.com',          desc:'国际主流云盘，跨平台同步流畅，第三方工具集成生态好。',             category:'netdisk', type:'free', rating:4.5, icon:'DP' },
+    { name:'蓝奏云',          url:'https://www.lanzou.com',           desc:'免费无限容量文件分享网盘，不限速下载，适合分享资源。',             category:'netdisk', type:'free', rating:4.5, icon:'蓝' , img:'lanzou.ico' },
+    { name:'飞猫云',          url:'https://www.feimaoyu.com',         desc:'资源搜索引擎，搜索百度/阿里/夸克等各平台分享的资源。',            category:'netdisk', type:'free', rating:4.3, icon:'猫' },
+    { name:'Cloudreve',       url:'https://cloudreve.org',            desc:'开源自建网盘程序，支持多存储后端，可搭建私有云盘。',              category:'netdisk', type:'free', rating:4.6, icon:'CRe' , img:'cloudreve.ico' },
+
+    // ============ 影视娱乐 ============
+
+    // --- 短视频平台 ---
+    { name:'抖音',         url:'https://www.douyin.com',        desc:'国内最大短视频平台，日活超6亿，看视频、刷直播必备。',           category:'entertainment', type:'free',    rating:4.9, icon:'抖' , img:'douyin.ico' },
+    { name:'快手',         url:'https://www.kuaishou.com',      desc:'国民级短视频平台，真实生活内容丰富，直播生态强。',               category:'entertainment', type:'free',    rating:4.7, icon:'快' , img:'kuaishou.ico' },
+    { name:'B站',          url:'https://www.bilibili.com',      desc:'年轻人文化社区，弹幕互动，番剧、游戏、知识内容聚集地。',          category:'entertainment', type:'free',    rating:4.9, icon:'B',  img:'bilibili.ico' },
+    { name:'视频号',       url:'https://channels.weixin.qq.com',desc:'微信生态短视频，基于社交推荐，连接公众号和小程序。',              category:'entertainment', type:'free',    rating:4.4, icon:'频' },
+    { name:'小红书',       url:'https://www.xiaohongshu.com',   desc:'生活方式分享社区，种草、探店、穿搭、美妆内容丰富。',              category:'entertainment', type:'free',    rating:4.7, icon:'红' , img:'douban.ico' },
+    { name:'微博',         url:'https://weibo.com',              desc:'中文社交媒体平台，热搜榜实时追踪热点新闻和娱乐资讯。',             category:'entertainment', type:'free',    rating:4.5, icon:'微' , img:'weibo.ico' },
+    { name:'YouTube',      url:'https://www.youtube.com',       desc:'全球最大视频平台，海量内容创作者，音乐MV、教程、Vlog全覆盖。',    category:'entertainment', type:'free',    rating:4.8, icon:'YT' },
+
+    // --- 长视频/流媒体 ---
+    { name:'腾讯视频',     url:'https://v.qq.com',              desc:'腾讯旗下视频平台，独播剧、综艺、动漫资源丰富。',                 category:'entertainment', type:'vip',     rating:4.6, icon:'腾' , img:'vqq.ico' },
+    { name:'爱奇艺',       url:'https://www.iqiyi.com',         desc:'百度旗下视频平台，自制剧和独播综艺质量高。',                       category:'entertainment', type:'vip',     rating:4.6, icon:'奇' , img:'iqiyi.ico' },
+    { name:'优酷',         url:'https://www.youku.com',         desc:'阿里旗下视频平台，老牌流媒体，经典剧集和综艺储备丰富。',          category:'entertainment', type:'vip',     rating:4.4, icon:'优' , img:'youku.ico' },
+    { name:'芒果TV',       url:'https://www.mgtv.com',          desc:'湖南卫视旗下视频平台，王牌综艺独播地。',                          category:'entertainment', type:'vip',     rating:4.5, icon:'芒' , img:'mgtv.ico' },
+
+    { name:'Netflix',      url:'https://www.netflix.com',       desc:'全球流媒体巨头，顶级美剧和原创电影，海外剧集首选。',              category:'entertainment', type:'vip',     rating:4.8, icon:'NF' },
+    { name:'Disney+',      url:'https://www.disneyplus.com',    desc:'迪士尼流媒体平台，漫威、星战、皮克斯动画独家版权。',              category:'entertainment', type:'vip',     rating:4.7, icon:'D+' , img:'disneyplus.ico' },
+    { name:'央视网',       url:'https://tv.cctv.com',           desc:'中央广播电视总台官网，央视节目直播、新闻和纪录片。',               category:'entertainment', type:'free',    rating:4.5, icon:'央' , img:'cctv.ico' },
+    { name:'咪咕视频',     url:'https://www.miguvideo.com',     desc:'中国移动旗下视频平台，体育赛事直播资源丰富。',                     category:'entertainment', type:'free',    rating:4.3, icon:'咪' , img:'miguvideo.ico' },
+    { name:'1905电影网',   url:'https://www.1905.com',          desc:'CCTV-6电影频道官网，电影资讯、影评和经典影片资源。',               category:'entertainment', type:'free',    rating:4.4, icon:'影' , img:'1905.ico' },
+
+    // --- 音乐平台 ---
+    { name:'网易云音乐',   url:'https://music.163.com',         desc:'音乐社区氛围最好的平台，歌单推荐精准，评论区有故事。',            category:'entertainment', type:'free',    rating:4.8, icon:'云' , img:'music163.ico' },
+    { name:'QQ音乐',      url:'https://y.qq.com',               desc:'腾讯旗下音乐平台，版权资源丰富，华语音乐库最全。',                 category:'entertainment', type:'free',    rating:4.6, icon:'QQ' , img:'yqq.ico' },
+    { name:'酷狗音乐',     url:'https://www.kugou.com',         desc:'老牌音乐平台，用户基数大，K歌和直播功能丰富。',                   category:'entertainment', type:'free',    rating:4.4, icon:'狗' , img:'kugou.ico' },
+    { name:'酷我音乐',     url:'https://www.kuwo.cn',           desc:'海量音乐库，DJ舞曲和铃声资源丰富。',                             category:'entertainment', type:'free',    rating:4.3, icon:'我' , img:'kuwo.ico' },
+    { name:'Spotify',      url:'https://www.spotify.com',       desc:'全球最大音乐流媒体平台，海外音乐和播客内容丰富。',                 category:'entertainment', type:'free',    rating:4.7, icon:'SP' , img:'spotify.ico' },
+    { name:'Apple Music',  url:'https://music.apple.com',       desc:'苹果官方音乐平台，音质优秀，与Apple生态深度整合。',                category:'entertainment', type:'vip',     rating:4.6, icon:'AM' , img:'applemusic.ico' },
+    { name:'汽水音乐',     url:'https://qishui.music.163.com',  desc:'字节跳动旗下音乐平台，依托抖音音乐生态，算法推荐精准。',          category:'entertainment', type:'free',    rating:4.3, icon:'汽', img:'qishui_music_163_com.ico' },
+    { name:'5sing',        url:'https://5sing.kugou.com',       desc:'中国原创音乐基地，独立音乐人和翻唱作品聚集地。',                   category:'entertainment', type:'free',    rating:4.1, icon:'5S' , img:'5sing.ico' },
+
+
+    // --- 有声/播客/电台 ---
+    { name:'喜马拉雅',     url:'https://www.ximalaya.com',      desc:'国内最大有声内容平台，有声书、播客、相声评书全覆盖。',            category:'entertainment', type:'free',    rating:4.7, icon:'喜' , img:'ximalaya.ico' },
+    { name:'蜻蜓FM',      url:'https://www.qingting.fm',       desc:'专业音频平台，广播电台、有声书、脱口秀内容丰富。',                  category:'entertainment', type:'free',    rating:4.4, icon:'蜓' , img:'qingting.ico' },
+    { name:'荔枝FM',      url:'https://www.lizhi.fm',          desc:'声音互动平台，语音直播和播客节目社区。',                            category:'entertainment', type:'free',    rating:4.3, icon:'荔' , img:'lizhi.ico' },
+    { name:'小宇宙',       url:'https://www.xiaoyuzhoufm.com',  desc:'中文播客App，精品播客内容聚合，听优质深度对谈。',                  category:'entertainment', type:'free',    rating:4.6, icon:'宇' , img:'xiaoyuzhou.ico' },
+
+    // --- 阅读平台 ---
+    { name:'番茄小说',     url:'https://fanqienovel.com',       desc:'字节跳动旗下免费小说平台，海量网文免费看。',                       category:'entertainment', type:'free',    rating:4.6, icon:'番' },
+    { name:'起点中文网',   url:'https://www.qidian.com',        desc:'阅文集团旗下最大网文平台，正版玄幻修仙小说首选。',                 category:'entertainment', type:'free',    rating:4.7, icon:'起' , img:'qidian.ico' },
+    { name:'晋江文学城',   url:'https://www.jjwxc.net',         desc:'女性向原创文学基地，言情、耽美、同人小说聚集地。',                category:'entertainment', type:'free',    rating:4.5, icon:'晋' , img:'jjwxc.ico' },
+    { name:'掌阅',         url:'https://www.zhangyue.com',      desc:'数字阅读平台，出版书和网文并重，阅读体验好。',                      category:'entertainment', type:'free',    rating:4.4, icon:'阅' , img:'zhangyue.ico' },
+    { name:'微信读书',     url:'https://weread.qq.com',         desc:'腾讯旗下阅读平台，出版书电子版齐全，社交阅读体验好。',              category:'entertainment', type:'free',    rating:4.7, icon:'读' , img:'weread.ico' },
+    { name:'豆瓣读书',     url:'https://book.douban.com',       desc:'中文图书评分和书评社区，找好书和看书评必备。',                     category:'entertainment', type:'free',    rating:4.8, icon:'DB', img:'book_douban_com.ico' },
+    { name:'纵横中文网',   url:'https://www.zongheng.com',      desc:'百度旗下网文平台，男频玄幻都市小说丰富。',                          category:'entertainment', type:'free',    rating:4.3, icon:'纵' , img:'zongheng.ico' },
+    { name:'书旗小说',     url:'https://www.shuqi.com',         desc:'阿里旗下免费小说平台，都市言情和玄幻小说资源多。',                category:'entertainment', type:'free',    rating:4.2, icon:'旗' , img:'shuqi.ico' },
+    { name:'七猫小说',     url:'https://www.qimao.com',         desc:'免费网文阅读平台，小说库大，广告模式免费看。',                    category:'entertainment', type:'free',    rating:4.4, icon:'猫' },
+
+    // --- 游戏平台 ---
+    { name:'Steam',        url:'https://store.steampowered.com',desc:'全球最大PC游戏平台，3A大作和独立游戏库最全。',                   category:'entertainment', type:'free',    rating:4.9, icon:'Sm' },
+    { name:'4399小游戏',   url:'https://www.4399.com',          desc:'老牌小游戏门户，Flash/H5小游戏大全，休闲解压首选。',              category:'entertainment', type:'free',    rating:4.5, icon:'43' , img:'4399.ico' },
+    { name:'7k7k小游戏',   url:'https://www.7k7k.com',          desc:'经典小游戏网站，双人小游戏和页游丰富。',                            category:'entertainment', type:'free',    rating:4.3, icon:'7k' , img:'7k7k.ico' },
+    { name:'Epic Games',   url:'https://www.epicgames.com',     desc:'虚幻引擎开发商商店，每周送免费游戏，3A大作折扣多。',              category:'entertainment', type:'free',    rating:4.7, icon:'EG' , img:'epicgames.ico' },
+    { name:'TapTap',       url:'https://www.taptap.cn',         desc:'精品手游社区平台，游戏评测真实，独立游戏聚集地。',                 category:'entertainment', type:'free',    rating:4.6, icon:'TP' , img:'taptap.ico' },
+    { name:'网易游戏',     url:'https://game.163.com',          desc:'网易游戏官网，梦幻西游、阴阳师等经典IP。',                         category:'entertainment', type:'free',    rating:4.5, icon:'网' , img:'game163.ico' },
+    { name:'腾讯游戏',     url:'https://game.qq.com',           desc:'腾讯游戏官网，王者荣耀、和平精英等国民游戏入口。',                  category:'entertainment', type:'free',    rating:4.5, icon:'鹅' , img:'gameqq.ico' },
+    { name:'3DM游戏网',    url:'https://www.3dmgame.com',       desc:'游戏资讯和单机游戏下载平台，游戏攻略丰富。',                       category:'entertainment', type:'free',    rating:4.4, icon:'3D' , img:'3dmgame.ico' },
+    { name:'游民星空',     url:'https://www.gamersky.com',      desc:'老牌游戏媒体，游戏资讯、评测和下载资源丰富。',                    category:'entertainment', type:'free',    rating:4.5, icon:'游' , img:'gamersky.ico' },
+    { name:'PlayStation',  url:'https://www.playstation.com',   desc:'索尼PS主机官网，PS5游戏资讯和PS Store。',                          category:'entertainment', type:'free',    rating:4.7, icon:'PS' },
+    { name:'Nintendo',     url:'https://www.nintendo.com',      desc:'任天堂官网，Switch游戏和eShop商店。',                               category:'entertainment', type:'free',    rating:4.8, icon:'NW' , img:'nintendo.ico' },
+    { name:'Xbox',         url:'https://www.xbox.com',          desc:'微软Xbox官网，Game Pass订阅和Xbox游戏商店。',                       category:'entertainment', type:'free',    rating:4.6, icon:'XB' , img:'xbox.ico' },
+
+    // --- 影视资讯/社区 ---
+    { name:'豆瓣',         url:'https://www.douban.com',         desc:'中文影视书籍评分社区，看电影前查评分是标配。',                      category:'entertainment', type:'free',    rating:4.8, icon:'豆' , img:'douban.ico' },
+    { name:'IMDb',         url:'https://www.imdb.com',          desc:'全球最大电影数据库，英文影视评分和演员信息权威来源。',              category:'entertainment', type:'free',    rating:4.8, icon:'IM' , img:'imdb.ico' },
+    { name:'猫眼电影',     url:'https://www.maoyan.com',        desc:'电影购票和票房数据平台，选座购票和影评社区。',                      category:'entertainment', type:'free',    rating:4.5, icon:'眼' , img:'maoyan.ico' },
+    { name:'淘票票',       url:'https://www.taopiaopiao.com',   desc:'阿里旗下电影购票平台，选座购票和优惠活动。',                        category:'entertainment', type:'free',    rating:4.4, icon:'票' , img:'taopiaopiao.ico' },
+    { name:'知乎',         url:'https://www.zhihu.com',         desc:'中文问答社区，影视分析和深度讨论聚集地。',                          category:'entertainment', type:'free',    rating:4.5, icon:'HU' , img:'zhihu.ico' },
+    { name:'什么值得买',   url:'https://www.smzdm.com',         desc:'消费决策平台，电影票优惠和影音设备选购指南。',                      category:'entertainment', type:'free',    rating:4.4, icon:'值' , img:'smzdm.ico' },
+
     // ============ PPT模板 ============
-    { name:'优品PPT',      url:'https://www.ypppt.com',     desc:'国内知名免费PPT模板下载站，模板质量高、分类齐全。',       category:'ppt', type:'free',    rating:4.8, icon:'优', img:'ypppt.png',
+    { name:'优品PPT',      url:'https://www.ypppt.com',     desc:'国内知名免费PPT模板下载站，模板质量高、分类齐全。',       category:'ppt', type:'free',    rating:4.8, icon:'品', img:'ypppt.png',
       review:'优品PPT是国内免费PPT模板站中的佼佼者。模板设计水平明显高于大多数同类站点，配色和排版都很专业，更新频率也比较稳定。支持直接下载PPTX源文件可二次编辑。缺点是部分精品模板需要关注公众号获取下载链接，体验略繁琐。整体来说，如果你不想花钱买模板，这里是非常好的首选。' },
     { name:'第一PPT',      url:'https://www.1ppt.com',       desc:'老牌PPT资源站，模板数量庞大，涵盖商务、教育、节日等全品类。',  category:'ppt', type:'free',    rating:4.5, icon:'1', img:'1ppt.png',
       review:'第一PPT是资历最老的中文PPT资源站之一，模板总量非常大，几乎能找到各个场景需要的模板。但网站界面比较老旧，广告较多，模板质量参差不齐，需要花时间筛选。适合对设计要求不高、追求"有就行"的场景。作为补充资源库来用比较合适，不建议作为唯一来源。' },
-    { name:'51PPT模板',    url:'https://www.51pptmoban.com', desc:'免费PPT模板合集站，课件模板、汇报模板及图表素材。',       category:'ppt', type:'free',    rating:4.3, icon:'51', img:'51ppt.ico',
+    { name:'51PPT模板',    url:'https://www.51pptmoban.com', desc:'免费PPT模板合集站，课件模板、汇报模板及图表素材。',       category:'ppt', type:'free',    rating:4.3, icon:'5P', img:'51ppt.ico',
       review:'51PPT模板以课件和汇报类模板见长，模板风格偏实用简洁。网站分类还算清晰，但整体设计水平中等偏上，缺乏让人眼前一亮的高质量作品。胜在模板数量不少且完全免费，适合学生党日常作业、课程汇报使用。模板更新速度一般，偶尔会有重复内容。' },
     { name:'PPT宝藏',      url:'https://www.pptbz.com',      desc:'丰富的PPT模板和素材库，支持按颜色、风格、场景筛选。',    category:'ppt', type:'free',    rating:4.2, icon:'宝', img:'pptbz.png',
       review:'PPT宝藏的特色在于素材丰富——除了模板还有图表、背景、图标等配套资源。按颜色和风格筛选的功能比较贴心，方便快速定位需求。不过模板质量整体偏中等，部分模板存在设计过时的问题。网站界面简洁但加载速度一般。适合需要找PPT素材而不只是模板的用户。' },
@@ -596,16 +820,19 @@ const resources = [
     { name:'Prezi',       url:'https://prezi.com',            desc:'非线性演示工具，缩放动画效果独特，打破传统幻灯片局限。', category:'ppt', type:'free',    rating:4.4, icon:'Pz', img:'prezi.png',
       review:'Prezi是演示工具中的"异类"，不同于传统线性幻灯片，它基于无限画布和缩放动画，能创造出更有动感的演示体验。适合故事性强、需要展示大局和细节关系的内容。免费版功能有限，付费版解锁更多功能。学习曲线略高于传统PPT工具，但做出来的效果往往让观众印象深刻。' },
 
+    { name:'演界网',       url:'https://www.yanj.cn',          desc:'PPT模板和KEYNOTE模板交易平台，精品模板质量高。',           category:'ppt', type:'free',    rating:4.2, icon:'演' },
+    { name:'吾道幻灯片',  url:'https://www.woodo.cn',         desc:'在线PPT制作工具，免费模板和AI生成功能。',                  category:'ppt', type:'free',    rating:4.3, icon:'吾' , img:'woodo.ico' },
+
+    { name:'SlideShare',  url:'https://www.slideshare.net',    desc:'全球最大PPT分享平台，浏览和下载优质演示文稿。',           category:'ppt', type:'free',    rating:4.3, icon:'SL' },
+
     // ============ Word文档 ============
-    { name:'知网模板',    url:'https://www.cnki.net',        desc:'中国知网官方论文模板，学位论文格式规范权威。',          category:'word', type:'free',    rating:4.5, icon:'知', img:'cnki.png',
-      review:'知网提供的学位论文模板是最权威的论文格式参考来源，严格遵循国家标准和高校论文规范。模板中预设了封面、摘要、目录、正文、参考文献等各部分的格式要求。但知网本身的搜索和下载功能需要机构订阅或付费，模板获取流程也不太直观。建议直接从知网下载格式规范文档参考使用。' },
-    { name:'Word联盟',    url:'https://www.wordlm.cn',      desc:'Word教程和模板资源站，涵盖合同范本、公文书信。',        category:'word', type:'free',    rating:4.0, icon:'W', img:'wordlm.png',
+
+    { name:'Word联盟',    url:'https://www.wordlm.cn',      desc:'Word教程和模板资源站，涵盖合同范本、公文书信。',        category:'word', type:'free',    rating:4.0, icon:'WL', img:'wordlm.png',
       review:'Word联盟的强项在于Word使用教程和实用文档范本，合同模板、公文书信、工作总结等模板比较全面。但网站界面年代感较强，模板设计水平一般，有些模板格式不太规范需要手动调整。适合找参考格式而不是直接套用的场景。Word新手可以在这里学到不少实用技巧。' },
-    { name:'全民简历',    url:'https://www.qmjianli.com',     desc:'免费简历模板下载，Word格式，求职必备。',                category:'word', type:'free',    rating:4.4, icon:'简', img:'qmjianli.png',
-      review:'全民简历提供大量免费Word格式简历模板，按行业和岗位分类清晰，支持在线编辑和下载。模板风格偏实用简洁，适合大多数求职场景。部分高级模板需要付费，但免费版已够用。模板格式兼容性不错，用Word打开不会跑版。是学生党找简历模板的实惠选择。' },
+
     { name:'石墨文档',    url:'https://shimo.im',            desc:'在线协作文档工具，支持多人实时编辑和团队协作。',        category:'word', type:'free',    rating:4.7, icon:'石', img:'shimo.png',
       review:'石墨文档是国内做得最好的在线协作文档工具之一。多人实时协作体验流畅，版本管理、评论批注、权限控制等功能成熟。文档编辑体验接近本地Word，支持导出多种格式。免费版对个人用户和小团队已经很慷慨。在国内网络环境下比Google Docs稳定可靠。唯一的不足是表格功能相比专业电子表格工具仍有差距。' },
-    { name:'腾讯文档',    url:'https://docs.qq.com',         desc:'腾讯出品在线文档，与微信/QQ深度整合。',                category:'word', type:'free',    rating:4.5, icon:'腾', img:'docsqq.png',
+    { name:'腾讯文档',    url:'https://docs.qq.com',         desc:'腾讯出品在线文档，与微信/QQ深度整合。',                category:'word', type:'free',    rating:4.5, icon:'TD', img:'docsqq.png',
       review:'腾讯文档最大的优势是和微信、QQ的深度整合——微信中直接打开、转发、协作非常方便。作为日常文档协作工具完全够用，基础功能免费且不限量。但在高级功能上相比石墨文档略显单薄，文档编辑能力也不如专业工具。如果你和团队日常沟通主要在微信生态内，腾讯文档是最省心的协作选择。' },
     { name:'语雀',        url:'https://www.yuque.com',       desc:'阿里出品知识管理工具，支持文档、表格、思维导图等。',    category:'word', type:'free',    rating:4.6, icon:'雀', img:'yuque.png',
       review:'语雀是阿里系的知识管理产品，在技术团队和个人知识沉淀方面口碑很好。支持文档、表格、思维导图、画板等多种内容形态，知识库组织方式灵活。文档排版效果美观，Markdown支持好。免费版功能较完整。适合做个人笔记、团队知识库、技术文档等。缺点是协作功能不如石墨文档专业，更适合个人和小团队知识管理。' },
@@ -620,12 +847,17 @@ const resources = [
     { name:'Logseq',      url:'https://logseq.com',           desc:'开源大纲式知识管理工具，双向链接+日志驱动。',           category:'word', type:'free',    rating:4.6, icon:'Ls', img:'logseq.png',
       review:'Logseq是Obsidian的开源竞品，以大纲式（Outliner）编辑和每日日志为核心设计理念。双向链接和图谱功能完善。完全开源免费，数据本地存储。与Obsidian相比更适合"每日笔记+知识积累"的使用方式。社区活跃，插件持续增长。适合喜欢大纲思维和日记驱动知识管理的用户。' },
 
+    { name:'印象笔记',    url:'https://www.yinxiang.com',      desc:'经典笔记管理工具，剪藏网页和跨设备同步。',              category:'word', type:'free',    rating:4.4, icon:'印' , img:'yinxiang.ico' },
+    { name:'有道云笔记',  url:'https://note.youdao.com',      desc:'网易出品笔记工具，OCR扫描和语音速记功能强。',           category:'word', type:'free',    rating:4.3, icon:'有' , img:'youdaonote.ico' },
+    { name:'Microsoft Office Online', url:'https://www.office.com', desc:'微软Office在线版，Word/Excel/PPT免费在线使用。',  category:'word', type:'free',    rating:4.6, icon:'MS' , img:'office.ico' },
+    { name:'WPS Office',  url:'https://www.wps.cn',            desc:'金山办公套件，Word/Excel/PPT国产替代，个人免费。',      category:'word', type:'free',    rating:4.5, icon:'WP', img:'wps_cn.ico' },
+
     // ============ Excel表格 ============
     { name:'ExcelHome',   url:'https://www.excelhome.net',   desc:'全球最大Excel中文学习网站，教程全面、社区活跃。',       category:'excel', type:'free',    rating:4.8, icon:'EH', img:'excelhome.png',
       review:'ExcelHome是中文世界最专业的Excel学习社区，论坛沉淀了大量高质量教程和问答。从基础函数到高级VBA、Power Query都有覆盖。教程系统性强，很多技术文章写得很深入。社区活跃度高，提问通常能得到及时解答。网站界面虽然传统但信息密度高。无论是Excel入门还是进阶，这里都是首选学习资源。' },
-    { name:'WPS表格',     url:'https://www.wps.cn',          desc:'WPS表格在线版，功能丰富且免费。',                      category:'excel', type:'free',    rating:4.4, icon:'WP', img:'wps.png',
+    { name:'WPS表格',     url:'https://www.wps.cn',          desc:'WPS表格在线版，功能丰富且免费。',                      category:'excel', type:'free',    rating:4.4, icon:'WPx', img:'wps.png',
       review:'WPS表格在线版提供了基本的电子表格功能，与本地WPS文件格式完全兼容。对于简单的数据整理、表格制作已经够用，界面也和桌面版一致，上手零成本。但在复杂数据处理、高级函数、大数据量等方面与专业Excel有差距。适合轻量级使用场景，重度Excel用户还是建议用桌面版。' },
-    { name:'简道云',      url:'https://www.jiandaoyun.com',  desc:'零代码数据管理平台，可替代Excel做在线表单。',           category:'excel', type:'free',    rating:4.3, icon:'简', img:'jiandaoyun.png',
+    { name:'简道云',      url:'https://www.jiandaoyun.com',  desc:'零代码数据管理平台，可替代Excel做在线表单。',           category:'excel', type:'free',    rating:4.3, icon:'道', img:'jiandaoyun.png',
       review:'简道云的核心价值在于把Excel式的数据管理搬到了线上，增加了表单收集、流程审批、数据看板等功能。适合需要多人协作填写数据、做报表的企业场景。零代码搭建门槛低。免费版功能有限制，个人用户可能感受不到太多优势。如果你需要的是纯粹的电子表格功能，Excel/WPS反而更直接。适合有数据管理需求但不会编程的小团队。' },
     { name:'Airtable',    url:'https://airtable.com',        desc:'灵活的在线表格数据库，支持视图切换和自动化。',           category:'excel', type:'vip',     rating:4.7, icon:'At', img:'airtable.png',
       review:'Airtable是"电子表格+数据库"的完美融合体。用表格的界面操作数据库，同时支持看板、日历、画廊等多种视图切换。自动化工作流功能强大，可以轻松搭建轻量级应用。但免费版记录数有限制（1000条/表），国内访问可能需要梯子。适合项目管理、内容管理、小型CRM等场景。设计美感是其一大亮点。' },
@@ -635,12 +867,17 @@ const resources = [
       review:'ExcelJet的公式速查表是其核心价值——当你知道想要什么效果但不知道用什么函数时，这里能快速找到答案。每个函数都有简洁明了的用法说明和实例，查阅效率极高。网站内容为英文，但对有一定英语基础的Excel用户来说完全不是障碍。是全球Excel用户公认的最实用参考站之一。' },
     { name:'腾讯问卷',    url:'https://wj.qq.com',           desc:'免费在线问卷调查工具，数据自动汇总为Excel。',           category:'excel', type:'free',    rating:4.3, icon:'问', img:'wjqq.png',
       review:'腾讯问卷依托微信生态，问卷分发非常方便，支持微信直接填写。模板库丰富，支持逻辑跳转、多题型设置。数据自动汇总并可导出Excel是亮点。免费版已能满足大多数调查需求。缺点是问卷样式定制空间有限，分析功能不如专业调研工具深入。适合快速发起轻量级调查。' },
-    { name:'飞书多维表格', url:'https://www.feishu.cn',      desc:'字节跳动出品新型数据管理工具，表格+数据库+自动化。',    category:'excel', type:'free',    rating:4.7, icon:'飞', img:'feishu.png',
+    { name:'飞书多维表格', url:'https://www.feishu.cn',      desc:'字节跳动出品新型数据管理工具，表格+数据库+自动化。',    category:'excel', type:'free',    rating:4.7, icon:'FT', img:'feishu.png',
       review:'飞书多维表格是Airtable的国产替代品，以表格界面操作数据库，支持视图切换（表格、看板、甘特图、画册等）、自动化工作流、数据关联等高级功能。免费版功能非常慷慨，协作体验流畅。相比Airtable，国内访问稳定且无需梯子。适合项目管理、数据追踪、轻量级CRM等场景。' },
     { name:'Tableau Public', url:'https://public.tableau.com', desc:'数据可视化分析工具，拖拽式制作专业数据报表。',         category:'excel', type:'free',    rating:4.7, icon:'TB', img:'tableau.png',
       review:'Tableau是数据可视化领域的标杆工具，Public版完全免费。拖拽式操作即可创建交互式图表、地图、仪表盘，无需编程。可视化效果美观专业，支持连接多种数据源。作品可以发布到Tableau Public平台分享。学习曲线相比Excel略高，但上手后效率极大提升。数据分析师和商业分析人员的必备工具。' },
     { name:'Smartbi',     url:'https://www.smartbi.com.cn', desc:'国产商业智能BI工具，报表制作和数据分析一体化。',         category:'excel', type:'vip',     rating:4.3, icon:'SB', img:'smartbi.png',
       review:'Smartbi是国内知名的商业智能（BI）工具，支持电子表格式报表、大屏可视化、自助分析等多种场景。对国内数据源（Oracle、MySQL等）的兼容性好，中文支持完善。产品功能全面，适合企业级数据分析需求。相比Tableau学习曲线更缓，更贴近国内Excel用户的使用习惯。价格对个人用户偏高，适合中大型企业采购。' },
+    { name:'Numbers',     url:'https://www.apple.com/numbers/', desc:'苹果Mac/iOS电子表格应用，界面精美，模板丰富。',       category:'excel', type:'free',    rating:4.3, icon:'Nm' , img:'numbers.ico' },
+    { name:'Google Sheets', url:'https://sheets.google.com',  desc:'谷歌在线表格，实时协作+插件生态，免费使用。',           category:'excel', type:'free',    rating:4.7, icon:'Sh' },
+    { name:'Excel自学网',  url:'https://www.excelzx.com',      desc:'Excel学习网站，函数教程和公式大全。',                    category:'excel', type:'free',    rating:4.3, icon:'EZ' },
+    { name:'兰色幻想Excel', url:'https://www.excelb.com.cn',   desc:'Excel技巧和函数教程，图文并茂适合入门。',                category:'excel', type:'free',    rating:4.2, icon:'兰' },
+    { name:'Power BI',    url:'https://powerbi.microsoft.com', desc:'微软商业智能工具，交互式数据可视化和报表。',             category:'excel', type:'free',    rating:4.7, icon:'PB' },
 
     // ============ 思维导图 ============
     { name:'XMind',       url:'https://xmind.cn',            desc:'专业思维导图软件，功能强大，支持多种导图结构。',         category:'mindmap', type:'free',    rating:4.8, icon:'XM', img:'xmind.png',
@@ -664,8 +901,11 @@ const resources = [
     { name:'Whimsical',   url:'https://whimsical.com',        desc:'简洁高效在线工作流工具，支持思维导图、流程图、线框图。', category:'mindmap', type:'free',    rating:4.6, icon:'Wh', img:'whimsical.png',
       review:'Whimsical以界面极简和操作快捷著称，是设计师和产品经理的爱用工具。思维导图、流程图、线框图之间切换流畅，操作逻辑统一。生成的图表视觉简洁美观。免费版功能够用，付费版解锁无限文件。相比Miro更轻量专注，适合个人和小团队快速可视化想法，不需要太多自定义。' },
 
+    { name:'Coggle',      url:'https://coggle.it',             desc:'简洁在线思维导图工具，色彩丰富，自动布局。',             category:'mindmap', type:'free',    rating:4.3, icon:'Co' , img:'coggle.ico' },
+    { name:'FreeMind',    url:'https://freemind.sourceforge.net', desc:'开源免费桌面思维导图软件，轻量简洁。',                category:'mindmap', type:'free',    rating:4.1, icon:'FM' },
+
     // ============ 学术科研 ============
-    { name:'中国知网',    url:'https://www.cnki.net',        desc:'国内最大中文学术文献数据库，论文检索和下载必备。',       category:'academic', type:'free', rating:4.6, icon:'知', img:'cnki.png',
+    { name:'中国知网',    url:'https://www.cnki.net',        desc:'国内最大中文学术文献数据库，论文检索和下载必备。',       category:'academic', type:'free', rating:4.6, icon:'CN', img:'cnki.png',
       review:'中国知网是国内学术研究的核心基础设施，中文学术论文覆盖面最广。检索系统强大，支持跨库检索、引文分析等高级功能。但费用较高，个人用户下载论文单价不低（通常2-5元/篇）。部分高校购买了机构账号，在校生可免费使用。近年来知网因定价和版权问题争议较多，但对需要查阅中文文献的研究者来说，仍然是绕不开的核心平台。' },
     { name:'Google Scholar', url:'https://scholar.google.com', desc:'全球最大学术搜索引擎，英文文献检索首选。',             category:'academic', type:'free',    rating:4.9, icon:'GS', img:'scholar.png',
       review:'Google Scholar是学术论文检索的黄金标准。覆盖面极广，支持引文追踪、相关文献推荐、作者主页等。搜索算法精准，能快速定位相关论文。完全免费是最大优势。缺点是需要科学上网访问，且部分论文全文仍需通过出版商付费获取。建议配合Sci-Hub等工具使用。做英文文献调研时，先搜Google Scholar基本不会遗漏。' },
@@ -695,6 +935,13 @@ const resources = [
       review:'ResearchGate是学术界的"LinkedIn"，研究者在这里建立学术主页、分享论文、关注同行。一大亮点是可以直接向论文作者发送全文请求，通常作者会很快回复并提供PDF——这是获取付费论文全文的合法有效途径。平台也有文献推荐和学术讨论功能。完全免费注册使用。对于查阅学术论文的用户很有帮助。' },
     { name:'PubMed',      url:'https://pubmed.ncbi.nlm.nih.gov', desc:'生命科学和医学文献数据库，查医学论文必备。',           category:'academic', type:'free',    rating:4.7, icon:'PM', img:'pubmed.png',
       review:'PubMed是生命科学和生物医学领域最权威的文献数据库，由美国国立医学图书馆维护，收录超过3500万篇文献。完全免费检索，很多论文有PMC免费全文。医学研究、公共卫生、生物学领域的研究者必用平台。检索功能强大，支持MeSH术语、过滤器等高级检索。如果你研究医学、生物、公卫方向，PubMed是最基础的文献来源。' },
+    { name:'百度学术',    url:'https://xueshu.baidu.com',      desc:'百度旗下学术搜索平台，中英文文献一站式检索。',           category:'academic', type:'free',    rating:4.4, icon:'XS' , img:'xueshu.ico' },
+    { name:'Sci-Hub镜像', url:'https://sci-hub.se',            desc:'Sci-Hub可用镜像站，免费下载付费学术论文全文。',           category:'academic', type:'free',    rating:4.6, icon:'S2' },
+
+    { name:'OpenAlex',    url:'https://openalex.org',          desc:'开放学术数据集，2.5亿+学术论文和作者信息。',             category:'academic', type:'free',    rating:4.5, icon:'OA' , img:'openalex.ico' },
+    { name:'LibreTexts',  url:'https://libretexts.org',        desc:'免费开放教科书平台，覆盖各学科大学教材。',               category:'academic', type:'free',    rating:4.3, icon:'LT' },
+    { name:'Google Dataset Search', url:'https://datasetsearch.research.google.com', desc:'谷歌数据集搜索引擎，查找开放科研数据。',  category:'academic', type:'free', rating:4.4, icon:'GD' },
+    { name:'Papers With Code', url:'https://paperswithcode.com', desc:'AI/ML论文+代码+数据集一站式平台，追踪前沿必备。',      category:'academic', type:'free',    rating:4.7, icon:'PC' },
 
     // ============ AI工具 ============
     { name:'ChatGPT',     url:'https://chatgpt.com',         desc:'OpenAI出品AI对话助手，文本生成、翻译、写作全能。',       category:'ai', type:'free',    rating:4.9, icon:'CG', img:'chatgpt.png',
@@ -705,11 +952,11 @@ const resources = [
       review:'文心一言是百度的大模型产品，中文基础能力扎实，在中国文化、历史、法律等中文领域的知识储备丰富。百度搜索生态的加持使其在信息检索类问题上表现不错。免费使用。但在逻辑推理、代码编写等硬实力方面相比DeepSeek和ChatGPT有差距。适合日常中文问答和简单写作辅助。' },
     { name:'Kimi',        url:'https://kimi.moonshot.cn',    desc:'月之暗面出品AI助手，支持长文档阅读和深度分析。',         category:'ai', type:'free',    rating:4.7, icon:'Ki', img:'kimi.png',
       review:'Kimi最突出的特点是超长上下文处理能力——可以一次上传多篇长文档进行阅读和分析，非常适合文献综述、合同分析、长报告摘要等场景。中文理解精准，总结归纳能力出色。免费版已经很强大。缺点是在纯推理和代码能力上不如DeepSeek。如果你需要AI帮你"读长文"，Kimi是目前最好的选择。' },
-    { name:'通义千问',    url:'https://tongyi.aliyun.com',    desc:'阿里出品AI大模型，工具调用和多模态能力强。',             category:'ai', type:'free',    rating:4.6, icon:'通', img:'tongyi.png',
+    { name:'通义千问',    url:'https://tongyi.aliyun.com',    desc:'阿里出品AI大模型，工具调用和多模态能力强。',             category:'ai', type:'free',    rating:4.6, icon:'TQ', img:'tongyi.png',
       review:'通义千问是阿里云的大模型产品，在工具调用和API集成方面优势明显，适合开发者构建AI应用。多模态能力支持图片理解、语音交互等。中文能力扎实，与阿里系产品生态有联动优势。免费额度慷慨。作为日常对话助手使用体验不错，但相比DeepSeek在推理深度上稍逊。推荐给有开发需求的用户。' },
-    { name:'智谱清言',    url:'https://chatglm.cn',          desc:'智谱AI出品，基于GLM大模型，综合能力强。',                category:'ai', type:'free',    rating:4.5, icon:'智', img:'chatglm.png',
+    { name:'智谱清言',    url:'https://chatglm.cn',          desc:'智谱AI出品，基于GLM大模型，综合能力强。',                category:'ai', type:'free',    rating:4.5, icon:'GL', img:'chatglm.png',
       review:'智谱清言基于清华系GLM大模型，学术根基扎实。综合能力均衡，中文对话、写作、代码都有不错表现。内置智能体（Agent）生态，可以通过应用广场获取各种专用助手。免费使用。在学术写作辅助方面有一定优势。整体属于国产AI的第一梯队，但相比DeepSeek在"惊艳感"上稍弱。' },
-    { name:'豆包',        url:'https://www.doubao.com',      desc:'字节跳动出品AI助手，写作、翻译、编程多功能。',           category:'ai', type:'free',    rating:4.5, icon:'豆', img:'doubao.png',
+    { name:'豆包',        url:'https://www.doubao.com',      desc:'字节跳动出品AI助手，写作、翻译、编程多功能。',           category:'ai', type:'free',    rating:4.5, icon:'包', img:'doubao.png',
       review:'豆包是字节跳动推出的AI助手，最大的特色是与字节系产品的深度整合——抖音创作、飞书办公等场景下使用方便。支持语音通话、角色扮演等娱乐化功能。日常问答和写作辅助能力合格。免费使用。但在专业领域（代码、数学）的表现相比DeepSeek有差距。适合已有字节系产品使用习惯的用户。' },
     { name:'Midjourney',  url:'https://www.midjourney.com',  desc:'AI绘画工具，生成高质量艺术图片和设计素材。',             category:'ai', type:'vip',     rating:4.8, icon:'MJ', img:'midjourney.png',
       review:'Midjourney是目前AI绘画领域的绝对标杆。生成的图片在艺术性、审美和细节方面远超同类产品。V6版本支持文生图、图生图、局部重绘等功能，效果惊艳。通过Discord使用，操作有一定学习成本。按月订阅收费（10-60美元）。国内访问需要科学上网。如果你对AI出图质量有高要求，Midjourney是唯一选择。' },
@@ -719,16 +966,22 @@ const resources = [
       review:'Claude是ChatGPT最强劲的竞争对手之一，在长文本理解、精细写作和代码生成方面表现优异。支持上传大量文件进行深度分析，200K上下文窗口可以处理超长文档。安全性和诚实度方面口碑好。国内访问需要科学上网。适合需要深度阅读长文、精细写作的用户。目前免费额度比较慷慨。' },
     { name:'Gemini',      url:'https://gemini.google.com',    desc:'谷歌出品AI助手，多模态能力和搜索整合出色。',           category:'ai', type:'free',    rating:4.7, icon:'Ge', img:'gemini.ico',
       review:'Gemini是谷歌推出的多模态AI助手，原生支持图片、视频、音频理解。与谷歌搜索深度整合，信息获取能力很强。免费版提供多种模型选择。多模态交互体验出色，可以上传图片问问题。国内需要科学上网。适合需要多模态AI能力的用户，以及已有Google生态使用习惯的人。' },
-    { name:'通义万相',    url:'https://tongyi.aliyun.com/wanxiang', desc:'阿里出品AI绘画工具，免费生成高质量中文风格图片。',   category:'ai', type:'free',    rating:4.5, icon:'万', img:'wanxiang.png',
+    { name:'通义万相',    url:'https://tongyi.aliyun.com/wanxiang', desc:'阿里出品AI绘画工具，免费生成高质量中文风格图片。',   category:'ai', type:'free',    rating:4.5, icon:'相', img:'wanxiang.png',
       review:'通义万相是阿里推出的免费AI绘画工具，在中文语境和东方风格图片生成方面表现不错。支持文生图、图生图等多种模式。完全免费使用，额度充足。生成速度快，图片质量较好。适合需要快速生成配图、海报素材的中文用户。相比Midjourney在艺术性上有差距，但免费和中文友好是核心优势。' },
     { name:'Sunno AI',    url:'https://suno.com',             desc:'AI音乐生成工具，输入文字即可生成完整歌曲。',             category:'ai', type:'free',    rating:4.6, icon:'Su', img:'suno.ico',
       review:'Sunno AI是目前最流行的AI音乐生成工具，输入歌词或描述就能生成带有人声、编曲的完整歌曲。音乐风格覆盖流行、摇滚、古典、说唱等。免费版每日可生成一定数量。生成质量令人惊艳，尤其在中文歌曲方面表现越来越好。适合内容创作者为视频配乐、尝试音乐创作的用户。' },
     { name:'Perplexity',  url:'https://www.perplexity.ai',   desc:'AI搜索引擎，结合搜索与AI问答，信息查询更精准。',         category:'ai', type:'free',    rating:4.7, icon:'Pp', img:'perplexity.png',
       review:'Perplexity被誉为"AI时代的谷歌"，将传统搜索与AI对话相结合。提问后会直接给出综合多个来源的结构化答案，并标注引用来源方便核实。相比ChatGPT，信息时效性更强，能获取最新资讯。免费版已非常好用，Pro版解锁更强模型。对于查阅事实性信息、研究调研场景，Perplexity的体验远超传统搜索引擎。' },
-    { name:'Coze扣子',    url:'https://www.coze.cn',          desc:'字节跳动出品AI应用搭建平台，零代码构建AI智能体。',       category:'ai', type:'free',    rating:4.5, icon:'Co', img:'coze.png',
+    { name:'Coze扣子',    url:'https://www.coze.cn',          desc:'字节跳动出品AI应用搭建平台，零代码构建AI智能体。',       category:'ai', type:'free',    rating:4.5, icon:'CZ', img:'coze.png',
       review:'Coze（扣子）是字节跳动推出的AI Bot搭建平台，无需编程即可创建自定义AI助手、工作流自动化和多智能体应用。可以为Bot配置知识库、工具插件、记忆功能等，搭建出专属于自己领域的AI工具。国内版免费额度慷慨。适合想要搭建特定场景AI助手（如客服Bot、学习助手）的用户，无代码门槛低。' },
     { name:'Runway',      url:'https://runwayml.com',         desc:'AI视频生成和编辑工具，Gen-2模型文字生成视频。',           category:'ai', type:'vip',     rating:4.7, icon:'Rw', img:'runway.png',
       review:'Runway是AI视频生成领域的标杆产品，Gen-2/Gen-3模型可以从文字描述或图片生成高质量短视频。还提供视频超分、背景去除、视频延展等专业AI视频编辑功能。产品设计面向创意人员，界面友好。订阅制收费，免费版有有限的生成额度。对于视频创作者、广告人、电影从业者，Runway代表了AI创作的最前沿。' },
+
+    { name:'笔灵AI',      url:'https://ibiling.cn',           desc:'AI写作生成工具，支持PPT大纲、总结报告、营销文案。',      category:'ai', type:'free',    rating:4.3, icon:'笔' , img:'ibiling.ico' },
+    { name:'Stable Diffusion', url:'https://stability.ai',    desc:'开源AI绘画模型，本地部署免费使用，社区生态丰富。',         category:'ai', type:'free',    rating:4.7, icon:'SD' , img:'stability.ico' },
+    { name:'天工AI',      url:'https://www.tiangong.cn',      desc:'昆仑万维AI助手，搜索增强生成，信息获取能力强。',           category:'ai', type:'free',    rating:4.3, icon:'TG' , img:'tiangong.ico' },
+    { name:'Hugging Face', url:'https://huggingface.co',      desc:'全球AI开源社区，模型/数据集/Spaces托管。',                category:'ai', type:'free',    rating:4.8, icon:'HF' },
+    { name:'ComfyUI',     url:'https://github.com/comfyanonymous/ComfyUI', desc:'节点式AI绘图工作流，自由组合Stable Diffusion。', category:'ai', type:'free', rating:4.6, icon:'CF', img:'github_com.ico' },
 
     // ============ 简历求职 ============
     { name:'超级简历',    url:'https://www.wondercv.com',    desc:'专业简历制作平台，HR认可的简历模板和在线编辑。',         category:'resume', type:'free',    rating:4.7, icon:'超', img:'wondercv.png',
@@ -749,12 +1002,19 @@ const resources = [
       review:'前程无忧是国内资历最老的招聘平台之一，岗位覆盖传统行业、制造业、国企等全领域。对于非互联网行业的求职者来说，岗位信息比较全面。但平台界面和体验相比Boss直聘略显老旧，沟通效率不如直聊模式。作为补充渠道使用比较合适——主力用Boss直聘，辅以前程无忧扩大覆盖面。' },
     { name:'猎聘',        url:'https://www.liepin.com',      desc:'中高端人才招聘平台，猎头服务专业。',                    category:'resume', type:'free',    rating:4.5, icon:'猎', img:'liepin.png',
       review:'猎聘定位中高端人才市场，猎头资源丰富，适合有3年以上工作经验的职场人跳槽。岗位质量整体偏高，薪资信息透明。面试评价和公司点评功能有助于判断企业真实情况。对应届生和初级岗位覆盖不如Boss直聘。如果你已有一定工作经验，猎聘是寻找优质跳槽机会的好渠道。' },
-    { name:'国家大学生就业服务平台', url:'https://24365.ncss.cn', desc:'教育部官方大学生就业平台，校招信息权威。',         category:'resume', type:'free',    rating:4.5, icon:'国', img:'ncss.png',
+    { name:'国家大学生就业服务平台', url:'https://24365.ncss.cn', desc:'教育部官方大学生就业平台，校招信息权威。',         category:'resume', type:'free',    rating:4.5, icon:'就', img:'ncss.png',
       review:'国家大学生就业服务平台是教育部主管的官方就业平台，提供权威的校招信息和就业指导。岗位信息真实可靠，很多国企、央企和事业单位会在这里发布校招公告。还提供职业测评、简历指导和政策解读等服务。完全免费无广告。大学生求职建议把这个平台作为信息来源之一，尤其关注国企央企岗位。' },
     { name:'脉脉',        url:'https://maimai.cn',            desc:'职场社交平台，匿名爆料+职场人脉拓展。',                 category:'resume', type:'free',    rating:4.4, icon:'脉', img:'maimai.png',
       review:'脉脉是国内最大的职场社交平台，以"匿名八卦"区闻名，汇聚了大量企业内部吐槽、薪资爆料和面经分享。这些匿名内容对了解公司文化、真实薪资水平很有参考价值。也有正式的职场人脉拓展功能。同时内嵌招聘功能，有猎头和内推机会。作为求职信息参考和职场情报获取的渠道，脉脉价值很高。' },
-    { name:'智联招聘',    url:'https://www.zhaopin.com',      desc:'综合求职招聘平台，校招社招全覆盖，投递方便。',           category:'resume', type:'free',    rating:4.3, icon:'智', img:'zhilian.png',
+    { name:'智联招聘',    url:'https://www.zhaopin.com',      desc:'综合求职招聘平台，校招社招全覆盖，投递方便。',           category:'resume', type:'free',    rating:4.3, icon:'联', img:'zhilian.png',
       review:'智联招聘是国内资历仅次于前程无忧的老牌招聘平台，岗位覆盖广，在传统行业和二三线城市有不错的岗位资源。界面升级后体验有所提升，简历投递操作方便。部分功能（如主动投递简历给HR）需要付费。相比Boss直聘的直聊模式，智联更偏传统单向投递。建议与Boss直聘配合使用，覆盖不同类型的岗位资源。' },
+    { name:'58同城',      url:'https://www.58.com',            desc:'综合分类信息平台，兼职、蓝领和本地岗位多。',              category:'resume', type:'free',    rating:4.0, icon:'58' , img:'58.ico' },
+    { name:'赶集网',      url:'https://www.ganji.com',         desc:'分类信息平台，兼职和本地服务岗位信息多。',                category:'resume', type:'free',    rating:3.9, icon:'赶' , img:'ganji.ico' },
+    { name:'智通招聘',    url:'https://www.job5156.com',       desc:'华南地区知名招聘平台，珠三角工厂和管理岗位多。',         category:'resume', type:'free',    rating:4.0, icon:'通' , img:'job5156.ico' },
+
+    { name:'实习僧',      url:'https://www.shixiseng.com',     desc:'大学生实习招聘平台，大厂实习岗位信息集中。',              category:'resume', type:'free',    rating:4.4, icon:'实' , img:'shixiseng.ico' },
+    { name:'应届生求职网', url:'https://www.yingjiesheng.com', desc:'应届生求职论坛，校招信息和笔试面试经验。',               category:'resume', type:'free',    rating:4.3, icon:'应' , img:'yingjiesheng.ico' },
+    { name:'中国公共招聘网', url:'https://www.cjob.gov.cn',    desc:'人社部官方公共就业服务平台，公益岗位和信息。',          category:'resume', type:'free',    rating:4.3, icon:'招' },
 
     // ============ 公考考编 ============
     { name:'粉笔',        url:'https://www.fenbi.com',       desc:'公考培训龙头，题库全面，模考系统好用。',                 category:'exam', type:'free',    rating:4.7, icon:'粉', img:'fenbi.png',
@@ -767,9 +1027,9 @@ const resources = [
       review:'QZZN论坛是公考人的"精神家园"，积累了大量考生的真实经验和备考资料。上岸前辈的面经、各地岗位分析、备考策略分享等帖子价值很高。论坛氛围活跃，互助性强。但网站界面老旧，信息检索不太方便。建议作为获取经验分享和心态调节的社区来逛，而不是主要学习平台。' },
     { name:'永岸公考',    url:'https://www.gwyclass.com',    desc:'公务员考试题库和在线视频课程，国考省考真题+行测申论系统学习。',        category:'exam', type:'free',    rating:4.3, icon:'永', img:'gwyclass.png',
       review:'永岸公考是一个专注公务员考试的在线学习平台，提供题库刷题和视频课程双通道。题库覆盖国考、省考历年真题，按专项分类练习，适合系统备考。视频课程有行测各专项和申论讲解，部分内容免费。界面简洁实用，上手无障碍。与粉笔相比用户规模小，但免费内容覆盖面不错，适合需要多样刷题渠道的考生作为补充备考工具。' },
-    { name:'公务员考试网', url:'https://www.chinagwy.org',    desc:'公务员考试资讯和真题下载，招考信息更新及时。',           category:'exam', type:'free',    rating:4.1, icon:'公', img:'chinagwy.ico',
+    { name:'公务员考试网', url:'https://www.chinagwy.org',    desc:'公务员考试资讯和真题下载，招考信息更新及时。',           category:'exam', type:'free',    rating:4.1, icon:'考', img:'chinagwy.ico',
       review:'公务员考试网主要提供考试资讯、招考公告和真题下载服务。信息更新比较及时，各地招考信息汇总方便。但网站设计和交互体验一般，功能较为基础。更适合用来查询考试政策和下载资料，不太适合作为主要刷题平台。作为信息查询的辅助渠道有一定价值。' },
-    { name:'一起考教师',  url:'https://www.17kjs.com',       desc:'教师招聘考试备考平台，教综刷题和面试指导。',             category:'exam', type:'free',    rating:4.3, icon:'教', img:'17kjs.png',
+    { name:'一起考教师',  url:'https://www.17kjs.com',       desc:'教师招聘考试备考平台，教综刷题和面试指导。',             category:'exam', type:'free',    rating:4.3, icon:'17', img:'17kjs.png',
       review:'一起考教师是教师编制考试备考的垂直平台，覆盖教育综合知识、学科专业知识、面试试讲等环节。题库和课程体系针对性强，教综刷题功能实用。免费内容有一定量，进阶课程需付费。对于准备考教师编的同学来说，是目前专注度最高的备考平台之一。' },
     { name:'高途公考',    url:'https://www.gaotu.cn',         desc:'高途旗下公考品牌，在线直播课程质量高。',                 category:'exam', type:'vip',     rating:4.4, icon:'高', img:'gaotu.png',
       review:'高途公考背靠高途集团，以在线直播授课为核心特色，老师互动性强，课堂氛围好。课程体系覆盖国考、省考、事业编等各类考试。名师阵容有一定实力。但价格偏高，免费内容相对有限。适合喜欢直播互动学习、有一定预算的考生。' },
@@ -778,10 +1038,63 @@ const resources = [
     { name:'公考加油站',    url:'https://www.gongkaojiayou.com', desc:'公考信息聚合平台，国考省考招考公告全国汇总。',           category:'exam', type:'free',    rating:4.3, icon:'公', img:'gkjy.png',
       review:'公考加油站以招考信息汇总为核心特色，将全国各省市的国考、省考、事业编招考公告集中展示，并提供报考岗位分析和招考日历功能。对于需要同时关注多个省份招考的考生非常实用。免费使用。功能专注于信息聚合，不做课程培训，定位清晰。建议作为了解各地招考动态的信息门户来使用。' },
 
+    // --- 官方考试报名入口 ---
+    { name:'国家公务员局',     url:'https://www.scs.gov.cn',            desc:'国家公务员考试官方报名入口，国考公告、职位表、报名缴费。',     category:'exam', type:'free',    rating:5.0, icon:'国' },
+    { name:'中国人事考试网',   url:'https://www.cpta.com.cn',           desc:'国家级专业技术人员资格考试平台，各类职业资格考试报名。',        category:'exam', type:'free',    rating:4.9, icon:'人' },
+    { name:'国家政务服务平台', url:'https://www.gjzwfw.gov.cn',         desc:'全国一体化政务服务平台，考试成绩查询和证书查验。',              category:'exam', type:'free',    rating:4.8, icon:'政' , img:'gjzwfw_exam.ico' },
+    { name:'学信网',           url:'https://www.chsi.com.cn',           desc:'教育部学历查询唯一官网，学历认证、考研报名入口。',              category:'exam', type:'free',    rating:4.9, icon:'学' , img:'chsi.ico' },
+    { name:'中国研究生招生网', url:'https://yz.chsi.com.cn',            desc:'考研官方报名入口（研招网），院校信息和调剂系统。',              category:'exam', type:'free',    rating:4.9, icon:'研' , img:'yzchsi.ico' },
+    { name:'中国教育考试网',   url:'https://www.neea.edu.cn',           desc:'教育部考试中心官网，四六级、教师资格证、计算机等级考试。',      category:'exam', type:'free',    rating:4.8, icon:'教' , img:'neea.ico' },
+    { name:'中小学教师资格网', url:'https://ntce.neea.edu.cn',          desc:'教师资格证考试报名和成绩查询官方入口。',                        category:'exam', type:'free',    rating:4.8, icon:'师' , img:'ntce.ico' },
+    { name:'普通话水平测试',   url:'https://www.cltt.org',              desc:'普通话水平测试成绩查询和报名入口。',                            category:'exam', type:'free',    rating:4.5, icon:'普' , img:'cltt.ico' },
+    { name:'国家法律职业资格考试', url:'https://sfb.mcneea.com',        desc:'法考（司法考试）官方报名和成绩查询入口。',                       category:'exam', type:'free',    rating:4.8, icon:'法' },
+    { name:'注册会计师协会',   url:'https://www.cicpa.org.cn',          desc:'CPA注册会计师考试官方报名和信息发布。',                          category:'exam', type:'free',    rating:4.7, icon:'会' , img:'cicpa.ico' },
+
+    // --- 各省人事考试网 ---
+    { name:'北京人事考试网', url:'https://www.bjpta.gov.cn',         desc:'北京市各级机关公务员考试和事业单位招聘。',                     category:'exam', type:'free',    rating:4.5, icon:'京' },
+    { name:'上海人事考试网', url:'https://www.shpta.com',            desc:'上海市公务员考试和专业技术人员资格考试。',                     category:'exam', type:'free',    rating:4.5, icon:'沪' },
+    { name:'广东人事考试网', url:'https://rsks.gd.gov.cn',           desc:'广东省公务员考试和职业资格考试报名入口。',                     category:'exam', type:'free',    rating:4.5, icon:'粤' },
+    { name:'浙江人事考试网', url:'https://www.zjks.gov.cn',          desc:'浙江省公务员考试和各类职业资格考试。',                         category:'exam', type:'free',    rating:4.5, icon:'浙' },
+    { name:'江苏人事考试网', url:'https://jsrlzyshbzj.jiangsu.gov.cn/col/col57253', desc:'江苏省公务员和专业技术人员考试。',                  category:'exam', type:'free',    rating:4.5, icon:'苏' },
+    { name:'山东人事考试网', url:'https://hrss.shandong.gov.cn/rsks', desc:'山东省公务员和省属事业单位考试。',                            category:'exam', type:'free',    rating:4.5, icon:'鲁' },
+    { name:'四川人事考试网', url:'https://www.scpta.gov.cn',          desc:'四川省公务员考试和各类职业资格考试。',                          category:'exam', type:'free',    rating:4.5, icon:'川' },
+    { name:'河南人事考试网', url:'https://www.hnrsks.com',           desc:'河南省公务员考试和专业技术人员资格考试。',                      category:'exam', type:'free',    rating:4.5, icon:'豫' },
+    { name:'湖北人事考试网', url:'https://www.hbsrsksy.cn',          desc:'湖北省公务员和事业单位考试报名入口。',                         category:'exam', type:'free',    rating:4.5, icon:'鄂' },
+    { name:'湖南人事考试网', url:'https://www.hunanpea.com',         desc:'湖南省公务员考试和各类职业资格考试。',                          category:'exam', type:'free',    rating:4.5, icon:'湘' },
+    { name:'福建人事考试网', url:'https://www.fjpta.com',            desc:'福建省公务员考试和专业技术人员资格考试。',                      category:'exam', type:'free',    rating:4.5, icon:'闽' , img:'fjpta.ico' },
+    { name:'安徽人事考试网', url:'https://www.apta.gov.cn',          desc:'安徽省公务员考试和各类职业资格考试。',                          category:'exam', type:'free',    rating:4.5, icon:'皖' },
+    { name:'河北人事考试网', url:'https://www.hebpta.com.cn',        desc:'河北省公务员考试和各类职业资格考试。',                          category:'exam', type:'free',    rating:4.5, icon:'冀' , img:'hebpta.ico' },
+    { name:'辽宁人事考试网', url:'https://www.lnrsks.com',           desc:'辽宁省公务员和事业单位考试报名入口。',                          category:'exam', type:'free',    rating:4.5, icon:'辽' },
+    { name:'陕西人事考试网', url:'https://www.sxrsks.cn',            desc:'陕西省公务员和各类职业资格考试。',                              category:'exam', type:'free',    rating:4.5, icon:'陕' },
+    { name:'重庆人事考试网', url:'https://rlsbj.cq.gov.cn/ywzl/rsks', desc:'重庆市公务员和专业技术人员资格考试。',                        category:'exam', type:'free',    rating:4.5, icon:'渝' },
+
+    // --- 备考辅助 ---
+    { name:'粉笔题库',       url:'https://www.fenbi.com/spider/tiku', desc:'粉笔免费在线题库，行测申论分类刷题。',                   category:'exam', type:'free',    rating:4.7, icon:'题', img:'fenbi_com.ico' },
+    { name:'题拍拍',         url:'https://www.tippai.com',           desc:'拍照搜题工具，公考行测题目快速搜索答案解析。',                 category:'exam', type:'free',    rating:4.2, icon:'拍' },
+
+    { name:'半月谈',         url:'https://www.banyuetan.org',        desc:'党刊新媒体，申论素材和时事政治热点必备。',                     category:'exam', type:'free',    rating:4.5, icon:'半' },
+    { name:'学习强国',       url:'https://www.xuexi.cn',             desc:'时政学习和知识竞赛平台，公考常识积累。',                       category:'exam', type:'free',    rating:4.6, icon:'强' , img:'xuexi.ico' },
+    { name:'人民日报',       url:'https://www.people.com.cn',        desc:'中央级党报，申论范文和时政热点权威来源。',                     category:'exam', type:'free',    rating:4.7, icon:'报', img:'people_com_cn.ico' },
+    { name:'公考雷达',       url:'https://www.gongkaoleida.com',     desc:'智能选岗工具，根据条件匹配适合的公务员岗位。',                 category:'exam', type:'free',    rating:4.4, icon:'雷', img:'gongkaoleida_com.ico' },
+    { name:'华图题库',       url:'https://tiku.huatu.com',           desc:'华图在线免费题库，历年真题和模拟练习。',                       category:'exam', type:'free',    rating:4.3, icon:'图', img:'tiku_huatu_com.ico' },
+    { name:'中公题库',       url:'https://www.offcn.com/tiku',       desc:'中公在线题库，覆盖国考省考事业编各科。',                       category:'exam', type:'free',    rating:4.2, icon:'库', img:'offcn_com.ico' },
+    { name:'时事一点通',     url:'https://www.ssydt.com',            desc:'时政热点汇总平台，公考常识必看。',                             category:'exam', type:'free',    rating:4.3, icon:'时' , img:'ssydt.ico' },
+
+    // --- 其他考证 ---
+    { name:'软考办官网',     url:'https://www.ruankao.org.cn',       desc:'计算机技术与软件专业技术资格考试官方入口。',                   category:'exam', type:'free',    rating:4.6, icon:'软' , img:'ruankao.ico' },
+
+    { name:'医学考试网',     url:'https://www.21wecan.com',          desc:'国家医学考试中心，执业医师/药师/护士考试。',                    category:'exam', type:'free',    rating:4.5, icon:'医' , img:'21wecan.ico' },
+    { name:'建造师考试网',   url:'https://www.coc.gov.cn',           desc:'一级/二级建造师考试报名和成绩查询。',                            category:'exam', type:'free',    rating:4.4, icon:'建' },
+    { name:'银行从业资格',   url:'https://www.ccbp.org.cn',          desc:'中国银行业从业人员资格认证考试官方入口。',                      category:'exam', type:'free',    rating:4.3, icon:'银' },
+    { name:'证券从业资格',   url:'https://www.sac.net.cn',           desc:'证券业从业人员资格考试报名和信息发布。',                        category:'exam', type:'free',    rating:4.3, icon:'证' },
+    { name:'会计资格评价网', url:'https://kzp.mof.gov.cn',           desc:'初级/中级/高级会计职称考试报名入口。',                          category:'exam', type:'free',    rating:4.5, icon:'评' },
+    { name:'托福官网',       url:'https://toefl.neea.cn',            desc:'TOEFL托福考试中国区报名和成绩查询。',                           category:'exam', type:'free',    rating:4.6, icon:'托' , img:'toefl.ico' },
+    { name:'雅思官网',       url:'https://ielts.neea.cn',            desc:'IELTS雅思考试中国区报名和成绩查询。',                           category:'exam', type:'free',    rating:4.6, icon:'雅' , img:'ielts.ico' },
+
     // ============ 编程学习 ============
     { name:'GitHub',      url:'https://github.com',          desc:'全球最大代码托管平台，开源项目和代码学习资源丰富。',      category:'coding', type:'free',    rating:4.9, icon:'GH', img:'github.png',
       review:'GitHub是全球开发者的"基础设施"，几乎所有知名开源项目都托管在这里。对于学习者来说，阅读优秀项目的源代码、参与开源贡献、使用别人的开源库是成长的重要途径。免费创建公开和私有仓库，协作功能强大。近年来被微软收购后商业化和Copilot AI功能越来越重，但核心的代码托管和开源协作功能依然免费且好用。程序员必备。' },
-    { name:'LeetCode',    url:'https://leetcode.cn',         desc:'程序员刷题必备平台，算法面试题库全面。',                 category:'coding', type:'free',    rating:4.8, icon:'LT', img:'leetcode.png',
+    { name:'LeetCode',    url:'https://leetcode.cn',         desc:'程序员刷题必备平台，算法面试题库全面。',                 category:'coding', type:'free',    rating:4.8, icon:'LC', img:'leetcode.png',
       review:'LeetCode是算法刷题的"标准答案"。题库覆盖全面，从简单到困难分级清晰，每道题都有高质量题解和讨论区。支持多种编程语言。每周竞赛活跃。国内版界面中文化，体验友好。免费题库已超过2000道，足够准备大部分技术面试。如果目标是互联网大厂的技术岗，系统刷LeetCode基本是标配。' },
     { name:'菜鸟教程',    url:'https://www.runoob.com',      desc:'中文编程入门教程站，覆盖主流编程语言和框架。',           category:'coding', type:'free',    rating:4.7, icon:'菜', img:'runoob.png',
       review:'菜鸟教程是中文编程入门的最佳免费资源。"语言小程"式的教程风格简洁直白，每个知识点都有可运行的代码示例。覆盖HTML/CSS/JS、Python、Java、SQL等几十种语言和框架。界面虽简陋但信息密度高。适合零基础入门者快速上手，但内容深度有限，适合作为入门参考而不是进阶教程。' },
@@ -791,10 +1104,9 @@ const resources = [
       review:'Stack Overflow是全球程序员最大的知识库。几乎你遇到的任何编程问题，前人都已经在这里问过并得到了优质回答。高质量答案的投票排序机制确保好答案置顶。全英文内容，但用英文关键词搜索基本能找到答案。建议养成习惯：遇到报错信息直接复制到Google搜索"site:stackoverflow.com"。' },
     { name:'W3Schools',   url:'https://www.w3school.com.cn', desc:'Web技术在线教程，HTML/CSS/JS入门首选。',                category:'coding', type:'free',    rating:4.5, icon:'W3', img:'w3school.png',
       review:'W3Schools和菜鸟教程定位类似，都是中文Web技术入门教程。其特色是每个教程后面都有在线练习题，可以边学边练，加深理解。教程结构清晰，适合系统学习。但内容更新速度不如MDN，部分前沿技术覆盖滞后。建议入门阶段结合W3Schools和菜鸟教程一起学，有深度问题再查MDN。' },
-    { name:'CodePen',     url:'https://codepen.io',          desc:'在线前端代码编辑器，实时预览效果。',                     category:'coding', type:'free',    rating:4.6, icon:'CP', img:'codepen.png',
+    { name:'CodePen',     url:'https://codepen.io',          desc:'在线前端代码编辑器，实时预览效果。',                     category:'coding', type:'free',    rating:4.6, icon:'CPe', img:'codepen.png',
       review:'CodePen是前端开发者的"游乐场"。在线编写HTML/CSS/JS并实时预览效果，无需任何环境搭建。社区中有大量创意作品和动效代码可以参考学习。Fork别人的Pen进行改造也是很好的学习方式。免费版功能完整。适合前端学习者快速实验、展示作品，以及寻找创意灵感。' },
-    { name:'牛客网',      url:'https://www.nowcoder.com',    desc:'IT技术学习社区，笔试面试刷题，校招一站搞定。',           category:'coding', type:'free',    rating:4.7, icon:'牛', img:'nowcoder.ico',
-      review:'牛客网在编程学习领域的价值主要体现在校招方面——各大互联网公司的笔试真题、面试经验、面经分享非常丰富。编程练习区的题目相比LeetCode更贴近国内校招笔试风格。讨论区活跃，真实面经参考价值高。如果是准备国内互联网校招，牛客网+LeetCode组合刷题效果最好。' },
+
     { name:'慕课网',      url:'https://www.imooc.com',        desc:'IT技能学习平台，实战视频课程覆盖前后端。',               category:'coding', type:'free',    rating:4.6, icon:'慕', img:'imooc.png',
       review:'慕课网是国内最知名的IT实战学习平台之一，课程以视频+实操为主，覆盖前端、后端、移动端、人工智能等方向。课程质量整体不错，很多由一线大厂工程师录制。免费课程有一定量但精品多需付费。路径式学习体系对入门者友好。适合中文环境下系统学习编程技能。' },
     { name:'Juejin',      url:'https://juejin.cn',            desc:'稀土掘金技术社区，前端后端开发文章质量高。',              category:'coding', type:'free',    rating:4.6, icon:'掘', img:'juejin.png',
@@ -809,6 +1121,105 @@ const resources = [
       review:'Vercel是前端和全栈应用部署的首选平台，特别是对Next.js项目提供原生支持。GitHub仓库一键连接，Push代码自动部署，CDN覆盖全球。免费版对个人项目已经非常慷慨。预览部署功能对开发调试很方便。Serverless Function支持让静态网站也能运行后端逻辑。前端开发者的部署"首选"，配合Next.js几乎是行业标准选择。' },
     { name:'Can I Use',   url:'https://caniuse.com',          desc:'浏览器兼容性查询工具，前端开发必备参考。',               category:'coding', type:'free',    rating:4.5, icon:'CI', img:'caniuse.ico',
       review:'Can I Use是前端开发中查询CSS/JS/HTML特性浏览器兼容性的必备工具。输入任意Web API或CSS属性，就能看到各浏览器的支持情况，数据更新及时。界面简洁直观，绿色表示支持、红色表示不支持。做前端开发时遇到兼容性问题，第一时间查Can I Use是标准做法。完全免费。' },
+
+    // --- 编程语言官网 ---
+    { name:'Python官网',     url:'https://www.python.org',         desc:'Python编程语言官网，下载安装和官方文档。',                 category:'coding', type:'free',    rating:4.9, icon:'Py', img:'python.png' },
+    { name:'Java官网',       url:'https://www.java.com',           desc:'Java运行环境下载，JDK和JRE官方入口。',                     category:'coding', type:'free',    rating:4.7, icon:'Ja', img:'java.png' },
+    { name:'JavaScript MDN', url:'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript', desc:'JavaScript权威文档，ES6+语法参考。', category:'coding', type:'free', rating:4.9, icon:'JS', img:'javascript.png' },
+    { name:'TypeScript官网', url:'https://www.typescriptlang.org', desc:'TypeScript语言官网，类型安全的JavaScript超集。',           category:'coding', type:'free',    rating:4.8, icon:'TS', img:'typescript.png' },
+    { name:'Go语言官网',     url:'https://go.dev',                 desc:'Google出品编程语言，官网提供文档、教程和Playground。',       category:'coding', type:'free',    rating:4.7, icon:'Go', img:'go.png' },
+    { name:'Rust官网',       url:'https://www.rust-lang.org',      desc:'系统编程语言，官网提供文档、Cargo包管理和学习资源。',        category:'coding', type:'free',    rating:4.7, icon:'Rs', img:'rust.png' },
+    { name:'PHP官网',        url:'https://www.php.net',            desc:'PHP语言官网，下载安装和函数文档参考。',                       category:'coding', type:'free',    rating:4.5, icon:'PH', img:'php.png' },
+    { name:'Ruby官网',       url:'https://www.ruby-lang.org',      desc:'Ruby语言官网，优雅的面向对象脚本语言。',                      category:'coding', type:'free',    rating:4.4, icon:'Rb', img:'ruby.png' },
+    { name:'C++参考手册',   url:'https://zh.cppreference.com',     desc:'C/C++标准库权威参考，函数和类文档详尽。',                     category:'coding', type:'free',    rating:4.8, icon:'C+', img:'cppreference.png' },
+    { name:'Swift官网',      url:'https://www.swift.org',          desc:'Apple开源编程语言，iOS/macOS开发首选。',                     category:'coding', type:'free',    rating:4.7, icon:'Sw', img:'swift.png' },
+    { name:'Kotlin官网',     url:'https://kotlinlang.org',         desc:'JetBrains出品，Android开发官方推荐语言。',                   category:'coding', type:'free',    rating:4.6, icon:'Kt', img:'kotlin.png' },
+    { name:'Dart官网',       url:'https://dart.dev',               desc:'Google出品编程语言，Flutter框架的基础语言。',                  category:'coding', type:'free',    rating:4.5, icon:'Da', img:'dart.png' },
+
+    // --- 开发工具/IDE ---
+    { name:'VS Code',        url:'https://code.visualstudio.com',  desc:'微软出品代码编辑器，插件生态最强，程序员首选IDE。',            category:'coding', type:'free',    rating:4.9, icon:'VS', img:'vscode.png' },
+    { name:'IntelliJ IDEA',  url:'https://www.jetbrains.com/idea', desc:'JetBrains旗舰IDE，Java/Kotlin开发最强工具。',               category:'coding', type:'free',    rating:4.8, icon:'IJ', img:'idea.png' },
+    { name:'PyCharm',        url:'https://www.jetbrains.com/pycharm', desc:'JetBrains出品Python IDE，智能代码补全和调试。',            category:'coding', type:'free',    rating:4.8, icon:'PCm', img:'pycharm.png' },
+    { name:'WebStorm',       url:'https://www.jetbrains.com/webstorm', desc:'JetBrains前端IDE，JavaScript/TypeScript开发利器。',       category:'coding', type:'free',    rating:4.7, icon:'WS', img:'webstorm.png' },
+    { name:'Sublime Text',   url:'https://www.sublimetext.com',    desc:'极速代码编辑器，启动快，界面简洁优雅。',                      category:'coding', type:'vip',     rating:4.5, icon:'ST', img:'sublimetext.png' },
+    { name:'Vim官网',        url:'https://www.vim.org',            desc:'经典终端编辑器，高效编辑的终极武器。',                         category:'coding', type:'free',    rating:4.6, icon:'Vi', img:'vim.png' },
+    { name:'Cursor',         url:'https://cursor.sh',              desc:'AI代码编辑器，基于VS Code深度集成AI编程助手。',                category:'coding', type:'free',    rating:4.7, icon:'Cu', img:'cursor.png' },
+    { name:'Windsurf',       url:'https://codeium.com/windsurf',   desc:'Codeium出品AI编辑器，AI辅助编码体验流畅。',                    category:'coding', type:'free',    rating:4.5, icon:'Wi', img:'windsurf.png' },
+    { name:'Xcode',          url:'https://developer.apple.com/xcode/', desc:'Apple官方IDE，iOS/macOS开发必备工具。',                   category:'coding', type:'free',    rating:4.7, icon:'XC', img:'xcode.png' },
+    { name:'Android Studio', url:'https://developer.android.com/studio', desc:'Google官方Android开发IDE，模拟器和布局编辑器齐全。',      category:'coding', type:'free',    rating:4.7, icon:'AS', img:'androidstudio.png' },
+    { name:'DevDocs',        url:'https://devdocs.io',             desc:'聚合API文档浏览器，汇集各语言/框架的官方文档。',               category:'coding', type:'free',    rating:4.6, icon:'DD', img:'devdocs.png' },
+
+    // --- 版本控制/协作 ---
+    { name:'Git官网',        url:'https://git-scm.com',            desc:'分布式版本控制系统官网，下载安装和学习资料。',                  category:'coding', type:'free',    rating:4.9, icon:'Gi', img:'git.png' },
+    { name:'Gitee',          url:'https://gitee.com',              desc:'国内代码托管平台，Gitee Pages和GVP开源项目库。',              category:'coding', type:'free',    rating:4.6, icon:'GE', img:'gitee.png' },
+    { name:'GitLab',         url:'https://gitlab.com',             desc:'开源代码托管平台，CI/CD集成，企业级DevOps方案。',              category:'coding', type:'free',    rating:4.7, icon:'GLb', img:'gitlab.png' },
+    { name:'Bitbucket',      url:'https://bitbucket.org',          desc:'Atlassian旗下Git托管平台，小团队免费私有仓库。',               category:'coding', type:'free',    rating:4.4, icon:'BB', img:'bitbucket.png' },
+
+    // --- 包管理器/构建工具 ---
+    { name:'npm官网',        url:'https://www.npmjs.com',          desc:'Node.js默认包管理器，全球最大JS包注册表。',                   category:'coding', type:'free',    rating:4.8, icon:'np', img:'npm.png' },
+    { name:'Node.js官网',    url:'https://nodejs.org',             desc:'JavaScript运行时环境，前端全栈开发必备。',                     category:'coding', type:'free',    rating:4.9, icon:'Nj', img:'nodejs.png' },
+    { name:'pnpm',           url:'https://pnpm.io',                desc:'高性能Node包管理器，节省磁盘空间，速度快。',                   category:'coding', type:'free',    rating:4.6, icon:'pn', img:'pnpm.png' },
+    { name:'Docker Hub',     url:'https://hub.docker.com',         desc:'Docker容器镜像仓库，开发环境容器化部署标准。',                  category:'coding', type:'free',    rating:4.8, icon:'Dk', img:'docker.png' },
+    { name:'Maven仓库',      url:'https://mvnrepository.com',      desc:'Java/Maven依赖搜索，查找和下载Jar包。',                       category:'coding', type:'free',    rating:4.5, icon:'Mv', img:'maven.png' },
+    { name:'PyPI',           url:'https://pypi.org',               desc:'Python包索引，pip install的包来源。',                          category:'coding', type:'free',    rating:4.7, icon:'PI' , img:'pypi.ico' },
+    { name:'Webpack',        url:'https://webpack.js.org',         desc:'前端模块打包工具，大型项目构建标配。',                          category:'coding', type:'free',    rating:4.5, icon:'Wp', img:'webpack.png' },
+    { name:'Vite',           url:'https://vitejs.dev',             desc:'下一代前端构建工具，极速冷启动和热更新。',                      category:'coding', type:'free',    rating:4.8, icon:'Vt', img:'vite.png' },
+    { name:'ESLint',         url:'https://eslint.org',             desc:'JavaScript代码检查工具，团队代码风格统一利器。',                category:'coding', type:'free',    rating:4.5, icon:'ES' , img:'eslint.ico' },
+
+    // --- API/数据库/后端 ---
+    { name:'Postman',        url:'https://www.postman.com',        desc:'API调试和测试工具，前后端接口联调必备。',                      category:'coding', type:'free',    rating:4.8, icon:'Po', img:'postman.png' },
+    { name:'Insomnia',       url:'https://insomnia.rest',          desc:'开源API调试工具，轻量高效，GraphQL支持好。',                  category:'coding', type:'free',    rating:4.5, icon:'In', img:'insomnia.png' },
+    { name:'MongoDB',        url:'https://www.mongodb.com',        desc:'NoSQL文档数据库官网，下载MongoDB和Atlas云服务。',              category:'coding', type:'free',    rating:4.7, icon:'Mo', img:'mongodb.png' },
+    { name:'MySQL官网',      url:'https://www.mysql.com',          desc:'最流行的开源关系数据库，LAMP技术栈标配。',                      category:'coding', type:'free',    rating:4.7, icon:'MY', img:'mysql.png' },
+    { name:'Redis官网',      url:'https://redis.io',               desc:'高性能键值缓存数据库，后端缓存和消息队列首选。',                category:'coding', type:'free',    rating:4.7, icon:'Rd', img:'redis.png' },
+    { name:'PostgreSQL',     url:'https://www.postgresql.org',     desc:'功能最强大的开源关系数据库，JSON支持好。',                      category:'coding', type:'free',    rating:4.7, icon:'PG', img:'postgresql.png' },
+    { name:'Supabase',       url:'https://supabase.com',           desc:'开源Firebase替代品，PostgreSQL + Auth + Storage。',            category:'coding', type:'free',    rating:4.6, icon:'Sb', img:'supabase.png' },
+    { name:'Prisma',         url:'https://www.prisma.io',          desc:'下一代Node.js/TypeScript ORM，类型安全的数据库操作。',          category:'coding', type:'free',    rating:4.6, icon:'Pr', img:'prisma.png' },
+    { name:'Strapi',         url:'https://strapi.io',              desc:'开源Headless CMS，快速搭建API后端。',                          category:'coding', type:'free',    rating:4.4, icon:'Sr' },
+
+    // --- 前端框架/库 ---
+    { name:'React官网',      url:'https://react.dev',              desc:'Meta出品UI库，前端组件化开发事实标准。',                      category:'coding', type:'free',    rating:4.9, icon:'Rc', img:'react.png' },
+    { name:'Vue.js官网',     url:'https://vuejs.org',              desc:'渐进式JavaScript框架，中文文档友好，国内使用广泛。',            category:'coding', type:'free',    rating:4.9, icon:'Vu', img:'vue.png' },
+    { name:'Angular官网',    url:'https://angular.dev',            desc:'Google出品企业级前端框架，TypeScript深度集成。',                category:'coding', type:'free',    rating:4.6, icon:'Ng', img:'angular.png' },
+    { name:'Next.js官网',    url:'https://nextjs.org',             desc:'React全栈框架，SSR/SSG/ISR和App Router。',                     category:'coding', type:'free',    rating:4.8, icon:'Nx', img:'nextjs.png' },
+    { name:'Nuxt官网',       url:'https://nuxt.com',               desc:'Vue全栈框架，SSR和静态站点生成，开发体验好。',                 category:'coding', type:'free',    rating:4.6, icon:'Nu' , img:'nuxt.ico' },
+    { name:'Svelte官网',     url:'https://svelte.dev',             desc:'编译时框架，无虚拟DOM，性能极致。',                            category:'coding', type:'free',    rating:4.5, icon:'Sv', img:'svelte.png' },
+    { name:'TailwindCSS',    url:'https://tailwindcss.com',        desc:'实用优先CSS框架，原子化CSS快速构建界面。',                      category:'coding', type:'free',    rating:4.8, icon:'TW', img:'tailwind.png' },
+    { name:'Bootstrap官网',  url:'https://getbootstrap.com',       desc:'最流行的CSS框架，响应式布局和UI组件库。',                       category:'coding', type:'free',    rating:4.5, icon:'BT', img:'bootstrap.png' },
+    { name:'Three.js官网',   url:'https://threejs.org',            desc:'3D WebGL库，网页3D可视化和游戏开发。',                           category:'coding', type:'free',    rating:4.6, icon:'3j', img:'threejs.png' },
+    { name:'D3.js官网',      url:'https://d3js.org',               desc:'数据可视化JS库，复杂图表和交互式数据展示。',                     category:'coding', type:'free',    rating:4.5, icon:'D3', img:'d3js.png' },
+    { name:'Ant Design',     url:'https://ant.design',             desc:'蚂蚁集团企业级UI组件库，React项目常用。',                       category:'coding', type:'free',    rating:4.6, icon:'AD', img:'antdesign.png' },
+    { name:'Element Plus',   url:'https://element-plus.org',       desc:'饿了么Vue3组件库，后台管理系统UI首选。',                       category:'coding', type:'free',    rating:4.5, icon:'EP' },
+    { name:'jQuery官网',     url:'https://jquery.com',             desc:'经典JavaScript库，DOM操作和事件处理简洁高效。',                  category:'coding', type:'free',    rating:4.2, icon:'jQ', img:'jquery.png' },
+
+    // --- 后端框架/语言 ---
+    { name:'Django官网',     url:'https://www.djangoproject.com',  desc:'Python全栈Web框架，快速开发企业级应用。',                      category:'coding', type:'free',    rating:4.7, icon:'Dj', img:'django.png' },
+    { name:'Flask官网',      url:'https://flask.palletsprojects.com', desc:'Python轻量Web框架，灵活易扩展，微型项目首选。',              category:'coding', type:'free',    rating:4.6, icon:'Fl', img:'flask.png' },
+    { name:'FastAPI官网',    url:'https://fastapi.tiangolo.com',   desc:'Python高性能API框架，自动生成API文档。',                      category:'coding', type:'free',    rating:4.7, icon:'FA', img:'fastapi.png' },
+    { name:'Spring Boot',   url:'https://spring.io/projects/spring-boot', desc:'Java企业级开发框架，微服务架构标配。',                    category:'coding', type:'free',    rating:4.8, icon:'Sp', img:'springboot.png' },
+    { name:'Express.js',    url:'https://expressjs.com',          desc:'Node.js最流行的Web框架，轻量灵活。',                           category:'coding', type:'free',    rating:4.7, icon:'Ex', img:'express.png' },
+    { name:'NestJS官网',    url:'https://nestjs.com',             desc:'Node.js企业级框架，TypeScript深度集成，架构规范。',             category:'coding', type:'free',    rating:4.6, icon:'NS', img:'nestjs.png' },
+    { name:'Laravel官网',    url:'https://laravel.com',            desc:'PHP优雅框架，语法简洁，生态丰富。',                             category:'coding', type:'free',    rating:4.6, icon:'Lv' },
+
+    // --- 云服务/部署 ---
+    { name:'阿里云',         url:'https://www.aliyun.com',         desc:'国内领先云服务商，ECS服务器和云数据库。',                       category:'coding', type:'free',    rating:4.7, icon:'AL', img:'aliyun.png' },
+    { name:'腾讯云',         url:'https://cloud.tencent.com',      desc:'腾讯旗下云平台，轻量服务器和云开发。',                           category:'coding', type:'free',    rating:4.6, icon:'TX', img:'tencentcloud.png' },
+    { name:'华为云',         url:'https://www.huaweicloud.com',    desc:'华为旗下云平台，政企服务和AI算力。',                             category:'coding', type:'free',    rating:4.5, icon:'HW', img:'huaweicloud.png' },
+    { name:'AWS',            url:'https://aws.amazon.com',         desc:'亚马逊云计算平台，全球最大云服务商。',                          category:'coding', type:'free',    rating:4.8, icon:'AW', img:'aws.png' },
+    { name:'Cloudflare',     url:'https://www.cloudflare.com',     desc:'CDN加速和安全防护，免费HTTPS和DNS解析。',                       category:'coding', type:'free',    rating:4.8, icon:'Cf', img:'cloudflare.png' },
+    { name:'Netlify',        url:'https://www.netlify.com',        desc:'静态网站自动部署平台，GitHub集成一键上线。',                     category:'coding', type:'free',    rating:4.6, icon:'Nt' },
+    { name:'Railway',        url:'https://railway.app',            desc:'全栈应用部署平台，一键部署后端和数据库。',                      category:'coding', type:'free',    rating:4.5, icon:'RW', img:'railway.png' },
+    { name:'Firebase',       url:'https://firebase.google.com',    desc:'Google旗下BaaS平台，实时数据库和认证服务。',                    category:'coding', type:'free',    rating:4.6, icon:'FB', img:'firebase_google_com.ico' },
+
+    // --- 设计/协作/效率 ---
+    { name:'Figma',          url:'https://www.figma.com',          desc:'在线UI设计工具，团队协作原型设计首选。',                         category:'coding', type:'free',    rating:4.9, icon:'Fi', img:'figma.png' },
+    { name:'Notion',         url:'https://www.notion.so',          desc:'全能工作空间，文档+数据库+Wiki，团队协作神器。',                category:'coding', type:'free',    rating:4.8, icon:'NT', img:'notion.png' },
+    { name:'语雀',           url:'https://www.yuque.com',          desc:'阿里旗下知识管理平台，文档协作和知识库搭建。',                  category:'coding', type:'free',    rating:4.5, icon:'YQ', img:'yuque.png' },
+    { name:'Excalidraw',     url:'https://excalidraw.com',         desc:'手绘风格在线白板，画架构图和流程图利器。',                      category:'coding', type:'free',    rating:4.6, icon:'Xd', img:'excalidraw.png' },
+    { name:'Draw.io',        url:'https://app.diagrams.net',       desc:'免费在线绘图工具，流程图/UML/网络图一键导出。',                 category:'coding', type:'free',    rating:4.5, icon:'Dr', img:'app_diagrams_net.ico' },
+    { name:'Swagger',        url:'https://swagger.io',             desc:'API文档自动生成工具，前后端协作接口规范。',                      category:'coding', type:'free',    rating:4.4, icon:'SA', img:'swagger.png' },
+    { name:'Regex101',       url:'https://regex101.com',           desc:'正则表达式在线测试工具，实时匹配和调试。',                       category:'coding', type:'free',    rating:4.5, icon:'RX', img:'regex101_com.ico' },
+    { name:'JSON Editor',    url:'https://jsoneditoronline.org',   desc:'在线JSON编辑器和格式化工具，开发调试必备。',                    category:'coding', type:'free',    rating:4.4, icon:'JE' , img:'jsoneditor.ico' },
 
     // ============ 大学生创业 ============
 
@@ -831,19 +1242,19 @@ const resources = [
       review:'拼多多商家的核心逻辑是"低价走量"。入驻门槛低，适合有价格优势的货源。平台在下沉市场有巨大流量，单品爆发的可能性比淘宝高。但对价格极度敏感，利润空间薄。商家需要严格控制成本。适合做工厂直供、尾货清仓、低价日用品等模式。新手商家要警惕平台的罚款规则。' },
     { name:'闲鱼',        url:'https://www.goofish.com',      desc:'二手交易平台，闲置物品和手工定制生意。',                category:'startup', sub:'ecommerce',  type:'free',    rating:4.6, icon:'鱼', img:'goofish.png',
       review:'闲鱼是最大的二手交易平台，也适合轻量级创业。无入驻费用，零成本开卖。适合二手闲置、手工定制、信息差等模式。闲鱼引流后转私域是很多小卖家的做法。平台免保证金门槛低，但也意味着信任成本高。适合想低成本试水电商的大学生，从卖闲置开始积累经验。' },
-    { name:'小红书开店',  url:'https://ec.xiaohongshu.com/ecommerce/home',  desc:'小红书电商入驻，图文种草和电商带货。',                    category:'startup', sub:'ecommerce',  type:'free',    rating:4.5, icon:'红', img:'xiaohongshu.png',
+    { name:'小红书开店',  url:'https://ec.xiaohongshu.com/ecommerce/home',  desc:'小红书电商入驻，图文种草和电商带货。',                    category:'startup', sub:'ecommerce',  type:'free',    rating:4.5, icon:'店', img:'xiaohongshu.png',
       review:'小红书电商的商业模式是"内容即交易"——通过笔记种草带动商品销售。用户消费意愿强，客单价相对较高。适合有内容创作能力、做美妆/穿搭/家居等品类的卖家。入驻门槛低，但做好内容运营需要投入大量精力。图文和短视频内容质量决定转化率。适合擅长内容创作的创业者。' },
-    { name:'抖音电商',    url:'https://fxg.jinritemai.com',  desc:'抖音商家后台，短视频+直播电商，流量红利期。',            category:'startup', sub:'ecommerce',  type:'free',    rating:4.7, icon:'抖', img:'jinritemai.png',
+    { name:'抖音电商',    url:'https://fxg.jinritemai.com',  desc:'抖音商家后台，短视频+直播电商，流量红利期。',            category:'startup', sub:'ecommerce',  type:'free',    rating:4.7, icon:'商', img:'jinritemai.png',
       review:'抖音电商是当前电商最大的增长引擎。短视频种草+直播带货的模式爆发力极强，单品日销过万的案例比比皆是。但竞争也异常激烈，需要优质内容、专业主播或付费投流。入驻门槛不高但做好很难。适合有短视频制作能力或直播天赋的创业者。对大学生来说，可以先从短视频内容入手再转型带货。' },
     { name:'1688',        url:'https://www.1688.com',         desc:'阿里巴巴批发平台，一件代发和货源采购首选。',             category:'startup', sub:'ecommerce',  type:'free',    rating:4.8, icon:'88', img:'1688.png',
       review:'1688是电商创业者的"上游基地"。无论你是做淘宝、拼多多还是闲鱼，1688都是找货源的首选。支持一件代发（无需囤货）、小额批发。价格透明，供应商多，比价方便。货源品质参差不齐需要筛选。几乎所有电商创业者都需要1688来获取货源或供应链信息。建议新手多看多比较再下单。' },
 
     // --- 自媒体 & 短视频 ---
-    { name:'B站创作中心', url:'https://member.bilibili.com',  desc:'B站创作者平台，视频投稿和数据分析。',                   category:'startup', sub:'media',      type:'free',    rating:4.6, icon:'B', img:'bilibili.ico',
+    { name:'B站创作中心', url:'https://member.bilibili.com',  desc:'B站创作者平台，视频投稿和数据分析。',                   category:'startup', sub:'media',      type:'free',    rating:4.6, icon:'投', img:'bilibili.ico',
       review:'B站是国内最适合做深度内容的中长视频平台。用户社区氛围好，弹幕互动文化独特。中长视频的完播率和社区粘性高于抖音。变现方式包括创作激励、充电计划、商业推广等。但相比短视频平台，起量速度较慢，需要持续产出优质内容。适合有知识分享、技能教学、二次创作等方向的内容创作者。' },
-    { name:'抖音创作',    url:'https://creator.douyin.com',   desc:'抖音创作者服务平台，短视频创作和变现。',                 category:'startup', sub:'media',      type:'free',    rating:4.7, icon:'抖', img:'douyin.png',
+    { name:'抖音创作',    url:'https://creator.douyin.com',   desc:'抖音创作者服务平台，短视频创作和变现。',                 category:'startup', sub:'media',      type:'free',    rating:4.7, icon:'作', img:'douyin.png',
       review:'抖音是国内短视频的绝对霸主，日活用户超6亿。算法推荐机制成熟，普通人也有机会爆款。变现路径清晰：带货、直播、广告、知识付费等。但竞争极度激烈，内容同质化严重。起号需要摸索平台算法和用户偏好。适合执行力强、能快速迭代内容的创作者。大学生可以低成本试错。' },
-    { name:'视频号',      url:'https://channels.weixin.qq.com', desc:'微信视频号创作者平台，基于微信生态。',                category:'startup', sub:'media',      type:'free',    rating:4.4, icon:'频', img:'weixin.png',
+    { name:'视频号',      url:'https://channels.weixin.qq.com', desc:'微信视频号创作者平台，基于微信生态。',                category:'startup', sub:'media',      type:'free',    rating:4.4, icon:'号', img:'weixin.png',
       review:'视频号背靠微信13亿月活，社交推荐的传播潜力巨大。独特的优势是可以方便地连接公众号、小程序和企业微信，形成私域闭环。适合做知识分享、行业观点等偏"熟人社交"风格的内容。相比抖音公域流量的爆发力，视频号更偏向社交裂变和私域转化。适合微信生态重度用户。' },
     { name:'头条号',      url:'https://mp.toutiao.com',       desc:'今日头条创作平台，图文和微头条都能变现。',               category:'startup', sub:'media',      type:'free',    rating:4.3, icon:'头', img:'toutiao.png',
       review:'头条号基于今日头条的算法推荐分发，图文创作者可以获得阅读量分成。创作门槛低，微头条（类似微博）可以快速产出内容变现。适合擅长写资讯、观点、故事类图文的创作者。但单价持续走低，纯靠阅读量分成收入有限。建议作为流量入口，导流到其他变现渠道。' },
@@ -867,7 +1278,7 @@ const resources = [
       review:'得到是国内知识付费领域的标杆平台。用户付费意愿强，课程品质管控严格。如果你是某领域的专家，可以考虑申请成为得到讲师。但审核门槛高，不是随便就能入驻。对于普通创业者，得到更多是作为"学习平台"而不是"创业平台"。适合有深厚专业积累、能产出体系化知识内容的专家。' },
     { name:'千聊',        url:'https://www.qlchat.com',       desc:'知识分享和社群运营平台，一键开通知识店铺。',             category:'startup', sub:'knowledge',  type:'free',    rating:4.3, icon:'聊', img:'qlchat.png',
       review:'千聊的门槛比得到低很多，几乎任何人都可以一键开通自己的知识店铺。支持语音课、直播、专栏等多种形式。适合做社群运营和轻量级知识付费。免费开店，按交易抽成。缺点是平台流量分配不如头部平台，需要自带流量。适合有粉丝基础或特定技能想变现的创作者。' },
-    { name:'小鹅通',      url:'https://www.xiaoe-tech.com',   desc:'知识付费和私域运营工具，搭建知识店铺。',                category:'startup', sub:'knowledge',  type:'vip',     rating:4.5, icon:'鹅', img:'xiaoe.png',
+    { name:'小鹅通',      url:'https://www.xiaoe-tech.com',   desc:'知识付费和私域运营工具，搭建知识店铺。',                category:'startup', sub:'knowledge',  type:'vip',     rating:4.5, icon:'小', img:'xiaoe.png',
       review:'小鹅通是知识付费领域最主流的SaaS工具之一，为内容创作者提供完整的知识店铺搭建方案。支持课程、直播、训练营、会员等多种变现形式。与微信生态打通，方便私域运营。缺点是需要付费使用（年费），且需要自行解决流量问题。适合有一定用户基础、想做系统化知识付费的创作者或机构。' },
     { name:'知识星球',    url:'https://www.zsxq.com',         desc:'创作者社群工具，付费圈子运营，连接粉丝。',               category:'startup', sub:'knowledge',  type:'vip',     rating:4.4, icon:'星', img:'zsxq.png',
       review:'知识星球（原小密圈）是做付费社群的最佳工具。创建一个星球，设定入圈费用，在里面分享知识和互动。模式简单直接：持续输出有价值的内容就能吸引付费用户。适合各领域的KOL和知识型创作者。缺点是全平台通用导致严重同质化，需要找到差异化内容定位。年费制定价合理。' },
@@ -889,8 +1300,7 @@ const resources = [
       review:'创业邦提供创业相关的资讯、政策解读、融资信息和创业课程。内容覆盖面广，适合了解创业生态和行业动态。也有创业项目路演和投融资对接功能。但内容深度参差不齐，广告较多。作为日常浏览了解创业资讯的渠道还行，不建议付费购买其高价培训课程。' },
     { name:'36氪',        url:'https://36kr.com',             desc:'科技创业媒体，最新创业趋势和行业报告。',                 category:'startup', sub:'service',    type:'free',    rating:4.6, icon:'36', img:'36kr.ico',
       review:'36氪是国内科技和创投领域最有影响力的媒体之一。报道覆盖AI、新能源、消费、出海等热门赛道。行业深度分析和趋势判断质量较高。适合创业者了解行业动态、竞争对手动向和投资热点。内容免费且更新及时。是科技创业者和投资人的必读媒体，手机App体验也很好。' },
-    { name:'石墨文档',    url:'https://shimo.im',            desc:'团队协作文档工具，创业团队文档和方案管理。',              category:'startup', sub:'service',    type:'free',    rating:4.7, icon:'石', img:'shimo.png',
-      review:'石墨文档对于创业团队来说几乎是标配工具。商业计划书、会议纪要、项目方案、数据表格等都可以在石墨中协作完成。实时协作体验流畅，历史版本可追溯，权限管理灵活。免费版支持多人协作，小团队完全够用。相比Word文档传来传去的传统方式，石墨极大提升了团队协作效率。' },
+
 
     // ============ 政府官网 ============
     // --- 国家级：国务院及组成部门 ---
@@ -960,7 +1370,7 @@ const resources = [
     { name:'国家药品监督管理局', url:'https://www.nmpa.gov.cn',         desc:'主管药品、医疗器械、化妆品监管的国家局。',                     category:'gov', region:'national', type:'free', rating:4.7, icon:'药' },
     // --- 国家级：公共服务平台 ---
     { name:'中国铁路12306',      url:'https://www.12306.cn',            desc:'中国铁路客户服务中心，火车票购买、列车时刻查询。',             category:'gov', region:'national', type:'free', rating:4.9, icon:'铁' },
-    { name:'国家政务服务平台',   url:'https://www.gjzwfw.gov.cn',       desc:'全国一体化在线政务服务平台，跨省通办、一网通办。',             category:'gov', region:'national', type:'free', rating:4.8, icon:'务' },
+    { name:'国家政务服务平台',   url:'https://www.gjzwfw.gov.cn',       desc:'全国一体化在线政务服务平台，跨省通办、一网通办。',             category:'gov', region:'national', type:'free', rating:4.8, icon:'务' , img:'gjzwfw_exam.ico' },
     { name:'国家企业信用信息公示系统', url:'https://www.gsxt.gov.cn',  desc:'全国企业信用信息公示系统，企业信息查询。',                   category:'gov', region:'national', type:'free', rating:4.8, icon:'企' },
     { name:'中国执行信息公开网', url:'http://zxgk.court.gov.cn',        desc:'全国法院被执行人信息查询平台。',                               category:'gov', region:'national', type:'free', rating:4.6, icon:'执' },
     { name:'中国裁判文书网',     url:'https://wenshu.court.gov.cn',     desc:'全国法院裁判文书公开查询平台。',                               category:'gov', region:'national', type:'free', rating:4.7, icon:'裁' },
@@ -2495,6 +2905,7 @@ const FRIEND_LINKS = [
 // 分类图标颜色映射
 // ============================================
 const CAT_COLORS = {
+    entertainment: 'linear-gradient(135deg,#E11D48,#F43F5E)',
     ppt:      'linear-gradient(135deg,#4F6EF7,#818CF8)',
     word:     'linear-gradient(135deg,#7C5CFC,#A78BFA)',
     excel:    'linear-gradient(135deg,#10B981,#34D399)',
@@ -2628,6 +3039,7 @@ const SCREENSHOT_MAP = {
 // ============================================
 const grid = document.getElementById('resourceGrid');
 const categoryNav = document.getElementById('categoryNav');
+const categoryNavWrap = document.getElementById('categoryNavWrap');
 const searchInput = document.getElementById('searchInput');
 const searchClearBtn = document.getElementById('searchClearBtn');
 const totalCountEl = document.getElementById('totalCount');
@@ -2664,16 +3076,46 @@ function recordClick(item) {
 // ============================================
 function renderCategoryNav() {
     const sorted = getSortedCategories();
+    // 只渲染 tab 到 inner 容器，使用 emoji 图标
     categoryNav.innerHTML = sorted.map(cat => {
         return `<button class="cat-tab${cat.id === currentCategory ? ' active' : ''}" data-cat="${cat.id}">
-            <span class="tab-icon">${cat.icon}</span>${cat.name}
+            <span class="tab-icon-emoji">${cat.icon}</span>${cat.name}
         </button>`;
     }).join('');
+
+    // 初始化展开/收起状态（操作外层 wrap）
+    const isExpanded = localStorage.getItem('toolbox_catnav_expanded') === 'true';
+    if (categoryNavWrap) {
+        categoryNavWrap.classList.toggle('collapsed', !isExpanded);
+        categoryNavWrap.classList.toggle('expanded', isExpanded);
+    }
+
+    // 展开/收起按钮事件（按钮在 HTML 中已写好，绑定一次即可）
+    const expandBtn = document.getElementById('catExpandBtn');
+    if (expandBtn && !expandBtn._bindDone) {
+        expandBtn._bindDone = true;
+        expandBtn.addEventListener('click', () => {
+            const nowExpanded = categoryNavWrap && categoryNavWrap.classList.contains('expanded');
+            if (nowExpanded) {
+                categoryNavWrap.classList.remove('expanded');
+                categoryNavWrap.classList.add('collapsed');
+                expandBtn.classList.remove('is-expanded');
+                expandBtn.innerHTML = '展开 <span class="expand-icon">▼</span>';
+                localStorage.setItem('toolbox_catnav_expanded', 'false');
+            } else {
+                categoryNavWrap.classList.remove('collapsed');
+                categoryNavWrap.classList.add('expanded');
+                expandBtn.classList.add('is-expanded');
+                expandBtn.innerHTML = '收起 <span class="expand-icon">▼</span>';
+                localStorage.setItem('toolbox_catnav_expanded', 'true');
+            }
+        });
+    }
 
     categoryNav.querySelectorAll('.cat-tab').forEach(tab => {
         tab.addEventListener('click', () => {
             currentCategory = tab.dataset.cat;
-            currentGovRegion = 'all'; // 切换分类时重置地区选择
+            currentGovRegion = 'all';
             currentGovCity = 'all';
             currentGovDistrict = 'all';
             currentGovLevel = 'all';
@@ -2685,31 +3127,44 @@ function renderCategoryNav() {
 }
 
 // ============================================
-// 渲染工具箱快入口
+// 渲染最近访问（快入口区域）
 // ============================================
 function renderQuickTools() {
-    quickToolsGrid.innerHTML = QUICK_TOOLS.map(tool => {
-        let qtHostname = '';
-        try { qtHostname = new URL(tool.url).hostname; } catch(e) {}
+    if (recentViewed.length === 0) {
+        // 无记录时显示空态引导
+        quickToolsGrid.innerHTML = `
+            <div class="quick-tools-empty">
+                <div class="quick-tools-empty-icon">🔍</div>
+                <p>还没有浏览记录</p>
+                <p class="quick-tools-empty-hint">点击下方资源卡片，访问记录会自动出现在这里</p>
+            </div>`;
+        return;
+    }
+    // 取最近 8 个，生成渐变色
+    const gradients = [
+        'linear-gradient(135deg,#4F6EF7,#818CF8)', 'linear-gradient(135deg,#10B981,#34D399)',
+        'linear-gradient(135deg,#F59E0B,#FBBF24)', 'linear-gradient(135deg,#EF4444,#F87171)',
+        'linear-gradient(135deg,#8B5CF6,#A78BFA)', 'linear-gradient(135deg,#EC4899,#F472B6)',
+        'linear-gradient(135deg,#06B6D4,#22D3EE)', 'linear-gradient(135deg,#F97316,#FB923C)',
+    ];
+    quickToolsGrid.innerHTML = recentViewed.slice(0, 8).map((item, i) => {
+        let hostname = '';
+        try { hostname = new URL(item.url).hostname; } catch(e) {}
         let iconHtml;
-        if (tool.img) {
-            // 有本地图标：本地 → CDN → emoji回退
-            const faviconSrc = qtHostname
-                ? `https://www.google.com/s2/favicons?domain=${qtHostname}&sz=64`
-                : '';
-            iconHtml = `<img src="images/${tool.img}" alt="${tool.name}" class="quick-tool-img" onerror="if('${faviconSrc}'){this.src='${faviconSrc}';this.onerror=function(){this.style.display='none';this.parentElement.textContent='${tool.icon}';};}else{this.style.display='none';this.parentElement.textContent='${tool.icon}';}">`;
+        if (item.img) {
+            const faviconSrc = hostname ? `https://www.google.com/s2/favicons?domain=${hostname}&sz=64` : '';
+            iconHtml = `<img src="images/${item.img}" alt="${item.name}" class="quick-tool-img" onerror="if('${faviconSrc}'){this.src='${faviconSrc}';this.onerror=function(){this.style.display='none';this.parentElement.textContent='${item.icon||'🔗'}';};}else{this.style.display='none';this.parentElement.textContent='${item.icon||'🔗'}';}">`;
         } else {
-            const faviconSrc = qtHostname
-                ? `https://www.google.com/s2/favicons?domain=${qtHostname}&sz=64`
-                : '';
+            const faviconSrc = hostname ? `https://www.google.com/s2/favicons?domain=${hostname}&sz=64` : '';
             iconHtml = faviconSrc
-                ? `<img src="${faviconSrc}" alt="${tool.name}" class="quick-tool-img" onerror="this.style.display='none';this.parentElement.textContent='${tool.icon}';">`
-                : tool.icon;
+                ? `<img src="${faviconSrc}" alt="${item.name}" class="quick-tool-img" onerror="this.style.display='none';this.parentElement.textContent='${item.icon||'🔗'}';">`
+                : (item.icon || '🔗');
         }
+        const bg = gradients[i % gradients.length];
         return `
-        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="quick-tool-item">
-            <div class="quick-tool-icon" style="background:${tool.bg}">${iconHtml}</div>
-            <span class="quick-tool-name">${tool.name}</span>
+        <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="quick-tool-item">
+            <div class="quick-tool-icon" style="background:${bg}">${iconHtml}</div>
+            <span class="quick-tool-name">${item.name}</span>
         </a>`;
     }).join('');
 }
@@ -3522,7 +3977,7 @@ function loadPolicyNews() {
             renderPolicyNews(cached.items);
             return;
         }
-    } catch(e) {}
+    } catch($1) {}
     // 无缓存或已过期，重新获取
     fetchPolicyNews();
 }
@@ -3605,7 +4060,7 @@ if (submitForm) {
 // 搜索逻辑
 // ============================================
 let searchHistory = [];
-try { searchHistory = JSON.parse(localStorage.getItem('searchHistory') || '[]'); } catch(e) {}
+try { searchHistory = JSON.parse(localStorage.getItem('searchHistory') || '[]'); } catch($1) {}
 
 // 创建搜索历史下拉元素
 const historyDropdown = document.createElement('div');
@@ -3686,10 +4141,86 @@ searchInput.addEventListener('input', (e) => {
 searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         const kw = searchInput.value.trim();
-        if (kw) saveSearchHistory(kw);
+        if (kw) {
+            saveSearchHistory(kw);
+            triggerEngineSearch(kw);
+        }
         historyDropdown.classList.remove('show');
     }
 });
+
+// ============================================
+// 多搜索引擎切换
+// ============================================
+let currentEngine = 'local';
+let currentEngineUrl = '';
+
+function initEngineTabs() {
+    const tabs = document.querySelectorAll('.engine-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentEngine = tab.dataset.engine;
+            currentEngineUrl = tab.dataset.url;
+            // 更新搜索框 placeholder
+            const placeholders = {
+                local: '搜索工具、模板、网站… 例如：论文查重、简历模板、思维导图',
+                baidu: '在百度搜索…',
+                google: '在 Google 搜索…',
+                bing: '在 Bing 搜索…',
+                bilibili: '在 B站 搜索教程/视频…',
+                github: '在 GitHub 搜索开源项目…',
+                zhihu: '在知乎搜索问答…',
+            };
+            searchInput.placeholder = placeholders[currentEngine] || '搜索…';
+        });
+    });
+    // 搜索按钮
+    document.getElementById('searchGoBtn')?.addEventListener('click', () => {
+        const kw = searchInput.value.trim();
+        if (kw) {
+            saveSearchHistory(kw);
+            triggerEngineSearch(kw);
+        }
+    });
+}
+
+function triggerEngineSearch(kw) {
+    if (currentEngine === 'local' || !currentEngineUrl) {
+        // 站内搜索
+        currentSearch = kw;
+        renderCards();
+    } else {
+        // 外部搜索引擎
+        window.open(currentEngineUrl + encodeURIComponent(kw), '_blank', 'noopener');
+    }
+}
+
+// 全局分类切换函数（供底部浮动导航等外部调用）
+function setCategory(catId) {
+    currentCategory = catId;
+    currentGovRegion = 'all';
+    currentGovCity = 'all';
+    currentGovDistrict = 'all';
+    currentGovLevel = 'all';
+    // 更新 tab 高亮
+    const categoryNav = document.getElementById('categoryNav');
+    if (categoryNav) {
+        categoryNav.querySelectorAll('.cat-tab').forEach(t => {
+            t.classList.toggle('active', t.dataset.cat === catId);
+        });
+    }
+    renderCards();
+    // 滚动到资源区
+    const el = document.getElementById('resources');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+
+
+
+
 
 searchClearBtn.addEventListener('click', () => {
     searchInput.value = '';
@@ -4173,6 +4704,7 @@ function recordRecent(item) {
     if (recentViewed.length > 10) recentViewed.pop();
     localStorage.setItem('toolbox_recent', JSON.stringify(recentViewed));
     renderRecentList();
+    renderQuickTools();
 }
 
 function renderRecentList() {
@@ -4224,7 +4756,8 @@ function init() {
     renderCards();
     // loadPolicyNews();  // 已隐藏政策热点
     renderFavList();
-    // renderRecentList();  // 已隐藏最近更新
+    renderRecentList();
+    initEngineTabs();
     animateCount(totalCountEl, resources.length);
     animateCount(categoryCountEl, CATEGORIES.length - 1);
 
