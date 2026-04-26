@@ -21,6 +21,7 @@
                 <a href="#toolkit" class="nav-link">工具箱</a>
                 <a href="#resources" class="nav-link active">资源大全</a>
                 <a href="#about" class="nav-link">关于</a>
+                <a href="mailto:wnbbx01@163.com" class="nav-link nav-link-contact" title="商务合作">💌 合作</a>
             </nav>
             <button class="dark-mode-toggle" id="darkModeToggle" title="切换暗色模式" aria-label="切换暗色模式">
                 <!-- 日间图标（月亮→点击切换到夜间） -->
@@ -187,19 +188,32 @@
     <div class="sticky-toolbar">
         <section class="search-section" id="resources">
             <div class="search-inner">
+                <!-- 多搜索引擎切换 -->
+                <div class="engine-tabs" id="engineTabs">
+                    <button class="engine-tab active" data-engine="local" data-url="" title="站内搜索">🔍 站内</button>
+                    <button class="engine-tab" data-engine="baidu" data-url="https://www.baidu.com/s?wd=" title="百度搜索">百度</button>
+                    <button class="engine-tab" data-engine="google" data-url="https://www.google.com/search?q=" title="谷歌搜索">Google</button>
+                    <button class="engine-tab" data-engine="bing" data-url="https://www.bing.com/search?q=" title="必应搜索">Bing</button>
+                    <button class="engine-tab" data-engine="bilibili" data-url="https://search.bilibili.com/all?keyword=" title="B站搜索">B站</button>
+                    <button class="engine-tab" data-engine="github" data-url="https://github.com/search?q=" title="GitHub搜索">GitHub</button>
+                    <button class="engine-tab" data-engine="zhihu" data-url="https://www.zhihu.com/search?q=" title="知乎搜索">知乎</button>
+                </div>
                 <div class="search-box">
                     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                     <input type="text" id="searchInput" class="search-input" placeholder="搜索工具、模板、网站… 例如：论文查重、简历模板、思维导图">
                     <button class="search-clear-btn" id="searchClearBtn" title="清空搜索">✕</button>
+                    <button class="search-go-btn" id="searchGoBtn" title="搜索">搜索</button>
                 </div>
-
             </div>
         </section>
 
         <!-- ========== 板块 Tab 导航 ========== -->
         <section class="category-nav">
-            <div class="category-nav-inner" id="categoryNav">
-                <!-- 由 JS 动态渲染 -->
+            <div class="category-nav-wrap collapsed" id="categoryNavWrap">
+                <div class="category-nav-inner" id="categoryNav">
+                    <!-- 由 JS 动态渲染 -->
+                </div>
+                <button class="cat-expand-btn" id="catExpandBtn">展开 <span class="expand-icon">▼</span></button>
             </div>
         </section>
     </div>
@@ -226,6 +240,13 @@
 
         <!-- 右侧边栏 -->
         <aside class="sidebar">
+            <!-- 最近访问 -->
+            <div class="sidebar-card" id="recentCard">
+                <h3 class="sidebar-title">🕐 最近访问</h3>
+                <div class="recent-list" id="recentList">
+                    <div class="fav-empty">暂无访问记录</div>
+                </div>
+            </div>
             <!-- 我的收藏 -->
             <div class="sidebar-card">
                 <h3 class="sidebar-title">❤️ 我的收藏</h3>
@@ -249,16 +270,34 @@
             <div class="pre-footer-col">
                 <h4>意见反馈</h4>
                 <p class="feedback-text">发现好用的工具？遇到失效链接？<br>欢迎告诉我们，一起完善这个百宝箱！</p>
-                <a href="mailto:feedback@toolbox.com" class="feedback-btn">提交反馈</a>
+                <a href="mailto:wnbbx01@163.com" class="feedback-btn">📩 提交反馈</a>
+            </div>
+            <div class="pre-footer-col">
+                <h4>商务合作</h4>
+                <p class="feedback-text">欢迎资源收录、广告合作、<br>品牌推广等商务洽谈。</p>
+                <a href="mailto:wnbbx01@163.com" class="feedback-btn contact-btn">✉️ 发邮件合作</a>
+                <p class="contact-email">wnbbx01@163.com</p>
             </div>
         </div>
     </section>
+
+    <!-- ========== 底部快速导航浮动栏 ========== -->
+    <div class="bottom-quick-nav" id="bottomQuickNav">
+        <a href="javascript:void(0)" class="bqn-item" onclick="setCategory('search')">🔍 搜索</a>
+        <a href="javascript:void(0)" class="bqn-item" onclick="setCategory('ai')">🤖 AI工具</a>
+        <a href="javascript:void(0)" class="bqn-item" onclick="setCategory('tool')">🛠️ 在线工具</a>
+        <a href="javascript:void(0)" class="bqn-item" onclick="setCategory('life')">🏪 生活</a>
+        <a href="javascript:void(0)" class="bqn-item" onclick="setCategory('coding')">💻 编程</a>
+        <a href="javascript:void(0)" class="bqn-item" onclick="setCategory('finance')">💰 金融</a>
+        <a href="javascript:void(0)" class="bqn-item bqn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️ 顶部</a>
+    </div>
 
     <!-- ========== 页脚 ========== -->
     <footer class="site-footer" id="about">
         <div class="footer-inner">
             <p class="footer-text">万能百宝箱 — 大学生 & 职场人一站式效率工具导航</p>
             <p class="footer-sub">本站仅做资源导航，所有工具和模板版权归原作者所有。如涉及侵权请联系删除。</p>
+            <p class="footer-contact">商务合作 / 投稿收录：<a href="mailto:wnbbx01@163.com" class="footer-email">wnbbx01@163.com</a></p>
             <p class="footer-copy">&copy; 2026 万能百宝箱 Interest Resource Hub. All rights reserved.</p>
         </div>
     </footer>
@@ -305,6 +344,7 @@
                 <label for="submitCategory">所属分类 <span class="req">*</span></label>
                 <select id="submitCategory" required>
                     <option value="">请选择分类</option>
+                    <option value="entertainment">🎬 影视娱乐</option>
                     <option value="ppt">📊 PPT模板</option>
                     <option value="word">📝 Word文档</option>
                     <option value="excel">📈 Excel表格</option>
