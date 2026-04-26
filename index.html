@@ -230,32 +230,32 @@
         </div>
     </section>
 
+    <!-- ========== 固定收藏面板 ========== -->
+    <div class="fav-float-panel" id="favFloatPanel">
+        <h3 class="fav-panel-title">❤️ 我的收藏</h3>
+        <div class="fav-list" id="favList">
+            <div class="fav-empty">点击卡片❤️收藏资源</div>
+        </div>
+    </div>
+
     <!-- ========== 主内容区 ========== -->
     <main class="main-layout">
         <!-- 资源卡片网格 -->
         <section class="resource-grid" id="resourceGrid">
             <!-- 由 JS 动态渲染 -->
         </section>
-
-        <!-- 右侧边栏 -->
-        <aside class="sidebar">
-            <!-- 最近访问 -->
-            <div class="sidebar-card" id="recentCard">
-                <h3 class="sidebar-title">🕐 最近访问</h3>
-                <div class="recent-list" id="recentList">
-                    <div class="fav-empty">暂无访问记录</div>
-                </div>
-            </div>
-            <!-- 我的收藏 -->
-            <div class="sidebar-card">
-                <h3 class="sidebar-title">❤️ 我的收藏</h3>
-                <div class="fav-list" id="favList">
-                    <div class="fav-empty">点击卡片❤️收藏资源</div>
-                </div>
-                <button class="fav-export-btn" id="favExportBtn" style="display:none;">📥 导出收藏为 CSV</button>
-            </div>
-        </aside>
     </main>
+
+    <!-- 最近访问（流式） -->
+    <aside class="sidebar">
+        <!-- 最近访问 -->
+        <div class="sidebar-card" id="recentCard">
+            <h3 class="sidebar-title">🕐 最近访问</h3>
+            <div class="recent-list" id="recentList">
+                <div class="fav-empty">暂无访问记录</div>
+            </div>
+        </div>
+    </aside>
 
     <!-- ========== 友情链接 + 反馈 ========== -->
     <section class="pre-footer">
@@ -301,6 +301,37 @@
         </div>
     </footer>
 
+    <!-- ========== 网站说明 & 免责声明弹窗（首次访问展示） ========== -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-modal" id="introModal">
+            <div class="intro-header">
+                <span class="intro-logo">🎒</span>
+                <h2 class="intro-title">欢迎使用万能百宝箱</h2>
+            </div>
+            <div class="intro-body">
+                <div class="intro-section">
+                    <h3>📌 关于本站</h3>
+                    <p>万能百宝箱是一个<strong>纯公益性质的资源导航网站</strong>，致力于为大学生和职场人精选优质工具和资源，涵盖 PPT 模板、学术科研、AI 工具、编程学习、公考考编等 10+ 分类板块，所有资源均经过人工筛选。</p>
+                </div>
+                <div class="intro-section">
+                    <h3>⚖️ 免责声明</h3>
+                    <ul>
+                        <li>本站仅提供<strong>工具/网站的导航链接服务</strong>，不存储、不托管任何第三方内容。</li>
+                        <li>所有工具和模板的<strong>版权归原作者/平台所有</strong>，本站不对其内容、服务质量及安全性做任何担保。</li>
+                        <li>因使用本站收录的第三方工具而产生的任何<strong>直接或间接损失</strong>，本站不承担任何法律责任。</li>
+                        <li>如发现收录内容存在<strong>侵权、违规或链接失效</strong>等问题，请通过底部联系方式告知，我们将及时处理。</li>
+                        <li>本站保留随时<strong>修改、删除</strong>收录内容的权利，无需另行通知。</li>
+                    </ul>
+                </div>
+                <div class="intro-section">
+                    <h3>🔒 隐私说明</h3>
+                    <p>您的收藏记录和最近访问数据仅保存在<strong>本地浏览器</strong>（localStorage）中，不会上传到任何服务器，关闭浏览器后数据依然保留，清除浏览器数据会导致记录丢失。</p>
+                </div>
+            </div>
+            <button class="intro-confirm-btn" id="introConfirmBtn">我已了解，开始使用</button>
+        </div>
+    </div>
+
     <!-- ========== 移动端侧边栏抽屉 ========== -->
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <div class="sidebar-drawer" id="sidebarDrawer">
@@ -312,7 +343,6 @@
             <div class="sidebar-card">
                 <h3 class="sidebar-title">❤️ 我的收藏</h3>
                 <div class="fav-list" id="favListDrawer"></div>
-                <button class="fav-export-btn" id="favExportBtnDrawer" style="display:none;">📥 导出收藏为 CSV</button>
             </div>
         </div>
     </div>
